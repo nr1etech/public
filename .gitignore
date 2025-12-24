@@ -1,0 +1,11 @@
+node_modules
+notes.txt
+*.sw?
+*.old?
+*.bak?
+*.tgz
+*.tmp
+.env*
+.DS_Store
+vite.config.ts.timestamp-*
+coverage

@@ -1,0 +1,13 @@
+import {component$} from '@builder.io/qwik';
+import {IconProps, Svg} from "../svg";
+
+export const MdiPlusBoxOutline = component$((props: IconProps) => {
+  return (
+    <Svg {...props} viewBox="0 0 24 24">
+      <path
+        fill="currentColor"
+        d="M19 19V5H5v14zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 4h2v4h4v2h-4v4h-2v-4H7v-2h4z"
+      />
+    </Svg>
+  );
+});

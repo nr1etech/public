@@ -1,0 +1,14 @@
+import {component$} from '@builder.io/qwik';
+
+import {IconProps, Svg} from "../svg";
+
+export const MdiKeyVariant = component$((props: IconProps) => {
+  return (
+    <Svg {...props} viewBox="0 0 24 24">
+      <path
+        fill="currentColor"
+        d="M22 18v4h-4v-3h-3v-3h-3l-2.26-2.26c-.55.17-1.13.26-1.74.26a6 6 0 0 1-6-6a6 6 0 0 1 6-6a6 6 0 0 1 6 6c0 .61-.09 1.19-.26 1.74zM7 5a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2"
+      />
+    </Svg>
+  );
+});
