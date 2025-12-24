@@ -2,7 +2,6 @@
     <img width="200" src="https://nr1e.com/images/logo-tagline.svg" />
 </div>
 
-
 # Qwik Icons Library ⚡️
 
 This library contains approved icons for use in NR1E projects.
@@ -11,4 +10,4 @@ This library contains approved icons for use in NR1E projects.
 
 Each icon has a prefix identifying where it came from.
 
- - **Mdi** = [Material Design Icons](https://icon-sets.iconify.design/mdi/)
+- **Mdi** = [Material Design Icons](https://icon-sets.iconify.design/mdi/)

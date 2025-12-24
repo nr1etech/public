@@ -1,6 +1,6 @@
 import {component$} from '@builder.io/qwik';
 
-import {IconProps, Svg} from "../svg";
+import {IconProps, Svg} from '../svg';
 
 export const MdiKeyVariant = component$((props: IconProps) => {
   return (

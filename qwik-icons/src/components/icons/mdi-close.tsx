@@ -1,5 +1,5 @@
 import {component$} from '@builder.io/qwik';
-import {IconProps, Svg} from "../svg";
+import {IconProps, Svg} from '../svg';
 
 export const MdiClose = component$((props: IconProps) => {
   return (

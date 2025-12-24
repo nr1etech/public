@@ -1,7 +1,15 @@
 {
   "name": "@nr1e/qwik-icons",
-  "version": "0.0.1",
-  "description": "Create a Qwik library",
+  "version": "0.0.1-alpha.0",
+  "description": "NR1E Qwik Icons Library",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nr1etech/lib-js.git"
+  },
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
   "types": "./lib-types/index.d.ts",
@@ -23,6 +31,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "prebuild": "prettier --check . && eslint .",
     "build": "qwik build",
     "build.lib": "vite build --mode lib",
     "build.types": "tsc --emitDeclarationOnly",

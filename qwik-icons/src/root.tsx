@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import {component$} from '@builder.io/qwik';
 import {
   MdiAddCircle,
   MdiAddCircleOutline,
@@ -49,51 +49,57 @@ import {
 
 export default component$(() => {
   const icons = [
-    { component: MdiAddCircle, name: 'MdiAddCircle' },
-    { component: MdiAddCircleOutline, name: 'MdiAddCircleOutline' },
-    { component: MdiAlert, name: 'MdiAlert' },
-    { component: MdiAlertBoxOutline, name: 'MdiAlertBoxOutline' },
-    { component: MdiArrowBackCircle, name: 'MdiArrowBackCircle' },
-    { component: MdiArrowForwardCircle, name: 'MdiArrowForwardCircle' },
-    { component: MdiBrain, name: 'MdiBrain' },
-    { component: MdiChevronDown, name: 'MdiChevronDown' },
-    { component: MdiChevronUp, name: 'MdiChevronUp' },
-    { component: MdiClose, name: 'MdiClose' },
-    { component: MdiCloudLockOutline, name: 'MdiCloudLockOutline' },
-    { component: MdiContentCopy, name: 'MdiContentCopy' },
-    { component: MdiCreditCardOutline, name: 'MdiCreditCardOutline' },
-    { component: MdiDangerous, name: 'MdiDangerous' },
-    { component: MdiDeleteOutline, name: 'MdiDeleteOutline' },
-    { component: MdiDevTo, name: 'MdiDevTo' },
-    { component: MdiDollar, name: 'MdiDollar' },
-    { component: MdiEmoticonDevil, name: 'MdiEmoticonDevil' },
-    { component: MdiErrorOutline, name: 'MdiErrorOutline' },
-    { component: MdiGearOutline, name: 'MdiGearOutline' },
-    { component: MdiHamburgerMenu, name: 'MdiHamburgerMenu' },
-    { component: MdiInformationSlabBox, name: 'MdiInformationSlabBox' },
-    { component: MdiInformationSlabBoxOutline, name: 'MdiInformationSlabBoxOutline' },
-    { component: MdiInformationVariantBoxOutline, name: 'MdiInformationVariantBoxOutline' },
-    { component: MdiInvite, name: 'MdiInvite' },
-    { component: MdiInvoiceTextEditOutline, name: 'MdiInvoiceTextEditOutline' },
-    { component: MdiKeyVariant, name: 'MdiKeyVariant' },
-    { component: MdiKeyboardReturn, name: 'MdiKeyboardReturn' },
-    { component: MdiLinkVariant, name: 'MdiLinkVariant' },
-    { component: MdiLock, name: 'MdiLock' },
-    { component: MdiLogin, name: 'MdiLogin' },
-    { component: MdiLogout, name: 'MdiLogout' },
-    { component: MdiNavigateBefore, name: 'MdiNavigateBefore' },
-    { component: MdiNavigateNext, name: 'MdiNavigateNext' },
-    { component: MdiNetworkOutline, name: 'MdiNetworkOutline' },
-    { component: MdiOfficeBuildingOutline, name: 'MdiOfficeBuildingOutline' },
-    { component: MdiPercent, name: 'MdiPercent' },
-    { component: MdiPlusBoxOutline, name: 'MdiPlusBoxOutline' },
-    { component: MdiRefresh, name: 'MdiRefresh' },
-    { component: MdiSearch, name: 'MdiSearch' },
-    { component: MdiSecureOutline, name: 'MdiSecureOutline' },
-    { component: MdiUser, name: 'MdiUser' },
-    { component: MdiUserOutline, name: 'MdiUserOutline' },
-    { component: MdiUsersOutline, name: 'MdiUsersOutline' },
-    { component: MdiWrenchOutline, name: 'MdiWrenchOutline' },
+    {component: MdiAddCircle, name: 'MdiAddCircle'},
+    {component: MdiAddCircleOutline, name: 'MdiAddCircleOutline'},
+    {component: MdiAlert, name: 'MdiAlert'},
+    {component: MdiAlertBoxOutline, name: 'MdiAlertBoxOutline'},
+    {component: MdiArrowBackCircle, name: 'MdiArrowBackCircle'},
+    {component: MdiArrowForwardCircle, name: 'MdiArrowForwardCircle'},
+    {component: MdiBrain, name: 'MdiBrain'},
+    {component: MdiChevronDown, name: 'MdiChevronDown'},
+    {component: MdiChevronUp, name: 'MdiChevronUp'},
+    {component: MdiClose, name: 'MdiClose'},
+    {component: MdiCloudLockOutline, name: 'MdiCloudLockOutline'},
+    {component: MdiContentCopy, name: 'MdiContentCopy'},
+    {component: MdiCreditCardOutline, name: 'MdiCreditCardOutline'},
+    {component: MdiDangerous, name: 'MdiDangerous'},
+    {component: MdiDeleteOutline, name: 'MdiDeleteOutline'},
+    {component: MdiDevTo, name: 'MdiDevTo'},
+    {component: MdiDollar, name: 'MdiDollar'},
+    {component: MdiEmoticonDevil, name: 'MdiEmoticonDevil'},
+    {component: MdiErrorOutline, name: 'MdiErrorOutline'},
+    {component: MdiGearOutline, name: 'MdiGearOutline'},
+    {component: MdiHamburgerMenu, name: 'MdiHamburgerMenu'},
+    {component: MdiInformationSlabBox, name: 'MdiInformationSlabBox'},
+    {
+      component: MdiInformationSlabBoxOutline,
+      name: 'MdiInformationSlabBoxOutline',
+    },
+    {
+      component: MdiInformationVariantBoxOutline,
+      name: 'MdiInformationVariantBoxOutline',
+    },
+    {component: MdiInvite, name: 'MdiInvite'},
+    {component: MdiInvoiceTextEditOutline, name: 'MdiInvoiceTextEditOutline'},
+    {component: MdiKeyVariant, name: 'MdiKeyVariant'},
+    {component: MdiKeyboardReturn, name: 'MdiKeyboardReturn'},
+    {component: MdiLinkVariant, name: 'MdiLinkVariant'},
+    {component: MdiLock, name: 'MdiLock'},
+    {component: MdiLogin, name: 'MdiLogin'},
+    {component: MdiLogout, name: 'MdiLogout'},
+    {component: MdiNavigateBefore, name: 'MdiNavigateBefore'},
+    {component: MdiNavigateNext, name: 'MdiNavigateNext'},
+    {component: MdiNetworkOutline, name: 'MdiNetworkOutline'},
+    {component: MdiOfficeBuildingOutline, name: 'MdiOfficeBuildingOutline'},
+    {component: MdiPercent, name: 'MdiPercent'},
+    {component: MdiPlusBoxOutline, name: 'MdiPlusBoxOutline'},
+    {component: MdiRefresh, name: 'MdiRefresh'},
+    {component: MdiSearch, name: 'MdiSearch'},
+    {component: MdiSecureOutline, name: 'MdiSecureOutline'},
+    {component: MdiUser, name: 'MdiUser'},
+    {component: MdiUserOutline, name: 'MdiUserOutline'},
+    {component: MdiUsersOutline, name: 'MdiUsersOutline'},
+    {component: MdiWrenchOutline, name: 'MdiWrenchOutline'},
   ];
 
   return (
@@ -178,12 +184,18 @@ export default component$(() => {
       </head>
       <body>
         <div class="header">
-          <img src="https://nr1e.com/images/logo-tagline.svg" alt="NR1E" class="logo" />
+          <img
+            src="https://nr1e.com/images/logo-tagline.svg"
+            alt="NR1E"
+            class="logo"
+          />
           <h1>Qwik Icons</h1>
         </div>
 
         <section class="icon-section">
-          <h2 class="section-title">Material Design Icons ({icons.length} icons)</h2>
+          <h2 class="section-title">
+            Material Design Icons ({icons.length} icons)
+          </h2>
           <div class="icon-grid">
             {icons.map((icon) => {
               const Icon = icon.component;
