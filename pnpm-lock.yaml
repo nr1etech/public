@@ -48,6 +48,8 @@ catalogs:
 
 importers:
 
+  .: {}
+
   qwik-icons:
     devDependencies:
       '@builder.io/qwik':
