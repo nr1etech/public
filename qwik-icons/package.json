@@ -1,6 +1,6 @@
 {
   "name": "@nr1e/qwik-icons",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "NR1E Qwik Icons Library",
   "publishConfig": {
     "access": "public"
