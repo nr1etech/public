@@ -1,5 +1,11 @@
 # @nr1e/qwik-icons
 
+## 0.0.3
+
+### Patch Changes
+
+- 60058be: Added mdi-email and mdi-email-outline
+
 ## 0.0.2
 
 ### Patch Changes
