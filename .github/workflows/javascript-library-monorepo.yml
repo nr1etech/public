@@ -52,138 +52,61 @@ jobs:
       matrix:
         node-version: ${{ fromJson(inputs.node-versions) }}
     steps:
-      - name: Generate token
+      - name: "Generate token"
         id: app-token
         uses: getsentry/action-github-app-token@v3
         with:
           app_id: ${{ secrets.app-id }}
           private_key: ${{ secrets.private-key }}
-      - name: Checkout
+      - name: "Checkout"
         uses: actions/checkout@v4
         with:
           token: ${{ steps.app-token.outputs.token }}
-      - name: Setup pnpm
+      - name: "Setup pnpm"
         uses: pnpm/action-setup@v4
         with:
           version: ${{ inputs.pnpm-version }}
           run_install: false
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: "Use Node.js ${{ matrix.node-version }}"
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
-      - name: Get pnpm store directory
+      - name: "Get pnpm store directory"
         run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
+      - name: "Setup pnpm cache"
+        uses: actions/cache@v4
         with:
           path: ${{ env.STORE_PATH }}
           key: "${{ runner.os }}-${{ matrix.node-version }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}"
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-pnpm-store-
-      - name: Install dependencies
+      - name: "Install dependencies"
         run: pnpm -r i --frozen-lockfile --prefer-offline
-      - name: Version snapshot release
+      - name: "Snapshot version packages"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/develop' && github.event_name != 'pull_request'
         run: npx @changesets/cli version --snapshot snapshot
-      - name: Version production release
+      - name: "Release version packages"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: npx @changesets/cli version
-      - name: Build
+      - name: "Build"
         run: pnpm -r build
-      - name: Test
+      - name: "Test"
         run: pnpm -r test
-      - name: Publish snapshot release
+      - name: "Publish snapshot packages"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/develop' && github.event_name != 'pull_request'
         run: npx @changesets/cli publish --tag snapshot --no-git-tag
-
-#      - name: Increment main branch version
-#        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-#        run: echo VERSION="$(cd ${{ inputs.version-dir }} && pnpm version patch --no-git-tag-version)" >> $GITHUB_ENV
-#      - name: Increment develop branch version
-#        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/develop' && github.event_name != 'pull_request' && inputs.develop-use-timestamp == false
-#        run: echo VERSION="$(cd ${{ inputs.version-dir }} && pnpm version prerelease --preid ${{ inputs.develop-preid }} --no-git-tag-version)" >> $GITHUB_ENV
-#      - name: Set develop branch version with timestamp
-#        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/develop' && github.event_name != 'pull_request' && inputs.develop-use-timestamp == true
-#        run: |
-#          cd ${{ inputs.version-dir }}
-#          TEMP_VERSION="$(pnpm version prerelease --preid ${{ inputs.develop-preid }} --no-git-tag-version | sed 's/v//')"
-#          echo "TEMP_VERSION=${TEMP_VERSION}" >> $GITHUB_ENV
-#          VERSION="$(echo ${TEMP_VERSION} | sed -E "s/[0-9]+$/$(date +%s)/")"
-#          echo "VERSION=${VERSION}" >> $GITHUB_ENV
-#          sed -i -E "s/${TEMP_VERSION}/${VERSION}/" package.json
-#      - name: Set other branch version with timestamp
-#        if: matrix.node-version == inputs.publish-node-version && github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' && github.event_name != 'pull_request' && inputs.branch-preid != ''
-#        run: |
-#          cd ${{ inputs.version-dir }}
-#          TEMP_VERSION="$(pnpm version prerelease --preid ${{ inputs.branch-preid }} --no-git-tag-version | sed 's/v//')"
-#          echo "TEMP_VERSION=${TEMP_VERSION}" >> $GITHUB_ENV
-#          VERSION="$(echo ${TEMP_VERSION} | sed -E "s/[0-9]+$/$(date +%s)/")"
-#          echo "VERSION=${VERSION}" >> $GITHUB_ENV
-#          sed -i -E "s/${TEMP_VERSION}/${VERSION}/" package.json
-#      - run: pnpm build
-#      - run: pnpm test
-#      - name: Setup git config
-#        if: matrix.node-version == inputs.publish-node-version && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || (github.ref == 'refs/heads/develop' && inputs.develop-use-timestamp == false))
-#        run: |
-#          git config user.email "${{ inputs.github-email }}"
-#          git config user.name "${{ inputs.github-name }}"
-#      - name: Commit and push version bump
-#        if: matrix.node-version == inputs.publish-node-version && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || (github.ref == 'refs/heads/develop' && inputs.develop-use-timestamp == false))
-#        run: |
-#          git commit -a -m "$VERSION" -m "GitHub Run Number ${{ github.run_number }}" -m "[skip ci]"
-#          git push
-#      - name: Create tag ${{ env.VERSION }}
-#        if: matrix.node-version == inputs.publish-node-version && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-#        run: |
-#          git tag -a "$VERSION" -m "$VERSION"
-#          git push origin "$VERSION"
-#      - name: Create Release
-#        if: matrix.node-version == inputs.publish-node-version && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-#        uses: comnoco/create-release-action@v2
-#        env:
-#          GITHUB_TOKEN: ${{ steps.app-token.outputs.token  }}
-#        with:
-#          tag_name: ${{ env.VERSION }}
-#          release_name: Release ${{ env.VERSION }}
-#          draft: false
-#          prerelease: false
-#      - name: Publish canary ${{ env.VERSION }} to registry
-#        if: matrix.node-version == inputs.publish-node-version && (github.ref == 'refs/heads/develop' || (inputs.branch-preid != '' && github.ref != 'refs/heads/main')) && github.event_name != 'pull_request'
-#        run: |
-#          cd ${{ inputs.publish-dir }}
-#          pnpm publish --publish-branch ${GITHUB_REF#refs/heads/} --tag canary --no-git-checks
-#          cd ${{ github.workspace }}
-#      - name: Publish release ${{ env.VERSION }} to registry
-#        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-#        run: |
-#          cd ${{ inputs.publish-dir }}
-#          pnpm publish --publish-branch ${GITHUB_REF#refs/heads/}
-#          cd ${{ github.workspace }}
-#      - name: Setup site env
-#        run: echo "SITE_BRANCH_REF=refs/heads/${{ inputs.site-branch }}" >> $GITHUB_ENV
-#      - name: Build Site
-#        if: matrix.node-version == inputs.publish-node-version && github.ref == env.SITE_BRANCH_REF
-#        run: pnpm run site
-#      - name: Setup GitHub Pages
-#        if: matrix.node-version == inputs.publish-node-version && github.ref == env.SITE_BRANCH_REF
-#        uses: actions/configure-pages@v5
-#      - name: Upload Site
-#        if: matrix.node-version == inputs.publish-node-version && github.ref == env.SITE_BRANCH_REF
-#        uses: actions/upload-pages-artifact@v3
-#        with:
-#          path: 'site/'
-#      - name: Deploy to GitHub Pages
-#        if: matrix.node-version == inputs.publish-node-version && github.ref == env.SITE_BRANCH_REF
-#        id: deployment
-#        uses: actions/deploy-pages@v4
-#      - name: Upload artifacts
-#        if: matrix.node-version == inputs.publish-node-version
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: build-artifact
-#          path: |
-#            *
-#            !node_modules
-#            !**/node_modules
+      - name: "Commit and push release version bump"
+        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          git config user.email "${{ inputs.github-email }}"
+          git config user.name "${{ inputs.github-name }}"
+          git commit -a -m "Publish packages" -m "[skip ci]"
+          git push
+      - name: "Publish release packages"
+        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: npx @changesets/cli publish
+      - name: "Push release tags"
+        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: git push --follow-tags
