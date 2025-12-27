@@ -1,7 +1,7 @@
 import {component$} from '@builder.io/qwik';
 import {IconProps, Svg} from '../svg';
 
-export const MdiAddCircle = component$((props: IconProps) => {
+export const MdiPersonCheck = component$((props: IconProps) => {
   return (
     <Svg {...props} viewBox="0 0 24 24">
       <path
