@@ -18,6 +18,8 @@ export * from './components/icons/mdi-dangerous';
 export * from './components/icons/mdi-delete-outline';
 export * from './components/icons/mdi-dev-to';
 export * from './components/icons/mdi-dollar';
+export * from './components/icons/mdi-email';
+export * from './components/icons/mdi-email-outline';
 export * from './components/icons/mdi-emoticon-devil';
 export * from './components/icons/mdi-error-outline';
 export * from './components/icons/mdi-gear-outline';
