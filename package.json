@@ -1,0 +1,8 @@
+{
+  "name": "lib-js",
+  "description": "DO NOT ADD DEPENDENCIES HERE",
+  "devDependencies": {
+		"@changesets/cli": "^2.29.8"
+	},
+  "packageManager": "pnpm@10.19.0"
+}
