@@ -1,11 +1,11 @@
 ###############################################################################
-# Javascript Library Workflow
-# Build, test and publish a JavaScript Library
+# JavaScript Library Monorepo Workflow
+# Build, test and publish JavaScript libraries from a monorepo using
+# pnpm workspaces and changesets.
 ###############################################################################
-# Assumptions made in this workflow:
-# - The branch you create releases from is called 'main'
-# - The branch you create canary releases from is called 'develop'
-# - You have a GitHub App that allows content changes to the repository
+# Notes:
+# - Merging to the "main" branch will publish a production release
+# - Merging to any other branch will publish a snapshot release
 
 on:
   workflow_call:
@@ -34,21 +34,6 @@ on:
         required: false
         default: 'github-actions[bot]'
         type: string
-      develop-preid:
-        description: 'Preid for develop releases'
-        type: string
-        required: false
-        default: 'alpha'
-      develop-use-timestamp:
-        description: 'Use timestamps for develop releases'
-        type: boolean
-        required: false
-        default: true
-      branch-preid:
-        description: 'Preid for branch releases'
-        type: string
-        required: false
-        default: ''
     secrets:
       private-key:
         description: "GitHub App Key"
@@ -98,7 +83,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-pnpm-store-
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile --prefer-offline
+        run: pnpm -r i --frozen-lockfile --prefer-offline
+      - name: Version snapshot release
+        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/develop' && github.event_name != 'pull_request'
+        run: npx @changesets/cli version --snapshot snapshot
+      - name: Version production release
+        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: npx @changesets/cli version
+      - name: Build
+        run: pnpm -r build
+      - name: Test
+        run: pnpm -r test
+      - name: Publish snapshot release
+        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/develop' && github.event_name != 'pull_request'
+        run: npx @changesets/cli publish --tag snapshot --no-git-tag
+
 #      - name: Increment main branch version
 #        if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
 #        run: echo VERSION="$(cd ${{ inputs.version-dir }} && pnpm version patch --no-git-tag-version)" >> $GITHUB_ENV

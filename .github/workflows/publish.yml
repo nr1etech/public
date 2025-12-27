@@ -11,11 +11,8 @@ permissions:
   id-token: write
 jobs:
   publish:
-    uses: ./.github/workflows/javascript-library.yml
+    uses: ./.github/workflows/javascript-library-monorepo.yml
     if: github.actor != 'dependabot[bot]'
-    with:
-      develop-preid: 'beta'
-      branch-preid: 'alpha'
     secrets:
       app-id: ${{ secrets.RELEASE_BOT_ID }}
       private-key: ${{ secrets.RELEASE_BOT_KEY }}
