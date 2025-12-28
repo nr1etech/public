@@ -17,11 +17,13 @@ interface LocalTestContext {
 
 beforeEach(async (context: LocalTestContext) => {
   context.container = await new GenericContainer('amazon/dynamodb-local:latest')
-    .withExposedPorts({container: 8000, host: 8000})
+    .withExposedPorts(8000)
     .withCommand(['-jar', 'DynamoDBLocal.jar', '-sharedDb', '-inMemory'])
     .withWorkingDir('/home/dynamodblocal')
     .withWaitStrategy(Wait.forListeningPorts())
     .start();
+
+  const dynamoPort = context.container.getMappedPort(8000);
 
   context.client = new DynamoDBClient({
     credentials: {
@@ -29,7 +31,8 @@ beforeEach(async (context: LocalTestContext) => {
       secretAccessKey: 'dummy',
     },
     region: 'dummy',
-    endpoint: process.env.DYNAMODB_ENDPOINT_URL ?? `http://127.0.0.1:8000`,
+    endpoint:
+      process.env.DYNAMODB_ENDPOINT_URL ?? `http://127.0.0.1:${dynamoPort}`,
   });
 
   await context.client.send(
