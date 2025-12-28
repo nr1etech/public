@@ -1,4 +1,14 @@
-import {EventBridgeClient, PutEventsCommand} from '@aws-sdk/client-eventbridge';
+import {
+  EventBridgeClient,
+  PutEventsCommand,
+  PutEventsCommandInput,
+  PutEventsCommandOutput,
+} from '@aws-sdk/client-eventbridge';
+
+/**
+ * Re-exporting commands to be helpful so clients may not have to import the AWS SDK directly.
+ */
+export {PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput};
 
 let eventBridgeClient: EventBridgeClient | undefined = undefined;
 

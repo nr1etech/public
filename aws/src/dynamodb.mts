@@ -5,19 +5,39 @@ import {
   QueryCommandInput,
   QueryCommandOutput,
   ScanCommand,
+  ScanCommandInput,
   ScanCommandOutput,
+  GetCommand,
+  GetCommandInput,
+  GetCommandOutput,
   PutCommand,
+  PutCommandInput,
   PutCommandOutput,
+  UpdateCommand,
+  UpdateCommandInput,
+  UpdateCommandOutput,
 } from '@aws-sdk/lib-dynamodb';
 import {getAwsRegion} from './region.mjs';
 
+/**
+ * Re-exporting commands to be helpful so clients may not have to import the AWS SDK directly.
+ */
 export {
+  GetCommand,
+  GetCommandInput,
+  GetCommandOutput,
   QueryCommand,
+  QueryCommandInput,
   QueryCommandOutput,
   ScanCommand,
+  ScanCommandInput,
   ScanCommandOutput,
   PutCommand,
+  PutCommandInput,
   PutCommandOutput,
+  UpdateCommand,
+  UpdateCommandInput,
+  UpdateCommandOutput,
 };
 
 const dynamoDBClients = new Map<string, DynamoDBClient>();

@@ -1,11 +1,29 @@
 import {
   GetObjectCommand,
+  GetObjectCommandInput,
+  GetObjectCommandOutput,
   PutObjectCommand,
+  PutObjectCommandInput,
+  PutObjectCommandOutput,
   S3Client,
   S3ServiceException,
   ListObjectsV2Command,
 } from '@aws-sdk/client-s3';
 import {getSignedUrl} from '@aws-sdk/s3-request-presigner';
+
+/**
+ * Re-exporting commands to be helpful so clients may not have to import the AWS SDK directly.
+ */
+export {
+  GetObjectCommand,
+  GetObjectCommandInput,
+  GetObjectCommandOutput,
+  PutObjectCommand,
+  PutObjectCommandInput,
+  PutObjectCommandOutput,
+  S3ServiceException,
+  ListObjectsV2Command,
+};
 
 const clients: Record<string, S3Client> = {};
 

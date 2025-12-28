@@ -1,4 +1,24 @@
-import {SendMessageCommand, SQSClient} from '@aws-sdk/client-sqs';
+import {
+  SendMessageCommand,
+  SendMessageCommandInput,
+  SendMessageCommandOutput,
+  SendMessageBatchCommand,
+  SendMessageBatchCommandInput,
+  SendMessageBatchCommandOutput,
+  SQSClient,
+} from '@aws-sdk/client-sqs';
+
+/**
+ * Re-exporting commands to be helpful so clients may not have to import the AWS SDK directly.
+ */
+export {
+  SendMessageCommand,
+  SendMessageCommandInput,
+  SendMessageCommandOutput,
+  SendMessageBatchCommand,
+  SendMessageBatchCommandInput,
+  SendMessageBatchCommandOutput,
+};
 
 const clients: Record<string, SQSClient> = {};
 

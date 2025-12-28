@@ -1,8 +1,19 @@
 import {
   GetSecretValueCommand,
+  GetSecretValueCommandInput,
+  GetSecretValueCommandOutput,
   SecretsManagerClient,
 } from '@aws-sdk/client-secrets-manager';
 import {getAwsRegion} from './region.mjs';
+
+/**
+ * Re-exporting commands to be helpful so clients may not have to import the AWS SDK directly.
+ */
+export {
+  GetSecretValueCommand,
+  GetSecretValueCommandInput,
+  GetSecretValueCommandOutput,
+};
 
 const secretsManagerClients = new Map<string, SecretsManagerClient>();
 
