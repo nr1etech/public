@@ -1,5 +1,12 @@
 # @nr1e/qwik-icons
 
+## 0.0.4
+
+### Patch Changes
+
+- 04635b8: Added Google and Microsoft MDI icons
+- 1337239: Added mdi-cloud-download, mdi-cloud-download-outline and mdi-downloa
+
 ## 0.0.3
 
 ### Patch Changes
