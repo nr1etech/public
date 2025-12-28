@@ -1,5 +1,12 @@
 # @nr1e/qwik-icons
 
+## 0.0.6
+
+### Patch Changes
+
+- fc80f52: Added Microsoft and Google icons
+- 8dde2b1: Added flag icons
+
 ## 0.0.5
 
 ### Patch Changes
