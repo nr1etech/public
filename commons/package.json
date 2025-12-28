@@ -67,6 +67,10 @@
       "import": "./dist/oauth/index.mjs",
       "types": "./dist/oauth/index.d.mts"
     },
+    "./os": {
+      "import": "./dist/os/index.mjs",
+      "types": "./dist/os/index.d.mts"
+    },
     "./validator": {
       "import": "./dist/validator/index.mjs",
       "types": "./dist/validator/index.d.mts"
