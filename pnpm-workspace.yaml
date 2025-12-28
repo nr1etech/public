@@ -1,4 +1,5 @@
 packages:
+  - 'aws'
   - 'commons'
   - 'logging'
   - 'lucia-adapter-dynamodb'
@@ -6,6 +7,7 @@ packages:
   - '!**/dist/**'
 catalog:
   "@aws-sdk/client-dynamodb": "^3.839.0"
+  "@aws-sdk/client-secrets-manager": "^3.839.0"
   "@aws-sdk/util-dynamodb": "^3.839.0"
   "@builder.io/qwik": "1.18.0"
   "@eslint/js": "latest"

@@ -1,0 +1,45 @@
+{
+  "name": "@nr1e/aws",
+  "description": "Provides common AWS utilities",
+  "version": "0.0.0",
+  "type": "module",
+  "author": "NR1E, Inc.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nr1etech/lib-js.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "prettier --check . && eslint .",
+    "watch": "tsc -w",
+    "test": "vitest run",
+    "clean": "rm -rf dist",
+    "fmt": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vitest": "catalog:"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "catalog:",
+    "@nr1e/commons": "workspace:"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
+    }
+  }
+}
