@@ -1,5 +1,7 @@
 import {component$} from '@builder.io/qwik';
 import {
+  LogosGoogleIcon,
+  LogosMicrosoftIcon,
   MdiAddCircle,
   MdiAddCircleOutline,
   MdiAlert,
@@ -130,6 +132,11 @@ export default component$(() => {
     {component: MdiWrenchOutline, name: 'MdiWrenchOutline'},
   ];
 
+  const logoIcons = [
+    {component: LogosGoogleIcon, name: 'LogosGoogleIcon'},
+    {component: LogosMicrosoftIcon, name: 'LogosMicrosoftIcon'},
+  ];
+
   return (
     <>
       <head>
@@ -222,10 +229,33 @@ export default component$(() => {
 
         <section class="icon-section">
           <h2 class="section-title">
-            Material Design Icons ({icons.length} icons)
+            <a href="https://icon-sets.iconify.design/mdi/">
+              Material Design Icons ({icons.length} icons)
+            </a>
           </h2>
           <div class="icon-grid">
             {icons.map((icon) => {
+              const Icon = icon.component;
+              return (
+                <div key={icon.name} class="icon-card">
+                  <div class="icon-wrapper">
+                    <Icon size={48} />
+                  </div>
+                  <div class="icon-name">{icon.name}</div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section class="icon-section">
+          <h2 class="section-title">
+            <a href="https://icon-sets.iconify.design/logos">
+              Logos ({logoIcons.length} icons)
+            </a>
+          </h2>
+          <div class="icon-grid">
+            {logoIcons.map((icon) => {
               const Icon = icon.component;
               return (
                 <div key={icon.name} class="icon-card">

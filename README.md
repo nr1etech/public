@@ -11,7 +11,8 @@ standardizing common patterns.
 ## Contributors
 
 To have your changes merged into a release, you must generate a changset. From the root
-of the project, you must issue the following command and answer the questions.
+of the project, you must issue the following command and answer the questions. It's 
+recommended you do this with your changes, not after.
 
 ```bash
 npx @changesets/cli

@@ -58,3 +58,7 @@ export * from './components/icons/mdi-user';
 export * from './components/icons/mdi-user-outline';
 export * from './components/icons/mdi-users-outline';
 export * from './components/icons/mdi-wrench-outline';
+
+// Logos
+export * from './components/icons/logos-google-icon';
+export * from './components/icons/logos-microsoft-icon';
