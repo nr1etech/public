@@ -1,5 +1,19 @@
 import {component$} from '@builder.io/qwik';
 import {
+  FlagAe1x1,
+  FlagAe4x3,
+  FlagAu1x1,
+  FlagAu4x3,
+  FlagDe1x1,
+  FlagDe4x3,
+  FlagFr1x1,
+  FlagFr4x3,
+  FlagIe1x1,
+  FlagIe4x3,
+  FlagUs1x1,
+  FlagUs4x3,
+  FlagZa1x1,
+  FlagZa4x3,
   LogosGoogleIcon,
   LogosMicrosoftIcon,
   MdiAddCircle,
@@ -137,6 +151,23 @@ export default component$(() => {
     {component: LogosMicrosoftIcon, name: 'LogosMicrosoftIcon'},
   ];
 
+  const flagIcons = [
+    {component: FlagAe1x1, name: 'FlagAe1x1'},
+    {component: FlagAe4x3, name: 'FlagAe4x3'},
+    {component: FlagAu1x1, name: 'FlagAu1x1'},
+    {component: FlagAu4x3, name: 'FlagAu4x3'},
+    {component: FlagDe1x1, name: 'FlagDe1x1'},
+    {component: FlagDe4x3, name: 'FlagDe4x3'},
+    {component: FlagFr1x1, name: 'FlagFr1x1'},
+    {component: FlagFr4x3, name: 'FlagFr4x3'},
+    {component: FlagIe1x1, name: 'FlagIe1x1'},
+    {component: FlagIe4x3, name: 'FlagIe4x3'},
+    {component: FlagUs1x1, name: 'FlagUs1x1'},
+    {component: FlagUs4x3, name: 'FlagUs4x3'},
+    {component: FlagZa1x1, name: 'FlagZa1x1'},
+    {component: FlagZa4x3, name: 'FlagZa4x3'},
+  ];
+
   return (
     <>
       <head>
@@ -148,6 +179,9 @@ export default component$(() => {
               margin: 0;
               padding: 0;
               box-sizing: border-box;
+            }
+            html {
+              scroll-behavior: smooth;
             }
             body {
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -167,16 +201,86 @@ export default component$(() => {
               color: #333;
               margin: 0;
             }
+            .nav-menu {
+              max-width: 1400px;
+              margin: 0 auto 2rem;
+              padding: 1rem;
+              background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            }
+            .nav-menu ul {
+              list-style: none;
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            }
+            .nav-menu li {
+              display: flex;
+              align-items: center;
+            }
+            .nav-menu li:not(:last-child)::after {
+              content: '•';
+              margin-left: 1rem;
+              color: #94a3b8;
+            }
+            .nav-menu a {
+              color: #1e293b;
+              text-decoration: none;
+              padding: 0.5rem 1rem;
+              border-radius: 6px;
+              transition: all 0.2s ease;
+              font-weight: 500;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+            }
+            .nav-menu a:hover {
+              background: #2563eb;
+              color: white;
+              transform: translateY(-1px);
+            }
+            .nav-menu .nav-count {
+              font-size: 0.75rem;
+              opacity: 0.7;
+            }
             .icon-section {
               max-width: 1400px;
               margin: 0 auto 3rem;
             }
             .section-title {
-              font-size: 1.5rem;
-              color: #333;
+              font-size: 1.75rem;
+              font-weight: 600;
+              color: #1e293b;
               margin-bottom: 1.5rem;
-              padding-bottom: 0.5rem;
-              border-bottom: 2px solid #2563eb;
+              padding: 1rem 1.5rem;
+              background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+              border-left: 4px solid #2563eb;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+              transition: all 0.3s ease;
+            }
+            .section-title:hover {
+              background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+              box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+              transform: translateX(4px);
+            }
+            .section-title a {
+              color: inherit;
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+            }
+            .section-title a:hover {
+              color: #2563eb;
+            }
+            .section-title .count {
+              font-size: 0.875rem;
+              font-weight: 400;
+              color: #64748b;
+              margin-left: auto;
             }
             .icon-grid {
               display: grid;
@@ -227,10 +331,34 @@ export default component$(() => {
           <h1>Qwik Icons</h1>
         </div>
 
-        <section class="icon-section">
+        <nav class="nav-menu">
+          <ul>
+            <li>
+              <a href="#material-design-icons">
+                <span>Material Design Icons</span>
+                <span class="nav-count">({icons.length})</span>
+              </a>
+            </li>
+            <li>
+              <a href="#logos">
+                <span>Logos</span>
+                <span class="nav-count">({logoIcons.length})</span>
+              </a>
+            </li>
+            <li>
+              <a href="#flags">
+                <span>Flags</span>
+                <span class="nav-count">({flagIcons.length})</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <section id="material-design-icons" class="icon-section">
           <h2 class="section-title">
             <a href="https://icon-sets.iconify.design/mdi/">
-              Material Design Icons ({icons.length} icons)
+              <span>Material Design Icons</span>
+              <span class="count">{icons.length} icons</span>
             </a>
           </h2>
           <div class="icon-grid">
@@ -248,14 +376,37 @@ export default component$(() => {
           </div>
         </section>
 
-        <section class="icon-section">
+        <section id="logos" class="icon-section">
           <h2 class="section-title">
             <a href="https://icon-sets.iconify.design/logos">
-              Logos ({logoIcons.length} icons)
+              <span>Logos</span>
+              <span class="count">{logoIcons.length} icons</span>
             </a>
           </h2>
           <div class="icon-grid">
             {logoIcons.map((icon) => {
+              const Icon = icon.component;
+              return (
+                <div key={icon.name} class="icon-card">
+                  <div class="icon-wrapper">
+                    <Icon size={48} />
+                  </div>
+                  <div class="icon-name">{icon.name}</div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="flags" class="icon-section">
+          <h2 class="section-title">
+            <a href="https://icon-sets.iconify.design/flag">
+              <span>Flags</span>
+              <span class="count">{flagIcons.length} icons</span>
+            </a>
+          </h2>
+          <div class="icon-grid">
+            {flagIcons.map((icon) => {
               const Icon = icon.component;
               return (
                 <div key={icon.name} class="icon-card">

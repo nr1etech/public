@@ -62,3 +62,19 @@ export * from './components/icons/mdi-wrench-outline';
 // Logos
 export * from './components/icons/logos-google-icon';
 export * from './components/icons/logos-microsoft-icon';
+
+// Flags
+export * from './components/icons/flag-ae-1x1';
+export * from './components/icons/flag-ae-4x3';
+export * from './components/icons/flag-au-1x1';
+export * from './components/icons/flag-au-4x3';
+export * from './components/icons/flag-de-1x1';
+export * from './components/icons/flag-de-4x3';
+export * from './components/icons/flag-fr-1x1';
+export * from './components/icons/flag-fr-4x3';
+export * from './components/icons/flag-ie-1x1';
+export * from './components/icons/flag-ie-4x3';
+export * from './components/icons/flag-us-1x1';
+export * from './components/icons/flag-us-4x3';
+export * from './components/icons/flag-za-1x1';
+export * from './components/icons/flag-za-4x3';
