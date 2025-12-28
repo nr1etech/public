@@ -42,6 +42,7 @@ export * from './components/icons/mdi-lock';
 export * from './components/icons/mdi-login';
 export * from './components/icons/mdi-logout';
 export * from './components/icons/mdi-microsoft';
+export * from './components/icons/mdi-microsoft-github';
 export * from './components/icons/mdi-navigate-before';
 export * from './components/icons/mdi-navigate-next';
 export * from './components/icons/mdi-network-outline';
