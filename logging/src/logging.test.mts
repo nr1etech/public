@@ -75,7 +75,7 @@ test('Test logging', async () => {
   child.trace().msg('test trace');
   expect(stream.json()).toEqual(
     expect.objectContaining({
-      level: 10,
+      level: 'TRACE',
       time: expect.any(Number),
       name: 'child',
       svc: 'logging-js',
@@ -90,7 +90,7 @@ test('Test logging', async () => {
     .msg('test trace');
   expect(stream.json()).toEqual(
     expect.objectContaining({
-      level: 10,
+      level: 'TRACE',
       time: expect.any(Number),
       name: 'child',
       svc: 'logging-js',
@@ -198,7 +198,7 @@ test('Test local context', () => {
   log.thread('test').info().msg('test');
   expect(stream.json()).toEqual(
     expect.objectContaining({
-      level: 30,
+      level: 'INFO',
       time: expect.any(Number),
       svc: 'test',
       msg: 'test',
@@ -216,7 +216,7 @@ test('Test local context', () => {
     .msg('test');
   expect(stream.json()).toEqual(
     expect.objectContaining({
-      level: 50,
+      level: 'ERROR',
       time: expect.any(Number),
       svc: 'test',
       msg: 'test',
@@ -281,7 +281,7 @@ test('Test ISO time', () => {
   log.info().str('foo', undefined).msg('test');
   expect(stream.json()).toEqual(
     expect.objectContaining({
-      level: 30,
+      level: 'INFO',
       time: expect.stringContaining('Z'),
       svc: 'test',
       msg: 'test',

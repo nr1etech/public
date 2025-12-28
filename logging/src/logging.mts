@@ -405,7 +405,7 @@ export interface LoggingConfig {
   includeHost?: boolean;
 
   /**
-   * The format to output the log level with. Default is "numeric" following the standard.
+   * The format to output the log level with. Default is "uppercase" following the standard.
    */
   logLevelFormat?: LogLevelFormat;
 
@@ -455,7 +455,7 @@ export function initialize(options: LoggingConfig): Logger {
         }
       },
       formatters: {
-        ...(options.logLevelFormat === 'uppercase'
+        ...(!options.logLevelFormat || options.logLevelFormat === 'uppercase'
           ? {
               level(label) {
                 return {level: label.toUpperCase()};
