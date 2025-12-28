@@ -1,0 +1,71 @@
+{
+  "name": "@nr1e/commons",
+  "description": "Common utilities for TypeScript projects",
+  "version": "0.2.0",
+  "type": "module",
+  "author": "NR1E, Inc.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nr1etech/lib-js.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "prettier --check . && eslint .",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "vitest run",
+    "clean": "rm -rf dist",
+    "fmt": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@types/node": "catalog:",
+    "@types/uuid": "catalog:",
+    "eslint": "catalog:",
+    "ksuid": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vitest": "catalog:"
+  },
+  "dependencies": {
+    "tslib": "catalog:",
+    "uuid": "catalog:"
+  },
+  "exports": {
+    "./bitsnbytes": {
+      "import": "./dist/bitsnbytes/index.mjs",
+      "types": "./dist/bitsnbytes/index.d.mts"
+    },
+    "./errors": {
+      "import": "./dist/errors/index.mjs",
+      "types": "./dist/errors/index.d.mts"
+    },
+    "./http": {
+      "import": "./dist/http/index.mjs",
+      "types": "./dist/http/index.d.mts"
+    },
+    "./ids": {
+      "import": "./dist/ids/index.mjs",
+      "types": "./dist/ids/index.d.mts"
+    },
+    "./lang": {
+      "import": "./dist/lang/index.mjs",
+      "types": "./dist/lang/index.d.mts"
+    },
+    "./oauth": {
+      "import": "./dist/oauth/index.mjs",
+      "types": "./dist/oauth/index.d.mts"
+    },
+    "./validator": {
+      "import": "./dist/validator/index.mjs",
+      "types": "./dist/validator/index.d.mts"
+    }
+  }
+}

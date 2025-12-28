@@ -11,6 +11,8 @@
       <excludeFolder url="file://$MODULE_DIR$/qwik-icons/lib" />
       <excludeFolder url="file://$MODULE_DIR$/qwik-icons/lib-types" />
       <excludeFolder url="file://$MODULE_DIR$/qwik-icons/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/commons/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/commons/node_modules" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
