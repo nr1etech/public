@@ -28,7 +28,6 @@
     "@types/node": "catalog:",
     "@types/uuid": "catalog:",
     "eslint": "catalog:",
-    "ksuid": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
@@ -36,7 +35,8 @@
   },
   "dependencies": {
     "tslib": "catalog:",
-    "uuid": "catalog:"
+    "uuid": "catalog:",
+    "ksuid": "catalog:"
   },
   "exports": {
     "./bitsnbytes": {
