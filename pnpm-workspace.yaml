@@ -1,19 +1,25 @@
 packages:
   - 'logging'
+  - 'lucia-adapter-dynamodb'
   - 'qwik-icons'
   - '!**/dist/**'
 catalog:
+  "@aws-sdk/client-dynamodb": "^3.839.0"
+  "@aws-sdk/util-dynamodb": "^3.839.0"
   "@builder.io/qwik": "1.18.0"
   "@eslint/js": "latest"
+  "@lucia-auth/adapter-test": "^5.0.2"
   "@types/node": "^20.19.0"
   "eslint": "9.32.0"
   "eslint-plugin-qwik": "1.18.0"
   "globals": "16.4.0"
+  "lucia": "^3.2.2"
   "np": "^8.0.4"
   "pino": "^9.5.0"
   "pino-abstract-transport": "^2.0.0"
   "prettier": "3.6.2"
   "sonic-boom": "^4.2.0"
+  "testcontainers": "^10.28.0"
   "tslib": "^2.8.1"
   "typescript": "5.4.5"
   "typescript-eslint": "8.38.0"

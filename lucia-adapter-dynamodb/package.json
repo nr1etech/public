@@ -1,0 +1,57 @@
+{
+  "name": "@nr1e/lucia-adapter-dynamodb",
+  "description": "A DynamoDB adapter for lucia-auth",
+  "version": "4.0.3",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nr1etech/lib-js.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "prettier --check . && eslint src",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "vitest run ",
+    "clean": "rm -rf ./dist",
+    "fmt": "prettier --write ."
+  },
+  "keywords": [
+    "lucia-auth",
+    "adapter",
+    "DynamoDB"
+  ],
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@lucia-auth/adapter-test": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "testcontainers": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vitest": "catalog:"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "catalog:",
+    "@aws-sdk/util-dynamodb": "catalog:",
+    "lucia": "catalog:"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-dynamodb": "catalog:",
+    "@aws-sdk/util-dynamodb": "catalog:",
+    "lucia": "catalog:"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  }
+}
