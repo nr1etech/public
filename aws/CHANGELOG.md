@@ -1,5 +1,11 @@
 # @nr1e/aws
 
+## 0.0.2
+
+### Patch Changes
+
+- ab311d6: Added exports to help clients so they may not have to import the AWS SDK directly
+
 ## 0.0.1
 
 ### Patch Changes
