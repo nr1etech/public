@@ -1,5 +1,11 @@
 # @nr1e/aws
 
+## 0.0.3
+
+### Patch Changes
+
+- 515f6b0: Added DeleteCommand and related exports"
+
 ## 0.0.2
 
 ### Patch Changes
