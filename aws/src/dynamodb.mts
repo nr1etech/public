@@ -1,5 +1,8 @@
 import {DynamoDBClient} from '@aws-sdk/client-dynamodb';
 import {
+  DeleteCommand,
+  DeleteCommandInput,
+  DeleteCommandOutput,
   DynamoDBDocumentClient,
   QueryCommand,
   QueryCommandInput,
@@ -23,6 +26,9 @@ import {getAwsRegion} from './region.mjs';
  * Re-exporting commands to be helpful so clients may not have to import the AWS SDK directly.
  */
 export {
+  DeleteCommand,
+  DeleteCommandInput,
+  DeleteCommandOutput,
   GetCommand,
   GetCommandInput,
   GetCommandOutput,
