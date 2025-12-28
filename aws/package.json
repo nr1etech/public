@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "catalog:",
+    "@aws-sdk/client-ses": "catalog:",
     "@nr1e/commons": "workspace:"
   },
   "exports": {
