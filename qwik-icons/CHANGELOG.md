@@ -1,5 +1,11 @@
 # @nr1e/qwik-icons
 
+## 0.0.5
+
+### Patch Changes
+
+- 6c802e9: Added GitHub MDI icon
+
 ## 0.0.4
 
 ### Patch Changes
