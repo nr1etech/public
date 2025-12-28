@@ -1,0 +1,50 @@
+{
+  "name": "@nr1e/logging",
+  "description": "Provides a standard logging pattern",
+  "version": "1.6.1-alpha.0",
+  "type": "module",
+  "author": "NR1E, Inc.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nr1etech/logging-js.git"
+  },
+  "files": [
+    "**"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "prettier --check . && eslint .",
+    "watch": "tsc -w",
+    "test": "vitest run",
+    "clean": "rm -rf dist",
+    "fmt": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vitest": "catalog:"
+  },
+  "dependencies": {
+    "pino": "catalog:",
+    "pino-abstract-transport": "catalog:",
+    "sonic-boom": "catalog:",
+    "tslib": "catalog:"
+  },
+  "peerDependencies": {
+    "pino": "catalog:"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
+    }
+  }
+}
