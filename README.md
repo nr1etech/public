@@ -10,6 +10,9 @@ standardizing common patterns.
 
 ## Contributors
 
-As you contribute to this repository, issue the command *npx @changesets/cli* when your changes
-are ready to be published. This will automatically generate a changeset file which is used when
-publishing.
+To have your changes merged into a release, you must generate a changset. From the root
+of the project, you must issue the following command and answer the questions.
+
+```bash
+npx @changesets/cli
+```
