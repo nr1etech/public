@@ -43,6 +43,10 @@
       "import": "./dist/bitsnbytes/index.mjs",
       "types": "./dist/bitsnbytes/index.d.mts"
     },
+    "./encryption": {
+      "import": "./dist/encryption/index.mjs",
+      "types": "./dist/encryption/index.d.mts"
+    },
     "./errors": {
       "import": "./dist/errors/index.mjs",
       "types": "./dist/errors/index.d.mts"
