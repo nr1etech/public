@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.4
+### Patch Changes
+
+- d2fdc13: Fixed type generation for PaceBar.
+
 ## 0.0.3
 ### Patch Changes
 
