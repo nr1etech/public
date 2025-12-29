@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 0.0.4
+### Patch Changes
+
+- aaae4fb: Removing warnings
+
 ## 0.0.3
 
 ### Patch Changes
