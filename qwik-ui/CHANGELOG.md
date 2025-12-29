@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.3
+### Patch Changes
+
+- c804a39: Added PaceBar
+
 ## 0.0.2
 ### Patch Changes
 
