@@ -6,6 +6,7 @@ export * from './components/icons/mdi-alert-box-outline';
 export * from './components/icons/mdi-arrow-back-circle';
 export * from './components/icons/mdi-arrow-forward-circle';
 export * from './components/icons/mdi-brain';
+export * from './components/icons/mdi-brain-freeze-outline';
 export * from './components/icons/mdi-check-circle';
 export * from './components/icons/mdi-check-circle-outline';
 export * from './components/icons/mdi-chevron-down';
