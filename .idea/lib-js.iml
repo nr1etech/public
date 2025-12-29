@@ -13,6 +13,11 @@
       <excludeFolder url="file://$MODULE_DIR$/qwik-icons/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/commons/dist" />
       <excludeFolder url="file://$MODULE_DIR$/commons/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/aws/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/aws/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/qwik-ui/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/qwik-ui/lib-types" />
+      <excludeFolder url="file://$MODULE_DIR$/qwik-ui/node_modules" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

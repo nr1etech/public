@@ -4,6 +4,7 @@ packages:
   - 'logging'
   - 'lucia-adapter-dynamodb'
   - 'qwik-icons'
+  - 'qwik-ui'
   - '!**/dist/**'
 catalog:
   "@aws-sdk/client-dynamodb": "^3.839.0"
@@ -18,8 +19,10 @@ catalog:
   "@builder.io/qwik": "1.18.0"
   "@eslint/js": "latest"
   "@lucia-auth/adapter-test": "^5.0.2"
+  "@tailwindcss/vite": "^4.1.17"
   "@types/node": "^20.19.0"
   "@types/uuid": "^10.0.0"
+  "daisyui": "^5.5.14"
   "eslint": "9.32.0"
   "eslint-plugin-qwik": "1.18.0"
   "globals": "16.4.0"
@@ -29,7 +32,9 @@ catalog:
   "pino": "^10.1.0"
   "pino-abstract-transport": "^3.0.0"
   "prettier": "3.6.2"
+  "prettier-plugin-tailwindcss": "^0.7.1"
   "sonic-boom": "^4.2.0"
+  "tailwindcss": "^4.1.17"
   "testcontainers": "^10.28.0"
   "tslib": "^2.8.1"
   "typescript": "5.4.5"
