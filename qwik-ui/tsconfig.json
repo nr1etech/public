@@ -17,5 +17,5 @@
     "isolatedModules": true,
     "types": ["vite/client"]
   },
-  "include": ["src", "prettier.config.js"]
+  "include": ["src"]
 }

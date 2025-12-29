@@ -36,7 +36,6 @@ export interface PaceBarProps {
 export const PaceBar = component$((props: PaceBarProps) => {
   const value = useSignal(props.value);
 
-  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({cleanup}) => {
     if (props.value && props.value != -1 && props.asymptotic) {
       const easing = props.easing ?? 0.004;
