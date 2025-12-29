@@ -155,6 +155,7 @@ function decodeCursor(encoded: string | null | undefined): Cursor | undefined {
 function getExclusiveStartKey(
   previous: Cursor | undefined,
   direction: 'next' | 'prev' | undefined | null,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): Record<string, any> | undefined {
   if (!direction) {
     direction = 'next';
@@ -277,6 +278,7 @@ export interface PaginatedResult<T> {
  * );
  * ```
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function executePaginatedQuery<T = any>(
   params: {
     client: DynamoDBDocumentClient;
@@ -285,6 +287,7 @@ export async function executePaginatedQuery<T = any>(
       'ExclusiveStartKey' | 'Limit' | 'ScanIndexForward'
     >;
     keyAttributes: string[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mapItem: (item: Record<string, any>) => T;
   },
   pagination: PaginationParams,
@@ -375,11 +378,13 @@ export async function executePaginatedQuery<T = any>(
  * );
  * ```
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function executePaginatedScan<T = any>(
   params: {
     client: DynamoDBDocumentClient;
     scan: Omit<QueryCommandInput, 'ExclusiveStartKey' | 'Limit'>;
     keyNames: string[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mapItem: (item: Record<string, any>) => T;
   },
   pagination: PaginationParams,
