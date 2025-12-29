@@ -5,7 +5,6 @@ import {
   QueryCommand,
   UpdateItemCommand,
   type AttributeValue,
-  type DynamoDBClient,
   type QueryCommandInput,
   GetItemCommand,
 } from '@aws-sdk/client-dynamodb';
@@ -15,11 +14,20 @@ import type {Adapter, DatabaseSession, DatabaseUser} from 'lucia';
 const MAX_BATCH_SIZE = 25;
 
 /**
+ * A minimal interface representing any DynamoDB client compatible with AWS SDK v3.
+ * This allows the adapter to work with any version of @aws-sdk/client-dynamodb.
+ */
+export interface DynamoDBClientLike {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  send(command: any): Promise<any>;
+}
+
+/**
  * Function to retrieve a user.
  */
 export type GetUserFn = (
   userId: string,
-  client: DynamoDBClient,
+  client: DynamoDBClientLike,
 ) => Promise<DatabaseUser | null>;
 
 /**
@@ -27,9 +35,9 @@ export type GetUserFn = (
  */
 export interface DynamoDBAdapterProps {
   /**
-   * The DynamoDB client to use.
+   * The DynamoDB client to use. Can be any AWS SDK v3 DynamoDB client.
    */
-  client: DynamoDBClient;
+  client: DynamoDBClientLike;
 
   /**
    * The name of the DynamoDB table to use. Default is 'LuciaAuthTable'.
@@ -64,7 +72,7 @@ export interface DynamoDBAdapterProps {
  * Adapter using two GSIs
  */
 export class DynamoDBAdapter implements Adapter {
-  protected client: DynamoDBClient;
+  protected client: DynamoDBClientLike;
   protected tableName: string = 'LuciaAuthTable';
   protected getUser: GetUserFn;
   protected consistentRead: boolean;
@@ -99,9 +107,11 @@ export class DynamoDBAdapter implements Adapter {
       if (_lastEvaluatedKey) commandInput.ExclusiveStartKey = _lastEvaluatedKey;
       const res = await this.client.send(new QueryCommand(commandInput));
       if (res?.Items?.length) {
-        const expiredSessions = res.Items.map((x) => unmarshall(x));
+        const expiredSessions = res.Items.map(
+          (x: Record<string, AttributeValue>) => unmarshall(x),
+        );
         keys.push(
-          ...expiredSessions.map((item) => ({
+          ...expiredSessions.map((item: Record<string, unknown>) => ({
             sid: {S: item.sid},
           })),
         );
@@ -182,7 +192,11 @@ export class DynamoDBAdapter implements Adapter {
       if (_lastEvaluatedKey) commandInput.ExclusiveStartKey = _lastEvaluatedKey;
       const res = await this.client.send(new QueryCommand(commandInput));
       if (res?.Items?.length) {
-        sessions.push(...res.Items.map((x) => this.itemToSession(x)));
+        sessions.push(
+          ...res.Items.map((x: Record<string, AttributeValue>) =>
+            this.itemToSession(x),
+          ),
+        );
       }
       _lastEvaluatedKey = res?.LastEvaluatedKey;
     } while (_lastEvaluatedKey);
