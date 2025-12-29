@@ -251,16 +251,16 @@ importers:
 
   lucia-adapter-dynamodb:
     dependencies:
-      lucia:
-        specifier: 'catalog:'
-        version: 3.2.2
-    devDependencies:
       '@aws-sdk/client-dynamodb':
         specifier: 'catalog:'
         version: 3.958.0
       '@aws-sdk/lib-dynamodb':
         specifier: 'catalog:'
         version: 3.958.0(@aws-sdk/client-dynamodb@3.958.0)
+      lucia:
+        specifier: 'catalog:'
+        version: 3.2.2
+    devDependencies:
       '@eslint/js':
         specifier: 'catalog:'
         version: 9.39.2

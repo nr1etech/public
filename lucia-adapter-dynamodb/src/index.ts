@@ -1,3 +1,4 @@
+import {DynamoDBClient} from '@aws-sdk/client-dynamodb';
 import {
   BatchWriteCommand,
   DeleteCommand,
@@ -12,20 +13,11 @@ import type {Adapter, DatabaseSession, DatabaseUser} from 'lucia';
 const MAX_BATCH_SIZE = 25;
 
 /**
- * A minimal interface representing any DynamoDB Document Client compatible with AWS SDK v3.
- * This allows the adapter to work with any version of @aws-sdk/lib-dynamodb.
- */
-export interface DynamoDBClientLike {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  send(command: any): Promise<any>;
-}
-
-/**
  * Function to retrieve a user.
  */
 export type GetUserFn = (
   userId: string,
-  client: DynamoDBClientLike,
+  client: DynamoDBClient,
 ) => Promise<DatabaseUser | null>;
 
 /**
@@ -35,7 +27,7 @@ export interface DynamoDBAdapterProps {
   /**
    * The DynamoDB Document Client to use. Can be any AWS SDK v3 DynamoDB Document Client.
    */
-  client: DynamoDBClientLike;
+  client: DynamoDBClient;
 
   /**
    * The name of the DynamoDB table to use. Default is 'LuciaAuthTable'.
@@ -70,7 +62,7 @@ export interface DynamoDBAdapterProps {
  * Adapter using two GSIs
  */
 export class DynamoDBAdapter implements Adapter {
-  protected client: DynamoDBClientLike;
+  protected client: DynamoDBClient;
   protected tableName: string = 'LuciaAuthTable';
   protected getUser: GetUserFn;
   protected consistentRead: boolean;

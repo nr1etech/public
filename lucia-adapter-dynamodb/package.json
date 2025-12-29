@@ -41,9 +41,12 @@
     "vitest": "catalog:"
   },
   "dependencies": {
-    "lucia": "catalog:"
+    "lucia": "catalog:",
+    "@aws-sdk/client-dynamodb": "catalog:",
+    "@aws-sdk/lib-dynamodb": "catalog:"
   },
   "peerDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.0.0",
     "@aws-sdk/lib-dynamodb": "^3.0.0",
     "lucia": "^3.0.0"
   },
