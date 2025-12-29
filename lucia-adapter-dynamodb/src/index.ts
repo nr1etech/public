@@ -1,21 +1,19 @@
 import {
-  BatchWriteItemCommand,
-  DeleteItemCommand,
-  PutItemCommand,
+  BatchWriteCommand,
+  DeleteCommand,
+  PutCommand,
   QueryCommand,
-  UpdateItemCommand,
-  type AttributeValue,
-  type QueryCommandInput,
-  GetItemCommand,
-} from '@aws-sdk/client-dynamodb';
-import {marshall, unmarshall} from '@aws-sdk/util-dynamodb';
+  UpdateCommand,
+  GetCommand,
+  QueryCommandInput,
+} from '@aws-sdk/lib-dynamodb';
 import type {Adapter, DatabaseSession, DatabaseUser} from 'lucia';
 
 const MAX_BATCH_SIZE = 25;
 
 /**
- * A minimal interface representing any DynamoDB client compatible with AWS SDK v3.
- * This allows the adapter to work with any version of @aws-sdk/client-dynamodb.
+ * A minimal interface representing any DynamoDB Document Client compatible with AWS SDK v3.
+ * This allows the adapter to work with any version of @aws-sdk/lib-dynamodb.
  */
 export interface DynamoDBClientLike {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,7 +33,7 @@ export type GetUserFn = (
  */
 export interface DynamoDBAdapterProps {
   /**
-   * The DynamoDB client to use. Can be any AWS SDK v3 DynamoDB client.
+   * The DynamoDB Document Client to use. Can be any AWS SDK v3 DynamoDB Document Client.
    */
   client: DynamoDBClientLike;
 
@@ -86,10 +84,10 @@ export class DynamoDBAdapter implements Adapter {
 
   public async deleteSession(sessionId: string): Promise<void> {
     await this.client.send(
-      new DeleteItemCommand({
+      new DeleteCommand({
         TableName: this.tableName,
         Key: {
-          sid: {S: sessionId},
+          sid: sessionId,
         },
       }),
     );
@@ -98,8 +96,7 @@ export class DynamoDBAdapter implements Adapter {
   protected async deleteSessions(
     commandInput: QueryCommandInput,
   ): Promise<void> {
-    let _lastEvaluatedKey: Record<string, AttributeValue> | undefined =
-      undefined;
+    let _lastEvaluatedKey: Record<string, unknown> | undefined = undefined;
     const keys = [];
 
     // query keys
@@ -107,12 +104,9 @@ export class DynamoDBAdapter implements Adapter {
       if (_lastEvaluatedKey) commandInput.ExclusiveStartKey = _lastEvaluatedKey;
       const res = await this.client.send(new QueryCommand(commandInput));
       if (res?.Items?.length) {
-        const expiredSessions = res.Items.map(
-          (x: Record<string, AttributeValue>) => unmarshall(x),
-        );
         keys.push(
-          ...expiredSessions.map((item: Record<string, unknown>) => ({
-            sid: {S: item.sid},
+          ...res.Items.map((item: Record<string, unknown>) => ({
+            sid: item.sid,
           })),
         );
       }
@@ -122,7 +116,7 @@ export class DynamoDBAdapter implements Adapter {
       for (let i = 0; i < keys.length; i += MAX_BATCH_SIZE) {
         const batch = keys.slice(i, i + MAX_BATCH_SIZE);
         await this.client.send(
-          new BatchWriteItemCommand({
+          new BatchWriteCommand({
             RequestItems: {
               [this.tableName]: batch.map((key) => ({
                 DeleteRequest: {Key: key},
@@ -144,7 +138,7 @@ export class DynamoDBAdapter implements Adapter {
         '#sid': 'sid',
       },
       ExpressionAttributeValues: {
-        ':uid': {S: userId},
+        ':uid': userId,
       },
       Select: 'SPECIFIC_ATTRIBUTES',
       ProjectionExpression: '#sid',
@@ -155,10 +149,10 @@ export class DynamoDBAdapter implements Adapter {
     sessionId: string,
   ): Promise<[session: DatabaseSession | null, user: DatabaseUser | null]> {
     const sessionRes = await this.client.send(
-      new GetItemCommand({
+      new GetCommand({
         TableName: this.tableName,
         Key: {
-          sid: {S: sessionId},
+          sid: sessionId,
         },
         ConsistentRead: this.consistentRead,
       }),
@@ -174,8 +168,7 @@ export class DynamoDBAdapter implements Adapter {
 
   public async getUserSessions(userId: string): Promise<DatabaseSession[]> {
     const sessions: DatabaseSession[] = [];
-    let _lastEvaluatedKey: Record<string, AttributeValue> | undefined =
-      undefined;
+    let _lastEvaluatedKey: Record<string, unknown> | undefined = undefined;
 
     do {
       const commandInput: QueryCommandInput = {
@@ -185,7 +178,7 @@ export class DynamoDBAdapter implements Adapter {
           '#uid': 'uid',
         },
         ExpressionAttributeValues: {
-          ':uid': {S: userId},
+          ':uid': userId,
         },
         KeyConditionExpression: '#uid = :uid',
       };
@@ -193,7 +186,7 @@ export class DynamoDBAdapter implements Adapter {
       const res = await this.client.send(new QueryCommand(commandInput));
       if (res?.Items?.length) {
         sessions.push(
-          ...res.Items.map((x: Record<string, AttributeValue>) =>
+          ...res.Items.map((x: Record<string, unknown>) =>
             this.itemToSession(x),
           ),
         );
@@ -206,15 +199,15 @@ export class DynamoDBAdapter implements Adapter {
   public async setSession(databaseSession: DatabaseSession): Promise<void> {
     const expires = Math.floor(databaseSession.expiresAt.getTime() / 1000);
     await this.client.send(
-      new PutItemCommand({
+      new PutCommand({
         TableName: this.tableName,
-        Item: marshall({
+        Item: {
           sid: databaseSession.id,
           uid: databaseSession.userId,
           exp: expires,
           typ: 'Session',
           attrs: databaseSession.attributes,
-        }),
+        },
       }),
     );
   }
@@ -227,10 +220,10 @@ export class DynamoDBAdapter implements Adapter {
       const expires = Math.floor(expiresAt.getTime() / 1000);
       // update the session
       await this.client.send(
-        new UpdateItemCommand({
+        new UpdateCommand({
           TableName: this.tableName,
           Key: {
-            sid: {S: sessionId},
+            sid: sessionId,
           },
           UpdateExpression: 'SET #exp = :exp',
           ConditionExpression: '#sid = :sid',
@@ -239,8 +232,8 @@ export class DynamoDBAdapter implements Adapter {
             '#exp': 'exp',
           },
           ExpressionAttributeValues: {
-            ':exp': {N: `${expires}`},
-            ':sid': {S: sessionId},
+            ':exp': expires,
+            ':sid': sessionId,
           },
         }),
       );
@@ -259,8 +252,8 @@ export class DynamoDBAdapter implements Adapter {
         '#typ': 'typ',
       },
       ExpressionAttributeValues: {
-        ':typ': {S: 'Session'},
-        ':exp': {N: `${Math.floor(new Date().getTime() / 1000)}`},
+        ':typ': 'Session',
+        ':exp': Math.floor(new Date().getTime() / 1000),
       },
       KeyConditionExpression: '#typ = :typ AND #exp < :exp',
       Select: 'SPECIFIC_ATTRIBUTES',
@@ -268,13 +261,12 @@ export class DynamoDBAdapter implements Adapter {
     });
   }
 
-  private itemToSession(item: Record<string, AttributeValue>): DatabaseSession {
-    const unmarshalled = unmarshall(item);
+  private itemToSession(item: Record<string, unknown>): DatabaseSession {
     return {
-      id: unmarshalled.sid,
-      userId: unmarshalled.uid,
-      expiresAt: new Date(unmarshalled.exp * 1000),
-      attributes: unmarshalled.attrs,
+      id: item.sid as string,
+      userId: item.uid as string,
+      expiresAt: new Date((item.exp as number) * 1000),
+      attributes: item.attrs as Record<string, unknown>,
     };
   }
 }
