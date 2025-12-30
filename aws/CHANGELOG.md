@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 0.0.5
+### Patch Changes
+
+- 7d1cef5: Modified SQS sendMessage to support directly passing objects
+
 ## 0.0.4
 ### Patch Changes
 

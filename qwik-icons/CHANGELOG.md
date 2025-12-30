@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.7
+### Patch Changes
+
+- 21a0255: Added MdiBrainFreezeOutline
+
 ## 0.0.6
 
 ### Patch Changes
