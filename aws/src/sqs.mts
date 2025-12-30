@@ -33,13 +33,16 @@ export function getSQSClient(region?: string) {
 
 export async function sendMessage(
   queueUrl: string,
-  messageBody: string,
+  messageBody: string | object,
   region?: string,
 ) {
   await getSQSClient(region).send(
     new SendMessageCommand({
       QueueUrl: queueUrl,
-      MessageBody: messageBody,
+      MessageBody:
+        typeof messageBody === 'string'
+          ? messageBody
+          : JSON.stringify(messageBody),
     }),
   );
 }
