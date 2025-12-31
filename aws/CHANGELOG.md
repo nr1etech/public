@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 0.0.6
+### Patch Changes
+
+- c82f922: Added return type to SQS sendMessage
+
 ## 0.0.5
 ### Patch Changes
 
