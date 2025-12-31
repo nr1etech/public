@@ -35,8 +35,8 @@ export async function sendMessage(
   queueUrl: string,
   messageBody: string | object,
   region?: string,
-) {
-  await getSQSClient(region).send(
+): Promise<SendMessageCommandOutput> {
+  return await getSQSClient(region).send(
     new SendMessageCommand({
       QueueUrl: queueUrl,
       MessageBody:
