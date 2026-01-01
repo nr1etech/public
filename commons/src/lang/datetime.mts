@@ -35,3 +35,53 @@ export function formatDate(date: Date): string {
   };
   return new Intl.DateTimeFormat('en-US', options).format(date);
 }
+
+/**
+ * Formats a date and time to a human-readable string with time zone.
+ * @param date - Date string or Date object to format.
+ * @param locale - The locale to use (e.g., 'en-US', 'fr-FR') - defaults to 'en-US'
+ * @returns Formatted date string (e.g., "June 14, 2023 12:00 PM MST").
+ */
+export function formatDateTimeReadable(
+  date: string | Date,
+  locale?: string,
+): string {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  return new Intl.DateTimeFormat(locale ?? 'en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+    timeZoneName: 'short',
+  }).format(dateObj);
+}
+
+/**
+ * Formats a date to "Jun 30, 2025" style using the local time zone.
+ * Accepts a Date object or a string parseable by Date.
+ * @param date - Date string or Date object to format.
+ * @param locale - The locale to use (e.g., 'en-US', 'fr-FR') - defaults to 'en-US'
+ * @returns Formatted date string like "Jun 30, 2025".
+ */
+export function formatDateShort(date: string | Date, locale?: string): string {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  return new Intl.DateTimeFormat(locale ?? 'en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }).format(dateObj);
+}
+
+/**
+ * Calculates the number of days between a given date and the current date.
+ * @param date - The date to calculate from.
+ * @returns The number of days that have passed since the given date.
+ */
+export function getDaysSince(date: string | Date): number {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  const now = new Date();
+  const diffTime = now.getTime() - dateObj.getTime();
+  return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+}
