@@ -1,5 +1,10 @@
 # @nr1e/commons
 
+## 0.3.1
+### Patch Changes
+
+- 35bfefa: Added new currency and datetime functions
+
 ## 0.3.0
 
 ### Minor Changes

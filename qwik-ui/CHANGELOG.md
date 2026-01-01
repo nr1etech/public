@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.5
+### Patch Changes
+
+- 35bfefa: Added UniversalLayout component
+
 ## 0.0.4
 ### Patch Changes
 
