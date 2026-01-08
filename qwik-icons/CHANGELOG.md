@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.8
+### Patch Changes
+
+- 721415a: Added MdiBank, MdiBankOutline, MdiBuilding and MdiCalendar icons
+
 ## 0.0.7
 ### Patch Changes
 
