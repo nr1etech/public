@@ -1,6 +1,7 @@
 export * from './components/svg';
 export * from './components/icons/mdi-add-circle';
 export * from './components/icons/mdi-add-circle-outline';
+export * from './components/icons/mdi-air-horn';
 export * from './components/icons/mdi-alert';
 export * from './components/icons/mdi-alert-box-outline';
 export * from './components/icons/mdi-arrow-back-circle';

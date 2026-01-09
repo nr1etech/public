@@ -18,6 +18,7 @@ import {
   LogosMicrosoftIcon,
   MdiAddCircle,
   MdiAddCircleOutline,
+  MdiAirHorn,
   MdiAlert,
   MdiAlertBoxOutline,
   MdiArrowBackCircle,
@@ -86,6 +87,7 @@ export default component$(() => {
   const icons = [
     {component: MdiAddCircle, name: 'MdiAddCircle'},
     {component: MdiAddCircleOutline, name: 'MdiAddCircleOutline'},
+    {component: MdiAirHorn, name: 'MdiAirHorn'},
     {component: MdiAlert, name: 'MdiAlert'},
     {component: MdiAlertBoxOutline, name: 'MdiAlertBoxOutline'},
     {component: MdiArrowBackCircle, name: 'MdiArrowBackCircle'},
