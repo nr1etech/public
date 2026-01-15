@@ -1,5 +1,11 @@
 # @nr1e/qwik-icons
 
+## 0.0.9
+### Patch Changes
+
+- 336e967: Added MdiAirHorn icon
+- 55a6064: Added ClientLoop and Plaid logos and icons
+
 ## 0.0.8
 ### Patch Changes
 
