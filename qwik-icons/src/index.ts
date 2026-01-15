@@ -84,3 +84,18 @@ export * from './components/icons/flag-us-1x1';
 export * from './components/icons/flag-us-4x3';
 export * from './components/icons/flag-za-1x1';
 export * from './components/icons/flag-za-4x3';
+
+// Brands - Plaid
+export * from './components/brands/plaid-icon-bw';
+export * from './components/brands/plaid-logo-bw';
+
+// Brands - ClientLoop
+export * from './components/brands/clientloop-icon-on-dark-blue';
+export * from './components/brands/clientloop-icon-on-light-blue';
+export * from './components/brands/clientloop-icon-on-white';
+export * from './components/brands/clientloop-logo-black';
+export * from './components/brands/clientloop-logo-dark-blue';
+export * from './components/brands/clientloop-logo-gray';
+export * from './components/brands/clientloop-logo-light-blue';
+export * from './components/brands/clientloop-logo-primary';
+export * from './components/brands/clientloop-logo-white';

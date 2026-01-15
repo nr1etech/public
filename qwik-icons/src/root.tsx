@@ -1,5 +1,11 @@
 import {component$} from '@builder.io/qwik';
 import {
+  ClientLoopIconOnDarkBlue,
+  ClientLoopIconOnLightBlue,
+  ClientLoopIconOnWhite,
+  ClientLoopLogoBlack,
+  PlaidIconBw,
+  PlaidLogoBw,
   FlagAe1x1,
   FlagAe4x3,
   FlagAu1x1,
@@ -81,6 +87,11 @@ import {
   MdiUserOutline,
   MdiUsersOutline,
   MdiWrenchOutline,
+  ClientLoopLogoWhite,
+  ClientLoopLogoPrimary,
+  ClientLoopLogoLightBlue,
+  ClientLoopLogoGray,
+  ClientLoopLogoDarkBlue,
 } from './index';
 
 export default component$(() => {
@@ -161,6 +172,23 @@ export default component$(() => {
   const logoIcons = [
     {component: LogosGoogleIcon, name: 'LogosGoogleIcon'},
     {component: LogosMicrosoftIcon, name: 'LogosMicrosoftIcon'},
+  ];
+
+  const brandIcons = [
+    {component: ClientLoopIconOnWhite, name: 'ClientLoopIconOnWhite'},
+    {component: ClientLoopIconOnDarkBlue, name: 'ClientLoopIconOnDarkBlue'},
+    {component: ClientLoopIconOnLightBlue, name: 'ClientLoopIconOnLightBlue'},
+    {component: PlaidIconBw, name: 'PlaidIconBw'},
+  ];
+
+  const brandLogos = [
+    {component: ClientLoopLogoBlack, name: 'ClientLoopLogoBlack'},
+    {component: ClientLoopLogoDarkBlue, name: 'ClientLoopLogoDarkBlue'},
+    {component: ClientLoopLogoGray, name: 'ClientLoopLogoGray'},
+    {component: ClientLoopLogoLightBlue, name: 'ClientLoopLogoLightBlue'},
+    {component: ClientLoopLogoPrimary, name: 'ClientLoopLogoPrimary'},
+    {component: ClientLoopLogoWhite, name: 'ClientLoopLogoWhite'},
+    {component: PlaidLogoBw, name: 'PlaidLogoBw'},
   ];
 
   const flagIcons = [
@@ -301,6 +329,18 @@ export default component$(() => {
               max-width: 1400px;
               margin: 0 auto;
             }
+            .logo-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+              grid-auto-rows: minmax(min-content, max-content);
+              gap: 1.5rem;
+              max-width: 1400px;
+              margin: 0 auto;
+              align-items: start;
+            }
+            .logo-wrapper svg {
+              max-height: 60px;
+            }
             .icon-card {
               background: white;
               border-radius: 8px;
@@ -316,13 +356,23 @@ export default component$(() => {
               transform: translateY(-2px);
               box-shadow: 0 4px 8px rgba(0,0,0,0.15);
             }
+            .icon-card.dark-bg {
+              background: #1e293b;
+            }
+            .icon-card.dark-bg .icon-name {
+              color: #e2e8f0;
+            }
             .icon-wrapper {
               width: 48px;
               height: 48px;
               display: flex;
               align-items: center;
               justify-content: center;
-              color: #2563eb;
+            }
+            .logo-wrapper {
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
             .icon-name {
               font-size: 0.75rem;
@@ -355,6 +405,18 @@ export default component$(() => {
               <a href="#logos">
                 <span>Logos</span>
                 <span class="nav-count">({logoIcons.length})</span>
+              </a>
+            </li>
+            <li>
+              <a href="#brands">
+                <span>Brand Icons</span>
+                <span class="nav-count">({brandIcons.length})</span>
+              </a>
+            </li>
+            <li>
+              <a href="#brand-logos">
+                <span>Brand Logos</span>
+                <span class="nav-count">({brandLogos.length})</span>
               </a>
             </li>
             <li>
@@ -410,6 +472,58 @@ export default component$(() => {
           </div>
         </section>
 
+        <section id="brands" class="icon-section">
+          <h2 class="section-title">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>Brand Icons</span>
+              <span class="count">{brandIcons.length} icons</span>
+            </div>
+          </h2>
+          <div class="icon-grid">
+            {brandIcons.map((icon) => {
+              const Icon = icon.component;
+              const isDark = icon.name.toLowerCase().includes('white');
+              return (
+                <div
+                  key={icon.name}
+                  class={`icon-card${isDark ? ' dark-bg' : ''}`}
+                >
+                  <div class="icon-wrapper">
+                    <Icon size={48} />
+                  </div>
+                  <div class="icon-name">{icon.name}</div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="brand-logos" class="icon-section">
+          <h2 class="section-title">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>Brand Logos</span>
+              <span class="count">{brandLogos.length} logos</span>
+            </div>
+          </h2>
+          <div class="logo-grid">
+            {brandLogos.map((icon) => {
+              const Icon = icon.component;
+              const isDark = icon.name.toLowerCase().includes('white');
+              return (
+                <div
+                  key={icon.name}
+                  class={`icon-card${isDark ? ' dark-bg' : ''}`}
+                >
+                  <div class="logo-wrapper">
+                    <Icon width={192} />
+                  </div>
+                  <div class="icon-name">{icon.name}</div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
         <section id="flags" class="icon-section">
           <h2 class="section-title">
             <a href="https://icon-sets.iconify.design/flag">
@@ -431,6 +545,7 @@ export default component$(() => {
             })}
           </div>
         </section>
+        <ClientLoopIconOnDarkBlue />
       </body>
     </>
   );
