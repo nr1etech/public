@@ -28,7 +28,7 @@ export default component$(() => {
                 onClick$={() => {
                   currentPage.value = 'universal-layout';
                 }}
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
               >
                 View UniversalLayout Demo
               </button>
@@ -49,17 +49,19 @@ export default component$(() => {
           </div>
         ) : (
           <div>
-            <div class="flex flex-col items-center p-4 mb-4">
+            <div class="mb-4 flex flex-col items-center p-4">
               <button
                 onClick$={() => {
                   currentPage.value = 'home';
                 }}
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4"
+                class="mb-4 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
               >
                 ← Back to Home
               </button>
               <h1 class="text-2xl font-bold">UniversalLayout Demo</h1>
-              <p class="text-sm text-gray-600">Each slot is a different color</p>
+              <p class="text-sm text-gray-600">
+                Each slot is a different color
+              </p>
             </div>
             <UniversalLayoutDemo />
           </div>

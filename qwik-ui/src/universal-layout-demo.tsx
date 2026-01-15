@@ -16,7 +16,7 @@ export const UniversalLayoutDemo = component$(() => {
       childrenClass="bg-gray-200"
     >
       {/* outerLeft slot */}
-      <div q:slot="outerLeft" class="bg-pink-500 p-4 text-white min-w-20">
+      <div q:slot="outerLeft" class="min-w-20 bg-pink-500 p-4 text-white">
         <div class="font-bold">Outer Left</div>
         <div class="text-sm">outerLeft slot</div>
       </div>
@@ -47,27 +47,29 @@ export const UniversalLayoutDemo = component$(() => {
 
       {/* Default children slot */}
       <div class="bg-gray-200 p-8 text-center">
-        <h2 class="text-2xl font-bold mb-2">Main Content Area (Default Slot)</h2>
+        <h2 class="mb-2 text-2xl font-bold">
+          Main Content Area (Default Slot)
+        </h2>
         <p>This is the children/default slot content</p>
       </div>
 
       <div q:slot="innerBottom" class="bg-yellow-500 p-4 text-center">
-        <h3 class="font-bold text-lg">Inner Bottom Slot</h3>
+        <h3 class="text-lg font-bold">Inner Bottom Slot</h3>
         <p>Content for innerBottom slot</p>
       </div>
 
-      <div q:slot="right" class="bg-purple-500 text-white p-4 w-48">
-        <h3 class="font-bold mb-2">Right Sidebar</h3>
+      <div q:slot="right" class="w-48 bg-purple-500 p-4 text-white">
+        <h3 class="mb-2 font-bold">Right Sidebar</h3>
         <p>This is the right slot</p>
       </div>
 
-      <div q:slot="bottom" class="bg-pink-500 text-white p-4">
+      <div q:slot="bottom" class="bg-pink-500 p-4 text-white">
         <h3 class="text-xl font-bold">Bottom Slot</h3>
         <p>Footer area - spans the full width</p>
       </div>
 
-      <div q:slot="outerRight" class="bg-purple-500 text-white p-4 min-w-32">
-        <h3 class="font-bold mb-2">Outer Right</h3>
+      <div q:slot="outerRight" class="min-w-32 bg-purple-500 p-4 text-white">
+        <h3 class="mb-2 font-bold">Outer Right</h3>
         <p>Outer right sidebar</p>
       </div>
     </UniversalLayout>
