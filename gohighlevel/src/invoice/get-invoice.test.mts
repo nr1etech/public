@@ -1,0 +1,13 @@
+import {test, expect} from 'vitest';
+import {getInvoice} from './get-invoice.mjs';
+import {getClient, TEST_LOCATION_ID} from '../helper.test.mjs';
+
+test('Test getInvoice @int @only', async () => {
+  const client = getClient();
+  const result = await getInvoice(client, {
+    locationId: TEST_LOCATION_ID,
+    invoiceId: '68b2c50dc5634b82e34a6391',
+  });
+  expect(result).toBeDefined();
+  console.log(result);
+});
