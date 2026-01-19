@@ -2,7 +2,7 @@ import {test, expect} from 'vitest';
 import {getInvoice} from './get-invoice.mjs';
 import {getClient, TEST_LOCATION_ID} from '../helper.test.mjs';
 
-test('Test getInvoice @int @only', async () => {
+test('Test getInvoice @int', async () => {
   const client = getClient();
   const result = await getInvoice(client, {
     locationId: TEST_LOCATION_ID,

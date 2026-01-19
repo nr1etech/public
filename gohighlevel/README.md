@@ -26,7 +26,8 @@ pnpm i @nr1e/gohighlevel
 Create a client and use it to fetch an invoice
 
 ```typescript
-import {createGoHighLevelClient, getInvoice} from '@nr1e/gohighlevel';
+import {createGoHighLevelClient} from '@nr1e/gohighlevel';
+import {getInvoice} from '@nr1e/gohighlevel/invoices';
 
 const client = createGoHighLevelClient({
     accessToken: 'YOUR_ACCESS_TOKEN',

@@ -4,5 +4,8 @@
   "devDependencies": {
 		"@changesets/cli": "^2.29.8"
 	},
+  "scripts": {
+    "changeset": "pnpx @changesets/cli"
+  },
   "packageManager": "pnpm@10.19.0"
 }

@@ -36,13 +36,30 @@
     "typescript-eslint": "catalog:",
     "vitest": "catalog:"
   },
-  "dependencies": {
-    "tslib": "catalog:"
-  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.mts"
+    },
+    "./contacts": {
+      "import": "./dist/contacts/index.mjs",
+      "types": "./dist/contacts/index.d.mts"
+    },
+    "./invoices": {
+      "import": "./dist/invoices/index.mjs",
+      "types": "./dist/invoices/index.d.mts"
+    },
+    "./locations": {
+      "import": "./dist/locations/index.mjs",
+      "types": "./dist/locations/index.d.mts"
+    },
+    "./oauth": {
+      "import": "./dist/oauth/index.mjs",
+      "types": "./dist/oauth/index.d.mts"
+    },
+    "./payments": {
+      "import": "./dist/payments/index.mjs",
+      "types": "./dist/payments/index.d.mts"
     }
   }
 }

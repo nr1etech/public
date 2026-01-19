@@ -1,29 +1,9 @@
 import {GoHighLevelClient} from '../client.mjs';
-import {INVOICE_API_VERSION} from './invoice-version.mjs';
 
 export type GetInvoiceInput = {
   locationId: string;
   invoiceId: string;
 };
-
-/**
- * Returns an Invoice by ID
- * @see https://marketplace.gohighlevel.com/docs/ghl/invoices/get-invoice
- * @see https://github.com/GoHighLevel/highlevel-api-sdk/blob/main/lib/code/invoices/models/invoices.ts
- *
- * @param client
- * @param input
- */
-export async function getInvoice(
-  client: GoHighLevelClient,
-  input: GetInvoiceInput,
-): Promise<GetInvoiceOutput> {
-  return client.get<GetInvoiceOutput>({
-    version: INVOICE_API_VERSION,
-    path: `/invoices/${input.invoiceId}`,
-    altId: input.locationId,
-  });
-}
 
 export type GetInvoiceOutput = {
   _id: string;
@@ -66,4 +46,24 @@ export interface RemindersConfigurationOutput {
   reminderSettings: {
     [key: string]: unknown;
   };
+}
+
+/**
+ * Returns an Invoice by ID
+ *
+ * @see https://marketplace.gohighlevel.com/docs/ghl/invoices/get-invoice
+ * @see https://github.com/GoHighLevel/highlevel-api-sdk/blob/main/lib/code/invoices/models/invoices.ts
+ *
+ * @param client
+ * @param input
+ */
+export async function getInvoice(
+  client: GoHighLevelClient,
+  input: GetInvoiceInput,
+): Promise<GetInvoiceOutput> {
+  return client.get<GetInvoiceOutput>({
+    version: '2021-07-28',
+    path: `/invoices/${input.invoiceId}`,
+    altId: input.locationId,
+  });
 }
