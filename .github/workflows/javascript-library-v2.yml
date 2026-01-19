@@ -3,6 +3,10 @@
 # Build, test and publish JavaScript libraries from a monorepo using
 # pnpm workspaces and changesets.
 ###############################################################################
+# Changes in V2:
+# - NPM authentication is done with OIDC and now longer with auth tokens
+# - @changesets/cli is used for versioning and publishing
+# - Handles monorepos with pnpm workspaces
 # Notes:
 # - Merging to the "main" branch will publish a production release
 # - Merging to any other branch will publish a snapshot release
@@ -52,6 +56,9 @@ jobs:
       matrix:
         node-version: ${{ fromJson(inputs.node-versions) }}
     steps:
+      #------------------------------------------------------------------------
+      # Setup
+      #------------------------------------------------------------------------
       - name: "Generate token"
         id: app-token
         uses: getsentry/action-github-app-token@v3
@@ -82,8 +89,18 @@ jobs:
           key: "${{ runner.os }}-${{ matrix.node-version }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}"
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-pnpm-store-
+      - name: "Check if monorepo"
+        run: |
+          if [ -f "pnpm-workspace.yaml" ]; then
+            echo "PNPM_RECURSIVE=-r" >> $GITHUB_ENV
+          else
+            echo "PNPM_RECURSIVE=" >> $GITHUB_ENV
+          fi
+      #------------------------------------------------------------------------
+      # Build
+      #------------------------------------------------------------------------
       - name: "Install dependencies"
-        run: pnpm -r i --frozen-lockfile --prefer-offline
+        run: pnpm ${{ env.PNPM_RECURSIVE }} i --frozen-lockfile --prefer-offline
       - name: "Snapshot version packages"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/develop' && github.event_name != 'pull_request'
         run: npx @changesets/cli version --snapshot snapshot
@@ -91,12 +108,12 @@ jobs:
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: npx @changesets/cli version
       - name: "Build"
-        run: pnpm -r build
+        run: pnpm ${{ env.PNPM_RECURSIVE }} build
       - name: "Test"
-        run: pnpm -r test
+        run: pnpm ${{ env.PNPM_RECURSIVE }} test
       - name: "Publish snapshot packages"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/develop' && github.event_name != 'pull_request'
-        run: npx @changesets/cli publish --tag snapshot --no-git-tag
+        run: pnpx @changesets/cli publish --tag snapshot --no-git-tag
       - name: "Commit and push release version bump"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
@@ -106,7 +123,7 @@ jobs:
           git push
       - name: "Publish release packages"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        run: npx @changesets/cli publish
+        run: pnpx @changesets/cli publish
       - name: "Push release tags"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: git push --follow-tags
