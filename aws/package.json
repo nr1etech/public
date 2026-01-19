@@ -16,10 +16,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
     "prebuild": "prettier --check . && eslint .",
+    "build": "tsc",
     "watch": "tsc -w",
-    "test": "vitest run",
+    "test": "vitest run -t @unit src",
+    "test:int": "dotenv -- vitest run -t @int src",
+    "test:only": "dotenv -- vitest run -t @only src",
     "clean": "rm -rf dist",
     "fmt": "prettier --write ."
   },
@@ -35,6 +37,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "catalog:",
     "@aws-sdk/client-eventbridge": "catalog:",
+    "@aws-sdk/client-lambda": "catalog:",
     "@aws-sdk/client-s3": "catalog:",
     "@aws-sdk/client-secrets-manager": "catalog:",
     "@aws-sdk/client-ses": "catalog:",
