@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 1.0.1
+### Patch Changes
+
+- 05f6b7c: Adjusted return types from UnmarshalledStreamRecord
+
 ## 1.0.0
 ### Major Changes
 
