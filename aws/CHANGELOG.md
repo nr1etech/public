@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 1.0.2
+### Patch Changes
+
+- 9e14603: Added DynamoDBStreamEvent export
+
 ## 1.0.1
 ### Patch Changes
 
