@@ -34,7 +34,7 @@ export type CreateCustomProviderIntegrationOutput = {
 };
 
 /**
- * Creates a new payment provider.
+ * Create a new association for an app and location.
  *
  * @see https://help.gohighlevel.com/support/solutions/articles/155000002620-how-to-build-a-custom-payments-integration-on-the-platform
  * @see https://marketplace.gohighlevel.com/docs/ghl/payments/create-integration

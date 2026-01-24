@@ -31,7 +31,7 @@ export type CreateCustomProviderConfigOutput = {
 };
 
 /**
- * Creates a new custom payment provider configuration.
+ * Create a new payment config for given location for test and live.
  *
  * @see https://help.gohighlevel.com/support/solutions/articles/155000002620-how-to-build-a-custom-payments-integration-on-the-platform
  * @see https://marketplace.gohighlevel.com/docs/ghl/payments/create-config
