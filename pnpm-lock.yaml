@@ -33,6 +33,9 @@ catalogs:
     '@aws-sdk/s3-request-presigner':
       specifier: 3.958.0
       version: 3.958.0
+    '@aws-sdk/util-dynamodb':
+      specifier: 3.958.0
+      version: 3.958.0
     '@builder.io/qwik':
       specifier: 1.18.0
       version: 1.18.0
@@ -45,6 +48,9 @@ catalogs:
     '@tailwindcss/vite':
       specifier: ^4.1.17
       version: 4.1.18
+    '@types/aws-lambda':
+      specifier: 8.10.152
+      version: 8.10.152
     '@types/node':
       specifier: ^20.19.0
       version: 20.19.0
@@ -158,9 +164,15 @@ importers:
       '@aws-sdk/s3-request-presigner':
         specifier: 'catalog:'
         version: 3.958.0
+      '@aws-sdk/util-dynamodb':
+        specifier: 'catalog:'
+        version: 3.958.0(@aws-sdk/client-dynamodb@3.958.0)
       '@nr1e/commons':
         specifier: 'workspace:'
         version: link:../commons
+      '@types/aws-lambda':
+        specifier: 'catalog:'
+        version: 8.10.152
     devDependencies:
       '@eslint/js':
         specifier: 'catalog:'
@@ -1725,6 +1737,9 @@ packages:
 
   '@tybys/wasm-util@0.8.3':
     resolution: {integrity: sha512-Z96T/L6dUFFxgFJ+pQtkPpne9q7i6kIPYCFnQBHSgSPV9idTsKfIhCss0h5iM9irweZCatkrdeP8yi5uM1eX6Q==}
+
+  '@types/aws-lambda@8.10.152':
+    resolution: {integrity: sha512-soT/c2gYBnT5ygwiHPmd9a1bftj462NWVk2tKCc1PYHSIacB2UwbTS2zYG4jzag1mRDuzg/OjtxQjQ2NKRB6Rw==}
 
   '@types/cacheable-request@6.0.3':
     resolution: {integrity: sha512-IQ3EbTzGxIigb1I3qPZc1rWJnH0BmSKv5QYTalEwweFvyBDLSAe24zP0le/hyi7ecGfZVlIVAg4BZqb8WBwKqw==}
@@ -6784,6 +6799,8 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@types/aws-lambda@8.10.152': {}
 
   '@types/cacheable-request@6.0.3':
     dependencies:

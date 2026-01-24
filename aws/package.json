@@ -35,6 +35,7 @@
     "vitest": "catalog:"
   },
   "dependencies": {
+    "@types/aws-lambda": "catalog:",
     "@aws-sdk/client-dynamodb": "catalog:",
     "@aws-sdk/client-eventbridge": "catalog:",
     "@aws-sdk/client-lambda": "catalog:",
@@ -44,6 +45,7 @@
     "@aws-sdk/client-sqs": "catalog:",
     "@aws-sdk/lib-dynamodb": "catalog:",
     "@aws-sdk/s3-request-presigner": "catalog:",
+    "@aws-sdk/util-dynamodb": "catalog:",
     "@nr1e/commons": "workspace:"
   },
   "exports": {
