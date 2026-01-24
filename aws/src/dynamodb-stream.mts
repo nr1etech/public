@@ -18,9 +18,12 @@ export function unmarshallAttributeValueMap<T>(
 
 export interface UnmarshalledStreamRecord {
   ApproximateCreationDateTime?: number | undefined;
-  Keys?: object;
-  NewImage?: object;
-  OldImage?: object;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Keys?: Record<string, any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  NewImage?: Record<string, any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  OldImage?: Record<string, any>;
   SequenceNumber?: string | undefined;
   SizeBytes?: number | undefined;
   StreamViewType?:
