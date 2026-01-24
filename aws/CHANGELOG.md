@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 1.0.0
+### Major Changes
+
+- bbc5977: Added DynamoDB stream unmarshallStreamRecord
+
 ## 0.0.7
 ### Patch Changes
 
