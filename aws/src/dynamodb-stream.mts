@@ -3,6 +3,7 @@ import * as client from '@aws-sdk/client-dynamodb';
 import {AttributeValue, StreamRecord} from 'aws-lambda';
 
 export {unmarshall, StreamRecord, AttributeValue};
+export {DynamoDBStreamEvent} from 'aws-lambda';
 
 export type AttributeValueMap = {[key: string]: AttributeValue};
 
