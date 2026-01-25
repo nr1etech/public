@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.6
+### Patch Changes
+
+- 0c5422b: Added alert components
+
 ## 0.0.5
 ### Patch Changes
 
