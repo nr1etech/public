@@ -38,7 +38,7 @@ catalog:
   "openapi-typescript": "7.10.1"
   "pino": "^10.1.0"
   "pino-abstract-transport": "^3.0.0"
-  "prettier": "3.6.2"
+  "prettier": "3.8.1"
   "prettier-plugin-tailwindcss": "^0.7.1"
   "sonic-boom": "^4.2.0"
   "tailwindcss": "^4.1.17"
