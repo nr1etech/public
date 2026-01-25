@@ -1,6 +1,7 @@
 export * from './dynamodb.mjs';
 export * from './dynamodb-stream.mjs';
 export * from './event-bridge.mjs';
+export * from './geo-places.mjs';
 export * from './lambda.mjs';
 export * from './region.mjs';
 export * from './s3.mjs';
