@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.7
+### Patch Changes
+
+- 049580b: Fixed missing export for info alert
+
 ## 0.0.6
 ### Patch Changes
 
