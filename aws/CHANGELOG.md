@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 1.0.3
+### Patch Changes
+
+- e631c19: Added geo places functionality
+
 ## 1.0.2
 ### Patch Changes
 
