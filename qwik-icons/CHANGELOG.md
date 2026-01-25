@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.10
+### Patch Changes
+
+- 5cc5eb9: Added additional MDI warning, error and alert icons
+
 ## 0.0.9
 ### Patch Changes
 
