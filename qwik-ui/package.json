@@ -19,11 +19,13 @@
       "import": "./lib/index.qwik.mjs",
       "require": "./lib/index.qwik.cjs",
       "types": "./lib-types/index.d.ts"
-    }
+    },
+    "./styles.css": "./styles.css"
   },
   "files": [
     "lib",
-    "lib-types"
+    "lib-types",
+    "styles.css"
   ],
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
