@@ -50,6 +50,7 @@
   "devDependencies": {
     "@builder.io/qwik": "catalog:",
     "@eslint/js": "catalog:",
+    "@nr1e/qwik-icons": "workspace:",
     "@tailwindcss/vite": "catalog:",
     "@types/node": "catalog:",
     "daisyui": "catalog:",

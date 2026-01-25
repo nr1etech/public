@@ -2,6 +2,10 @@ import './global.css';
 import {component$, useSignal} from '@builder.io/qwik';
 import {PaceBar} from './components/pace-bar';
 import {UniversalLayoutDemo} from './universal-layout-demo';
+import {AlertSuccess} from './components/alert-success';
+import {AlertWarning} from './components/alert-warning';
+import {AlertError} from './components/alert-error';
+import {AlertInfo} from './components/alert-info';
 
 export default component$(() => {
   const currentPage = useSignal<'home' | 'universal-layout'>('home');
@@ -33,19 +37,27 @@ export default component$(() => {
                 View UniversalLayout Demo
               </button>
             </div>
+            <div class="flex w-full max-w-4xl flex-col space-y-6">
+              <div class="w-full space-y-2">
+                <div class="text-2xl">PaceBar</div>
+                <PaceBar value={1} class="progress-accent" />
+                <PaceBar value={20} class="progress-accent" />
+                <PaceBar value={40} class="progress-accent" />
+                <PaceBar value={60} class="progress-accent" />
+                <PaceBar value={80} class="progress-accent" />
+                <PaceBar value={100} class="progress-accent" />
+                <PaceBar value={-1} class="progress-accent" />
+                <PaceBar value={1} asymptotic={true} class="progress-accent" />
+              </div>
 
-            <div class="w-full space-y-2">
-              <div class="text-2xl">PaceBar</div>
-              <PaceBar value={1} class="progress-accent" />
-              <PaceBar value={20} class="progress-accent" />
-              <PaceBar value={40} class="progress-accent" />
-              <PaceBar value={60} class="progress-accent" />
-              <PaceBar value={80} class="progress-accent" />
-              <PaceBar value={100} class="progress-accent" />
-              <PaceBar value={-1} class="progress-accent" />
-              <PaceBar value={1} asymptotic={true} class="progress-accent" />
+              <div class="w-full space-y-2">
+                <div class="text-2xl">Alert</div>
+                <AlertInfo message="This is an informational message" />
+                <AlertSuccess message="This is a successful message" />
+                <AlertWarning message="This is a warning message" />
+                <AlertError message="This is an error message" />
+              </div>
             </div>
-            <div class="text-error">Moo</div>
           </div>
         ) : (
           <div>
