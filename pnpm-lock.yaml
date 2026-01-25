@@ -94,8 +94,8 @@ catalogs:
       specifier: ^3.0.0
       version: 3.0.0
     prettier:
-      specifier: 3.6.2
-      version: 3.6.2
+      specifier: 3.8.1
+      version: 3.8.1
     prettier-plugin-tailwindcss:
       specifier: ^0.7.1
       version: 0.7.2
@@ -200,7 +200,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       typescript:
         specifier: 'catalog:'
         version: 5.4.5
@@ -237,7 +237,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       typescript:
         specifier: 'catalog:'
         version: 5.4.5
@@ -267,7 +267,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       typescript:
         specifier: 'catalog:'
         version: 5.4.5
@@ -304,7 +304,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       typescript:
         specifier: 'catalog:'
         version: 5.4.5
@@ -341,7 +341,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       testcontainers:
         specifier: 'catalog:'
         version: 10.28.0
@@ -380,7 +380,7 @@ importers:
         version: 8.0.4(@types/node@20.19.0)(typescript@5.4.5)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       typescript:
         specifier: 'catalog:'
         version: 5.4.5
@@ -434,10 +434,10 @@ importers:
         version: 8.0.4(@types/node@20.19.0)(typescript@5.4.5)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       prettier-plugin-tailwindcss:
         specifier: 'catalog:'
-        version: 0.7.2(prettier@3.6.2)
+        version: 0.7.2(prettier@3.8.1)
       tailwindcss:
         specifier: 'catalog:'
         version: 4.1.18
@@ -4024,8 +4024,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.6.2:
-    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+  prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -9355,13 +9355,13 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.7.2(prettier@3.6.2):
+  prettier-plugin-tailwindcss@0.7.2(prettier@3.8.1):
     dependencies:
-      prettier: 3.6.2
+      prettier: 3.8.1
 
   prettier@2.8.8: {}
 
-  prettier@3.6.2: {}
+  prettier@3.8.1: {}
 
   process-nextick-args@2.0.1: {}
 
