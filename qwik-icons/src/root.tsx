@@ -22,6 +22,9 @@ import {
   FlagZa4x3,
   LogosGoogleIcon,
   LogosMicrosoftIcon,
+  MdiAdd,
+  MdiAddBold,
+  MdiAddBox,
   MdiAddCircle,
   MdiAddCircleOutline,
   MdiAirHorn,
@@ -116,6 +119,9 @@ import {
 
 export default component$(() => {
   const icons = [
+    {component: MdiAdd, name: 'MdiAdd'},
+    {component: MdiAddBold, name: 'MdiAddBold'},
+    {component: MdiAddBox, name: 'MdiAddBox'},
     {component: MdiAddCircle, name: 'MdiAddCircle'},
     {component: MdiAddCircleOutline, name: 'MdiAddCircleOutline'},
     {component: MdiAirHorn, name: 'MdiAirHorn'},

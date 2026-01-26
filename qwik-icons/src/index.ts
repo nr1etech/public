@@ -1,4 +1,7 @@
 export * from './components/svg';
+export * from './components/icons/mdi-add';
+export * from './components/icons/mdi-add-bold';
+export * from './components/icons/mdi-add-box';
 export * from './components/icons/mdi-add-circle';
 export * from './components/icons/mdi-add-circle-outline';
 export * from './components/icons/mdi-air-horn';
