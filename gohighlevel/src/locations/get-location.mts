@@ -38,26 +38,28 @@ export type Settings = {
 };
 
 export type GetLocationOutput = {
-  id?: string;
-  companyId?: string;
-  name?: string;
-  domain?: string;
-  address?: string;
-  city?: string;
-  state?: string;
-  logoUrl?: string;
-  country?: string;
-  postalCode?: string;
-  website?: string;
-  timezone?: string;
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  phone?: string;
-  business?: Business;
-  social?: Social;
-  settings?: Settings;
-  reseller?: {[key: string]: unknown};
+  location: {
+    id?: string;
+    companyId?: string;
+    name?: string;
+    domain?: string;
+    address?: string;
+    city?: string;
+    state?: string;
+    logoUrl?: string;
+    country?: string;
+    postalCode?: string;
+    website?: string;
+    timezone?: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
+    business?: Business;
+    social?: Social;
+    settings?: Settings;
+    reseller?: {[key: string]: unknown};
+  };
 };
 
 /**
