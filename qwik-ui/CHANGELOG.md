@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.8
+### Patch Changes
+
+- 1f8587b: Added styles.css
+
 ## 0.0.7
 ### Patch Changes
 
