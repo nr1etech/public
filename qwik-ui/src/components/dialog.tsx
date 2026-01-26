@@ -5,6 +5,7 @@ export interface DialogProps {
   id?: string;
   open: Signal<boolean>;
   showCloseIcon?: boolean;
+  class?: string;
 }
 
 export const Dialog = component$((props: DialogProps) => {
@@ -18,7 +19,11 @@ export const Dialog = component$((props: DialogProps) => {
     }),
   );
   return (
-    <dialog class="modal" id={props.id} open={props.open.value}>
+    <dialog
+      class={`modal z-20 ${props.class}`}
+      id={props.id}
+      open={props.open.value}
+    >
       <div class="modal-box">
         {props.showCloseIcon && (
           <div
