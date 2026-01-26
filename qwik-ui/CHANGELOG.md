@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.9
+### Patch Changes
+
+- bbb19b3: Added Dialog component
+
 ## 0.0.8
 ### Patch Changes
 
