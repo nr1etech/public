@@ -2,7 +2,7 @@ import {$, component$, Signal, Slot, useOnDocument} from '@builder.io/qwik';
 import {MdiClose} from '@nr1e/qwik-icons';
 
 export interface DialogProps {
-  id: string;
+  id?: string;
   open: Signal<boolean>;
   showCloseIcon?: boolean;
 }
