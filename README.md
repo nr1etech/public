@@ -17,3 +17,10 @@ recommended you do this with your changes, not after.
 ```bash
 npx @changesets/cli
 ```
+
+Inside _global.css_, add the following:
+```css
+@import "@nr1e/qwik-ui/styles.css";
+```
+
+This typically should appear under your _@import 'tailwindcss';_ statement.
