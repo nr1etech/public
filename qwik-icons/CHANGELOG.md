@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.13
+### Patch Changes
+
+- a737364: Added spinner icons
+
 ## 0.0.12
 ### Patch Changes
 

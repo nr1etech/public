@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.11
+### Patch Changes
+
+- f44a94b: Added a z-index and ability to add CSS classes to Dialog
+
 ## 0.0.10
 ### Patch Changes
 

@@ -110,6 +110,9 @@ import {
   MdiWarningCircleOutline,
   MdiWarningOutline,
   MdiWrenchOutline,
+  Spinners6DotsRotate,
+  SpinnersBarsRotateFade,
+  SpinnersRingResize,
   ClientLoopLogoWhite,
   ClientLoopLogoPrimary,
   ClientLoopLogoLightBlue,
@@ -261,6 +264,12 @@ export default component$(() => {
     {component: FlagUs4x3, name: 'FlagUs4x3'},
     {component: FlagZa1x1, name: 'FlagZa1x1'},
     {component: FlagZa4x3, name: 'FlagZa4x3'},
+  ];
+
+  const spinnerIcons = [
+    {component: Spinners6DotsRotate, name: 'Spinners6DotsRotate'},
+    {component: SpinnersBarsRotateFade, name: 'SpinnersBarsRotateFade'},
+    {component: SpinnersRingResize, name: 'SpinnersRingResize'},
   ];
 
   return (
@@ -480,6 +489,12 @@ export default component$(() => {
                 <span class="nav-count">({flagIcons.length})</span>
               </a>
             </li>
+            <li>
+              <a href="#spinners">
+                <span>Spinners</span>
+                <span class="nav-count">({spinnerIcons.length})</span>
+              </a>
+            </li>
           </ul>
         </nav>
 
@@ -588,6 +603,28 @@ export default component$(() => {
           </h2>
           <div class="icon-grid">
             {flagIcons.map((icon) => {
+              const Icon = icon.component;
+              return (
+                <div key={icon.name} class="icon-card">
+                  <div class="icon-wrapper">
+                    <Icon size={48} />
+                  </div>
+                  <div class="icon-name">{icon.name}</div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="spinners" class="icon-section">
+          <h2 class="section-title">
+            <a href="https://icon-sets.iconify.design/svg-spinners">
+              <span>Spinners</span>
+              <span class="count">{spinnerIcons.length} icons</span>
+            </a>
+          </h2>
+          <div class="icon-grid">
+            {spinnerIcons.map((icon) => {
               const Icon = icon.component;
               return (
                 <div key={icon.name} class="icon-card">
