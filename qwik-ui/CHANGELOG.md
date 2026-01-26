@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.10
+### Patch Changes
+
+- af5d3e8: Made id optional on Dialog
+
 ## 0.0.9
 ### Patch Changes
 
