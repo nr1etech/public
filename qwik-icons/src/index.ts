@@ -88,6 +88,11 @@ export * from './components/icons/mdi-warning-circle-outline';
 export * from './components/icons/mdi-warning-outline';
 export * from './components/icons/mdi-wrench-outline';
 
+// Spinners
+export * from './components/icons/spinners-6-dots-rotate';
+export * from './components/icons/spinners-bars-rotate-fade';
+export * from './components/icons/spinners-ring-resize';
+
 // Logos
 export * from './components/icons/logos-google-icon';
 export * from './components/icons/logos-microsoft-icon';
