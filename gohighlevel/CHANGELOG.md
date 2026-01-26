@@ -1,5 +1,10 @@
 # @nr1e/gohighlevel
 
+## 0.0.2
+### Patch Changes
+
+- 982b8d8: Fixed getLocation response
+
 ## 0.0.1
 ### Patch Changes
 
