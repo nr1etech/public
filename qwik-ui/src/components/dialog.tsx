@@ -20,7 +20,7 @@ export const Dialog = component$((props: DialogProps) => {
   );
   return (
     <dialog
-      class={`modal z-20 ${props.class}`}
+      class={`modal ${props.class}`}
       id={props.id}
       open={props.open.value}
     >
