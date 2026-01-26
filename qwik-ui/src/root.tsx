@@ -6,10 +6,11 @@ import {AlertSuccess} from './components/alert-success';
 import {AlertWarning} from './components/alert-warning';
 import {AlertError} from './components/alert-error';
 import {AlertInfo} from './components/alert-info';
+import {Dialog} from './components/dialog';
 
 export default component$(() => {
   const currentPage = useSignal<'home' | 'universal-layout'>('home');
-
+  const openDialog1 = useSignal(false);
   return (
     <>
       <head>
@@ -56,6 +57,22 @@ export default component$(() => {
                 <AlertSuccess message="This is a successful message" />
                 <AlertWarning message="This is a warning message" />
                 <AlertError message="This is an error message" />
+              </div>
+
+              <div class="w-full space-y-2">
+                <div class="text-2xl">Dialog</div>
+                <button class="btn" onClick$={() => (openDialog1.value = true)}>
+                  Open
+                </button>
+                <Dialog id="dialog1" open={openDialog1} showCloseIcon={true}>
+                  <div class="font-semibold">Do something</div>
+                  <button
+                    class="btn"
+                    onClick$={() => (openDialog1.value = false)}
+                  >
+                    Close
+                  </button>
+                </Dialog>
               </div>
             </div>
           </div>
