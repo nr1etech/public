@@ -25,6 +25,7 @@ export const TextField = component$((props: TextFieldProps) => {
         <Slot name="left" />
         <input
           type="text"
+          {...(props.name && {name: props.name})}
           class="placeholder:opacity-50"
           placeholder={props.placeholder}
           onBlur$={(e) => props.onBlur$ && props.onBlur$(e, error)}
