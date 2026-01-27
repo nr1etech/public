@@ -1,5 +1,5 @@
 import './global.css';
-import {$, component$, useSignal} from '@builder.io/qwik';
+import {component$, useSignal} from '@builder.io/qwik';
 import {PaceBar} from './components/pace-bar';
 import {UniversalLayoutDemo} from './universal-layout-demo';
 import {AlertSuccess} from './components/alert-success';
@@ -9,6 +9,7 @@ import {AlertInfo} from './components/alert-info';
 import {Dialog} from './components/dialog';
 import {TextField} from './components/text-field';
 import {MdiAirHorn} from '@nr1e/qwik-icons';
+import CheckboxField from './components/checkbox-field';
 
 export default component$(() => {
   const currentPage = useSignal<'home' | 'universal-layout'>('home');
@@ -41,7 +42,7 @@ export default component$(() => {
                 View UniversalLayout Demo
               </button>
             </div>
-            <div class="flex w-full max-w-4xl flex-col space-y-6">
+            <div class="flex w-full max-w-4xl flex-col space-y-6 pb-[200px]">
               <div class="w-full space-y-2">
                 <div class="text-2xl">PaceBar</div>
                 <PaceBar value={1} class="progress-accent" />
@@ -161,6 +162,18 @@ export default component$(() => {
                         error.value = 'You typed something';
                       }}
                     ></TextField>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-full space-y-2">
+                <div class="text-2xl">CheckboxField</div>
+                <div class="flex flex-wrap gap-4">
+                  <div class="w-sm">
+                    <CheckboxField label="Remember me" />
+                  </div>
+                  <div class="w-sm">
+                    <CheckboxField label="Remember me" checked={true} />
                   </div>
                 </div>
               </div>

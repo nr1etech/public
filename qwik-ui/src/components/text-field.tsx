@@ -17,7 +17,7 @@ export interface TextFieldProps {
 export const TextField = component$((props: TextFieldProps) => {
   const error = useSignal<string | undefined | null>(props.error);
   return (
-    <div class="form-control">
+    <div class="fieldset">
       <label class="label">
         <span class="label-text">{props.label}</span>
       </label>
