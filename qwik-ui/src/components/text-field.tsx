@@ -1,4 +1,11 @@
-import {Slot, component$, QRL, useSignal, Signal} from '@builder.io/qwik';
+import {
+  Slot,
+  component$,
+  QRL,
+  Signal,
+  useSignal,
+  useTask$,
+} from '@builder.io/qwik';
 
 export interface TextFieldProps {
   id?: string;
@@ -6,7 +13,7 @@ export interface TextFieldProps {
   name?: string;
   value?: string | null;
   placeholder?: string;
-  error?: string;
+  error?: string | Signal<string | undefined>;
   maxLength?: number;
   onBlur$?: QRL<
     (
@@ -33,7 +40,25 @@ export interface TextFieldProps {
 }
 
 export const TextField = component$((props: TextFieldProps) => {
-  const error = useSignal<string | undefined>(props.error);
+  const error = useSignal<string | undefined>(
+    typeof props.error === 'string' ? props.error : props.error?.value,
+  );
+  useTask$(({track}) => {
+    if (props.error && typeof props.error !== 'string') {
+      track(() => error.value);
+      if (error.value !== props.error?.value) {
+        error.value = props.error.value;
+      }
+    }
+  });
+  useTask$(({track}) => {
+    if (props.error && typeof props.error !== 'string') {
+      track(() => (props.error as Signal).value);
+      if (props.error && error.value !== props.error.value) {
+        props.error.value = error.value;
+      }
+    }
+  });
   return (
     <div class="fieldset">
       <label class="label" {...(props.id && {for: props.id})}>
