@@ -22,6 +22,14 @@ export interface TextFieldProps {
       error: Signal<string | undefined>,
     ) => void
   >;
+  onEvent$?: QRL<
+    (
+      type: 'blur' | 'input',
+      event: FocusEvent | InputEvent,
+      value: string,
+      error: Signal<string | undefined>,
+    ) => void
+  >;
 }
 
 export const TextField = component$((props: TextFieldProps) => {
@@ -40,14 +48,28 @@ export const TextField = component$((props: TextFieldProps) => {
           {...(props.value && {value: props.value})}
           class="placeholder:opacity-50"
           placeholder={props.placeholder}
-          onBlur$={(e) =>
-            props.onBlur$ &&
-            props.onBlur$(e, (e.target as HTMLInputElement).value, error)
-          }
-          onInput$={(e) =>
-            props.onInput$ &&
-            props.onInput$(e, (e.target as HTMLInputElement).value, error)
-          }
+          onBlur$={(e) => {
+            if (props.onBlur$)
+              props.onBlur$(e, (e.target as HTMLInputElement).value, error);
+            if (props.onEvent$)
+              props.onEvent$(
+                'blur',
+                e,
+                (e.target as HTMLInputElement).value,
+                error,
+              );
+          }}
+          onInput$={(e) => {
+            if (props.onInput$)
+              props.onInput$(e, (e.target as HTMLInputElement).value, error);
+            if (props.onEvent$)
+              props.onEvent$(
+                'input',
+                e,
+                (e.target as HTMLInputElement).value,
+                error,
+              );
+          }}
         />
         <Slot name="right" />
       </label>
