@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.16
+### Patch Changes
+
+- 358a602: Added alerts to dialog and refactored actions
+
 ## 0.0.15
 ### Patch Changes
 
