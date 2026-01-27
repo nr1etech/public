@@ -1,5 +1,11 @@
 # @nr1e/qwik-ui
 
+## 0.0.18
+### Patch Changes
+
+- 38b8234: Added value prop to TextField
+- 242b5d3: Added dialog as parameter to onOpen and onClosed
+
 ## 0.0.17
 ### Patch Changes
 
