@@ -4,6 +4,7 @@ export interface TextFieldProps {
   id?: string;
   label: string;
   name?: string;
+  value?: string | null;
   placeholder?: string;
   error?: string;
   maxLength?: number;
@@ -34,8 +35,9 @@ export const TextField = component$((props: TextFieldProps) => {
         <Slot name="left" />
         <input
           type="text"
-          {...(props.name && {name: props.name})}
           {...(props.id && {id: props.id})}
+          {...(props.name && {name: props.name})}
+          {...(props.value && {value: props.value})}
           class="placeholder:opacity-50"
           placeholder={props.placeholder}
           onBlur$={(e) =>
