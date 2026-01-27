@@ -49,5 +49,5 @@ catalog:
   "undici": "*"
   "uuid": "^11.0.5"
   "vite": "7.2.6"
-  "vite-tsconfig-paths": "^4.2.1"
+  "vite-tsconfig-paths": "^6.0.5"
   "vitest": "4.0.6"
