@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.21
+### Patch Changes
+
+- e4d5995: Allowed error to be a sginal on Field types
+
 ## 0.0.20
 ### Patch Changes
 
