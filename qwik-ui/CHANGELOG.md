@@ -1,5 +1,17 @@
 # @nr1e/qwik-ui
 
+## 0.0.12
+### Patch Changes
+
+- bd58eef: Removed z-index from Dialog
+- 9e74ae2: Added id to CheckboxField
+- 81b2784: Added SelectField
+- 275b3e3: Fixed name field in TextField
+- 937a7a5: Added id to TextField
+- 7843aad: Added title to Dialog
+  Added TextField
+- 269ac12: Added CheckboxField
+
 ## 0.0.11
 ### Patch Changes
 
