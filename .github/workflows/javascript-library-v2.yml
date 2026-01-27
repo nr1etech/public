@@ -53,6 +53,7 @@ jobs:
   javascript-library:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         node-version: ${{ fromJson(inputs.node-versions) }}
     steps:
