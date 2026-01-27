@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.17
+### Patch Changes
+
+- 1092b1e: Added onClose and onOpen to Dialog
+
 ## 0.0.16
 ### Patch Changes
 
