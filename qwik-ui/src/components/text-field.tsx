@@ -1,6 +1,7 @@
 import {Slot, component$, QRL, useSignal, Signal} from '@builder.io/qwik';
 
 export interface TextFieldProps {
+  id?: string;
   label: string;
   name?: string;
   placeholder?: string;
@@ -18,7 +19,7 @@ export const TextField = component$((props: TextFieldProps) => {
   const error = useSignal<string | undefined | null>(props.error);
   return (
     <div class="fieldset">
-      <label class="label">
+      <label class="label" {...(props.id && {for: props.id})}>
         <span class="label-text">{props.label}</span>
       </label>
       <label class={`input w-full ${error.value ? 'input-error' : ''}`}>
@@ -26,6 +27,7 @@ export const TextField = component$((props: TextFieldProps) => {
         <input
           type="text"
           {...(props.name && {name: props.name})}
+          {...(props.id && {id: props.id})}
           class="placeholder:opacity-50"
           placeholder={props.placeholder}
           onBlur$={(e) => props.onBlur$ && props.onBlur$(e, error)}
