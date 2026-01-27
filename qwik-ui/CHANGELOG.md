@@ -1,5 +1,12 @@
 # @nr1e/qwik-ui
 
+## 0.0.15
+### Patch Changes
+
+- 1226127: Added onClick and error support to CheckboxField.
+  Added onChange and error support to SelectField.
+  Added value type to onBlur and onInput for TextField.
+
 ## 0.0.14
 ### Patch Changes
 
