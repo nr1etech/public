@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.14
+### Patch Changes
+
+- eb139e5: Fixed label on SelectField
+
 ## 0.0.13
 ### Patch Changes
 
