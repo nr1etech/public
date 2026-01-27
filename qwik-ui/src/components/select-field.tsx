@@ -8,6 +8,21 @@ export interface SelectFieldProps {
   onChange$?: QRL<
     (event: Event, value: string, error: Signal<string | undefined>) => void
   >;
+  onBlur$?: QRL<
+    (
+      event: FocusEvent,
+      value: string,
+      error: Signal<string | undefined>,
+    ) => void
+  >;
+  onEvent$?: QRL<
+    (
+      type: 'blur' | 'change',
+      event: Event,
+      value: string,
+      error: Signal<string | undefined>,
+    ) => void
+  >;
 }
 
 export const SelectField = component$((props: SelectFieldProps) => {
@@ -21,10 +36,28 @@ export const SelectField = component$((props: SelectFieldProps) => {
         {...(props.name && {name: props.name})}
         {...(props.id && {id: props.id})}
         class={`select ${error.value ? 'select-error' : ''}`}
-        onChange$={(e) =>
-          props.onChange$ &&
-          props.onChange$(e, (e.target as HTMLSelectElement).value, error)
-        }
+        onChange$={(e) => {
+          if (props.onChange$)
+            props.onChange$(e, (e.target as HTMLSelectElement).value, error);
+          if (props.onEvent$)
+            props.onEvent$(
+              'change',
+              e,
+              (e.target as HTMLSelectElement).value,
+              error,
+            );
+        }}
+        onBlur$={(e) => {
+          if (props.onBlur$)
+            props.onBlur$(e, (e.target as HTMLSelectElement).value, error);
+          if (props.onEvent$)
+            props.onEvent$(
+              'blur',
+              e,
+              (e.target as HTMLSelectElement).value,
+              error,
+            );
+        }}
       >
         <Slot />
       </select>
