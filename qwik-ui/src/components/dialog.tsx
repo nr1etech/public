@@ -24,23 +24,24 @@ export interface DialogProps {
   infoMessage?: string;
   successMessage?: string;
   warningMessage?: string;
-  onClose$?: QRL<() => void>;
-  onOpen$?: QRL<() => void>;
+  onClose$?: QRL<(e: HTMLDialogElement) => void>;
+  onOpen$?: QRL<(e: HTMLDialogElement) => void>;
 }
 
 export const Dialog = component$((props: DialogProps) => {
   const internalOpen = useSignal(props.open.value);
+  const dialog = useSignal<HTMLDialogElement>();
   useTask$(({track}) => {
     track(() => props.open.value);
     if (!props.open.value && internalOpen.value) {
-      if (props.onClose$) {
-        props.onClose$();
+      if (props.onClose$ && dialog.value) {
+        props.onClose$(dialog.value);
       }
       internalOpen.value = false;
     }
     if (props.open.value && !internalOpen.value) {
-      if (props.onOpen$) {
-        props.onOpen$();
+      if (props.onOpen$ && dialog.value) {
+        props.onOpen$(dialog.value);
       }
       internalOpen.value = true;
     }
@@ -56,6 +57,7 @@ export const Dialog = component$((props: DialogProps) => {
   );
   return (
     <dialog
+      ref={dialog}
       class={`modal ${props.class}`}
       id={props.id}
       open={internalOpen.value}

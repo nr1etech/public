@@ -121,11 +121,11 @@ export default component$(() => {
                   title="Doing something"
                   warningMessage={dialog3Warning.value}
                   errorMessage={dialog3Error.value}
-                  onOpen$={() => {
-                    console.log('onOpen');
+                  onOpen$={(e) => {
+                    console.log('Opened', e.id);
                   }}
-                  onClose$={() => {
-                    console.log('onClose');
+                  onClose$={(e) => {
+                    console.log('Closed', e.id);
                   }}
                 >
                   <div>Nothing to see here.</div>
