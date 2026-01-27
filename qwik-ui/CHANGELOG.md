@@ -1,5 +1,11 @@
 # @nr1e/qwik-ui
 
+## 0.0.20
+### Patch Changes
+
+- 94db501: Added onBlur and onEvent to SelectField
+- 5601242: Added onEvent callback to TextField
+
 ## 0.0.19
 ### Patch Changes
 
