@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.13
+### Patch Changes
+
+- 0d8f1cb: Fixed CheckboxField export"
+
 ## 0.0.12
 ### Patch Changes
 
