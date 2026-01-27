@@ -2,7 +2,7 @@ import {component$, Slot} from '@builder.io/qwik';
 
 export interface SelectFieldProps {
   id?: string;
-  title: string;
+  label: string;
   name?: string;
 }
 
@@ -10,7 +10,7 @@ export const SelectField = component$((props: SelectFieldProps) => {
   return (
     <div class="fieldset">
       <label class="label" {...(props.id && {for: props.id})}>
-        <span class="label-text">{props.title}</span>
+        <span class="label-text">{props.label}</span>
       </label>
       <select
         {...(props.name && {name: props.name})}

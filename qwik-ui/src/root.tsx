@@ -171,14 +171,14 @@ export default component$(() => {
                 <div class="text-2xl">SelectField</div>
                 <div class="flex flex-wrap gap-4">
                   <div class="w-sm">
-                    <SelectField title="Select one">
+                    <SelectField label="Select one">
                       <option value="1">Option 1</option>
                       <option value="2">Option 2</option>
                       <option value="3">Option 3</option>
                     </SelectField>
                   </div>
                   <div class="w-sm">
-                    <SelectField title="Select one">
+                    <SelectField label="Select one">
                       <option value="1">Option 1</option>
                       <option value="2">Option 2</option>
                       <option value="3">Option 3</option>
