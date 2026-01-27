@@ -1,5 +1,5 @@
 import './global.css';
-import {component$, useSignal} from '@builder.io/qwik';
+import {$, component$, useSignal} from '@builder.io/qwik';
 import {PaceBar} from './components/pace-bar';
 import {UniversalLayoutDemo} from './universal-layout-demo';
 import {AlertSuccess} from './components/alert-success';
@@ -7,10 +7,13 @@ import {AlertWarning} from './components/alert-warning';
 import {AlertError} from './components/alert-error';
 import {AlertInfo} from './components/alert-info';
 import {Dialog} from './components/dialog';
+import {TextField} from './components/text-field';
+import {MdiAirHorn} from '@nr1e/qwik-icons';
 
 export default component$(() => {
   const currentPage = useSignal<'home' | 'universal-layout'>('home');
   const openDialog1 = useSignal(false);
+  const openDialog2 = useSignal(false);
   return (
     <>
       <head>
@@ -59,20 +62,107 @@ export default component$(() => {
                 <AlertError message="This is an error message" />
               </div>
 
-              <div class="w-full space-y-2">
+              <div class="pad-4 w-full space-y-2">
                 <div class="text-2xl">Dialog</div>
-                <button class="btn" onClick$={() => (openDialog1.value = true)}>
-                  Open
-                </button>
-                <Dialog id="dialog1" open={openDialog1} showCloseIcon={true}>
-                  <div class="font-semibold">Do something</div>
+                <div class="flex gap-4">
                   <button
                     class="btn"
-                    onClick$={() => (openDialog1.value = false)}
+                    onClick$={() => (openDialog1.value = true)}
                   >
-                    Close
+                    Open
                   </button>
+                  <button
+                    class="btn"
+                    onClick$={() => (openDialog2.value = true)}
+                  >
+                    Open with title
+                  </button>
+                </div>
+                <Dialog id="dialog1" open={openDialog1} showCloseIcon={true}>
+                  <div>Nothing to see here.</div>
+                  <div q:slot="actions">
+                    <button
+                      class="btn"
+                      onClick$={() => (openDialog1.value = false)}
+                    >
+                      Close
+                    </button>
+                  </div>
                 </Dialog>
+                <Dialog
+                  id="dialog2"
+                  open={openDialog2}
+                  showCloseIcon={true}
+                  title="Doing something"
+                >
+                  <div>Nothing to see here.</div>
+                  <div q:slot="actions">
+                    <button
+                      class="btn"
+                      onClick$={() => (openDialog2.value = false)}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </Dialog>
+              </div>
+
+              <div class="w-full space-y-2">
+                <div class="text-2xl">TextField</div>
+                <div class="flex flex-wrap gap-4">
+                  <div class="w-sm">
+                    <TextField label="Enter something" />
+                  </div>
+                  <div class="w-sm">
+                    <TextField
+                      label="Enter something"
+                      error="Something bad happened"
+                    />
+                  </div>
+                  <div class="w-sm">
+                    <TextField label="Enter something" placeholder="1234565" />
+                  </div>
+                  <div class="w-sm">
+                    <TextField
+                      label="Enter something"
+                      placeholder="1234565"
+                      error="Something bad happened"
+                    />
+                  </div>
+                  <div class="w-sm">
+                    <TextField label="Enter something">
+                      <div q:slot="right" class="opacity-50">
+                        <MdiAirHorn size={24} />
+                      </div>
+                    </TextField>
+                  </div>
+                  <div class="w-sm">
+                    <TextField
+                      label="Enter something"
+                      error="Something bad happened"
+                    >
+                      <div q:slot="left" class="opacity-50">
+                        <MdiAirHorn size={24} />
+                      </div>
+                    </TextField>
+                  </div>
+                  <div class="w-sm">
+                    <TextField
+                      label="Enter something on blur"
+                      onBlur$={(_, error) => {
+                        error.value = 'You blurred the input';
+                      }}
+                    ></TextField>
+                  </div>
+                  <div class="w-sm">
+                    <TextField
+                      label="Enter something in input"
+                      onInput$={(_, error) => {
+                        error.value = 'You typed something';
+                      }}
+                    ></TextField>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

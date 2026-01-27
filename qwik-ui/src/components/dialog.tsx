@@ -6,6 +6,7 @@ export interface DialogProps {
   open: Signal<boolean>;
   showCloseIcon?: boolean;
   class?: string;
+  title?: string;
 }
 
 export const Dialog = component$((props: DialogProps) => {
@@ -26,16 +27,22 @@ export const Dialog = component$((props: DialogProps) => {
     >
       <div class="modal-box">
         {props.showCloseIcon && (
-          <div
-            class="absolute top-0 right-0 cursor-pointer"
+          <button
+            class="btn btn-sm btn-circle btn-ghost absolute top-1 right-1"
             onClick$={() => {
               props.open.value = false;
             }}
           >
             <MdiClose size={24} />
-          </div>
+          </button>
         )}
-        <Slot />
+        {props.title && <div class="text-lg font-bold">{props.title}</div>}
+        <div class="py-4">
+          <Slot />
+        </div>
+        <div class="modal-action">
+          <Slot name="actions" />
+        </div>
       </div>
     </dialog>
   );

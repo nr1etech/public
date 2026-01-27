@@ -4,4 +4,5 @@ export * from './components/alert-success';
 export * from './components/alert-warning';
 export * from './components/dialog';
 export * from './components/pace-bar';
+export * from './components/text-field';
 export * from './components/universal-layout';
