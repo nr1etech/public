@@ -1,5 +1,9 @@
 import {$, component$, Signal, Slot, useOnDocument} from '@builder.io/qwik';
 import {MdiClose} from '@nr1e/qwik-icons';
+import {AlertError} from './alert-error';
+import {AlertInfo} from './alert-info';
+import {AlertWarning} from './alert-warning';
+import {AlertSuccess} from './alert-success';
 
 export interface DialogProps {
   id?: string;
@@ -7,6 +11,10 @@ export interface DialogProps {
   showCloseIcon?: boolean;
   class?: string;
   title?: string;
+  errorMessage?: string;
+  infoMessage?: string;
+  successMessage?: string;
+  warningMessage?: string;
 }
 
 export const Dialog = component$((props: DialogProps) => {
@@ -39,9 +47,28 @@ export const Dialog = component$((props: DialogProps) => {
         {props.title && <div class="text-lg font-bold">{props.title}</div>}
         <div class="py-4">
           <Slot />
+          {props.errorMessage ||
+          props.infoMessage ||
+          props.successMessage ||
+          props.warningMessage ? (
+            <div class="mt-3 space-y-2">
+              {props.infoMessage && <AlertInfo message={props.infoMessage} />}
+              {props.warningMessage && (
+                <AlertWarning message={props.warningMessage} />
+              )}
+              {props.errorMessage && (
+                <AlertError message={props.errorMessage} />
+              )}
+              {props.successMessage && (
+                <AlertSuccess message={props.successMessage} />
+              )}
+            </div>
+          ) : (
+            ''
+          )}
         </div>
         <div class="modal-action">
-          <Slot name="actions" />
+          <Slot name="action" />
         </div>
       </div>
     </dialog>

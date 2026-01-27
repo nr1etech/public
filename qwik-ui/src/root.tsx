@@ -16,6 +16,8 @@ export default component$(() => {
   const currentPage = useSignal<'home' | 'universal-layout'>('home');
   const openDialog1 = useSignal(false);
   const openDialog2 = useSignal(false);
+  const openDialog3 = useSignal(false);
+  const dialog3Error = useSignal<string | undefined>(undefined);
   return (
     <>
       <head>
@@ -79,17 +81,22 @@ export default component$(() => {
                   >
                     Open with title
                   </button>
+                  <button
+                    class="btn"
+                    onClick$={() => (openDialog3.value = true)}
+                  >
+                    Open with error
+                  </button>
                 </div>
                 <Dialog id="dialog1" open={openDialog1} showCloseIcon={true}>
                   <div>Nothing to see here.</div>
-                  <div q:slot="actions">
-                    <button
-                      class="btn"
-                      onClick$={() => (openDialog1.value = false)}
-                    >
-                      Close
-                    </button>
-                  </div>
+                  <button
+                    q:slot="action"
+                    class="btn"
+                    onClick$={() => (openDialog1.value = false)}
+                  >
+                    Close
+                  </button>
                 </Dialog>
                 <Dialog
                   id="dialog2"
@@ -98,14 +105,36 @@ export default component$(() => {
                   title="Doing something"
                 >
                   <div>Nothing to see here.</div>
-                  <div q:slot="actions">
-                    <button
-                      class="btn"
-                      onClick$={() => (openDialog2.value = false)}
-                    >
-                      Close
-                    </button>
-                  </div>
+                  <button
+                    class="btn"
+                    q:slot="action"
+                    onClick$={() => (openDialog2.value = false)}
+                  >
+                    Close
+                  </button>
+                </Dialog>
+                <Dialog
+                  id="dialog3"
+                  open={openDialog3}
+                  showCloseIcon={true}
+                  title="Doing something"
+                  errorMessage={dialog3Error.value}
+                >
+                  <div>Nothing to see here.</div>
+                  <button
+                    q:slot="action"
+                    class="btn btn-ghost"
+                    onClick$={() => (dialog3Error.value = undefined)}
+                  >
+                    Clear
+                  </button>
+                  <button
+                    q:slot="action"
+                    class="btn"
+                    onClick$={() => (dialog3Error.value = 'Error message')}
+                  >
+                    Show
+                  </button>
                 </Dialog>
               </div>
 
