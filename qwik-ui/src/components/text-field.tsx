@@ -8,15 +8,23 @@ export interface TextFieldProps {
   error?: string;
   maxLength?: number;
   onBlur$?: QRL<
-    (event: FocusEvent, error: Signal<string | undefined | null>) => void
+    (
+      event: FocusEvent,
+      value: string,
+      error: Signal<string | undefined>,
+    ) => void
   >;
   onInput$?: QRL<
-    (event: InputEvent, error: Signal<string | undefined | null>) => void
+    (
+      event: InputEvent,
+      value: string,
+      error: Signal<string | undefined>,
+    ) => void
   >;
 }
 
 export const TextField = component$((props: TextFieldProps) => {
-  const error = useSignal<string | undefined | null>(props.error);
+  const error = useSignal<string | undefined>(props.error);
   return (
     <div class="fieldset">
       <label class="label" {...(props.id && {for: props.id})}>
@@ -30,8 +38,14 @@ export const TextField = component$((props: TextFieldProps) => {
           {...(props.id && {id: props.id})}
           class="placeholder:opacity-50"
           placeholder={props.placeholder}
-          onBlur$={(e) => props.onBlur$ && props.onBlur$(e, error)}
-          onInput$={(e) => props.onInput$ && props.onInput$(e, error)}
+          onBlur$={(e) =>
+            props.onBlur$ &&
+            props.onBlur$(e, (e.target as HTMLInputElement).value, error)
+          }
+          onInput$={(e) =>
+            props.onInput$ &&
+            props.onInput$(e, (e.target as HTMLInputElement).value, error)
+          }
         />
         <Slot name="right" />
       </label>

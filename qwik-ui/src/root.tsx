@@ -151,16 +151,16 @@ export default component$(() => {
                   <div class="w-sm">
                     <TextField
                       label="Enter something on blur"
-                      onBlur$={(_, error) => {
-                        error.value = 'You blurred the input';
+                      onBlur$={(_, value, error) => {
+                        error.value = `Input value is ${value}`;
                       }}
                     ></TextField>
                   </div>
                   <div class="w-sm">
                     <TextField
                       label="Enter something in input"
-                      onInput$={(_, error) => {
-                        error.value = 'You typed something';
+                      onInput$={(_, value, error) => {
+                        error.value = `Input value is ${value}`;
                       }}
                     ></TextField>
                   </div>
@@ -184,6 +184,29 @@ export default component$(() => {
                       <option value="3">Option 3</option>
                     </SelectField>
                   </div>
+                  <div class="w-sm">
+                    <SelectField
+                      label="Select one"
+                      error="Something bad happened"
+                    >
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </SelectField>
+                  </div>
+                  <div class="w-sm">
+                    <SelectField
+                      label="Make a selection"
+                      onChange$={(_, value, error) => {
+                        error.value = `Selected value is ${value}`;
+                      }}
+                    >
+                      <option value="empty">Select something</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </SelectField>
+                  </div>
                 </div>
               </div>
 
@@ -195,6 +218,21 @@ export default component$(() => {
                   </div>
                   <div class="w-sm">
                     <CheckboxField label="Remember me" checked={true} />
+                  </div>
+                  <div class="w-sm">
+                    <CheckboxField
+                      label="Remember me"
+                      checked={true}
+                      error="You have an error"
+                    />
+                  </div>
+                  <div class="w-sm">
+                    <CheckboxField
+                      label="Remember me"
+                      onClick$={(_, checked, error) => {
+                        error.value = checked ? 'Checked' : 'Unchecked';
+                      }}
+                    />
                   </div>
                 </div>
               </div>
