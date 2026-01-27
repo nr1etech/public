@@ -10,6 +10,7 @@ import {Dialog} from './components/dialog';
 import {TextField} from './components/text-field';
 import {MdiAirHorn} from '@nr1e/qwik-icons';
 import CheckboxField from './components/checkbox-field';
+import {SelectField} from './components/select-field';
 
 export default component$(() => {
   const currentPage = useSignal<'home' | 'universal-layout'>('home');
@@ -162,6 +163,26 @@ export default component$(() => {
                         error.value = 'You typed something';
                       }}
                     ></TextField>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-full space-y-2">
+                <div class="text-2xl">SelectField</div>
+                <div class="flex flex-wrap gap-4">
+                  <div class="w-sm">
+                    <SelectField title="Select one">
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </SelectField>
+                  </div>
+                  <div class="w-sm">
+                    <SelectField title="Select one">
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </SelectField>
                   </div>
                 </div>
               </div>

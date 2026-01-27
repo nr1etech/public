@@ -5,5 +5,6 @@ export * from './components/alert-warning';
 export * from './components/checkbox-field';
 export * from './components/dialog';
 export * from './components/pace-bar';
+export * from './components/select-field';
 export * from './components/text-field';
 export * from './components/universal-layout';
