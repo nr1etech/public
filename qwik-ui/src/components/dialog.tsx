@@ -1,4 +1,13 @@
-import {$, component$, Signal, Slot, useOnDocument} from '@builder.io/qwik';
+import {
+  $,
+  component$,
+  QRL,
+  Signal,
+  Slot,
+  useOnDocument,
+  useSignal,
+  useTask$,
+} from '@builder.io/qwik';
 import {MdiClose} from '@nr1e/qwik-icons';
 import {AlertError} from './alert-error';
 import {AlertInfo} from './alert-info';
@@ -15,9 +24,27 @@ export interface DialogProps {
   infoMessage?: string;
   successMessage?: string;
   warningMessage?: string;
+  onClose$?: QRL<() => void>;
+  onOpen$?: QRL<() => void>;
 }
 
 export const Dialog = component$((props: DialogProps) => {
+  const internalOpen = useSignal(props.open.value);
+  useTask$(({track}) => {
+    track(() => props.open.value);
+    if (!props.open.value && internalOpen.value) {
+      if (props.onClose$) {
+        props.onClose$();
+      }
+      internalOpen.value = false;
+    }
+    if (props.open.value && !internalOpen.value) {
+      if (props.onOpen$) {
+        props.onOpen$();
+      }
+      internalOpen.value = true;
+    }
+  });
   // Close dialog on escape key press
   useOnDocument(
     'keydown',
@@ -31,7 +58,7 @@ export const Dialog = component$((props: DialogProps) => {
     <dialog
       class={`modal ${props.class}`}
       id={props.id}
-      open={props.open.value}
+      open={internalOpen.value}
     >
       <div class="modal-box">
         {props.showCloseIcon && (
@@ -67,7 +94,7 @@ export const Dialog = component$((props: DialogProps) => {
             ''
           )}
         </div>
-        <div class="modal-action">
+        <div class="modal-action mt-2">
           <Slot name="action" />
         </div>
       </div>

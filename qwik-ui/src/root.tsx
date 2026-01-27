@@ -18,6 +18,7 @@ export default component$(() => {
   const openDialog2 = useSignal(false);
   const openDialog3 = useSignal(false);
   const dialog3Error = useSignal<string | undefined>(undefined);
+  const dialog3Warning = useSignal<string | undefined>(undefined);
   return (
     <>
       <head>
@@ -118,22 +119,39 @@ export default component$(() => {
                   open={openDialog3}
                   showCloseIcon={true}
                   title="Doing something"
+                  warningMessage={dialog3Warning.value}
                   errorMessage={dialog3Error.value}
+                  onOpen$={() => {
+                    console.log('onOpen');
+                  }}
+                  onClose$={() => {
+                    console.log('onClose');
+                  }}
                 >
                   <div>Nothing to see here.</div>
                   <button
                     q:slot="action"
                     class="btn btn-ghost"
-                    onClick$={() => (dialog3Error.value = undefined)}
+                    onClick$={() => {
+                      dialog3Warning.value = undefined;
+                      dialog3Error.value = undefined;
+                    }}
                   >
                     Clear
                   </button>
                   <button
                     q:slot="action"
                     class="btn"
+                    onClick$={() => (dialog3Warning.value = 'Warning message')}
+                  >
+                    Show Warning
+                  </button>
+                  <button
+                    q:slot="action"
+                    class="btn"
                     onClick$={() => (dialog3Error.value = 'Error message')}
                   >
-                    Show
+                    Show Error
                   </button>
                 </Dialog>
               </div>
