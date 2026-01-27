@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.19
+### Patch Changes
+
+- eea2965: Removed warnings
+
 ## 0.0.18
 ### Patch Changes
 
