@@ -262,7 +262,12 @@ export default component$(() => {
                 <div class="text-2xl">CheckboxField</div>
                 <div class="flex flex-wrap gap-4">
                   <div class="w-sm">
-                    <CheckboxField label="Remember me" />
+                    <CheckboxField
+                      label="Remember me"
+                      onClick$={(_, checked) => {
+                        console.log('Checked', checked);
+                      }}
+                    />
                   </div>
                   <div class="w-sm">
                     <CheckboxField label="Remember me" checked={true} />
