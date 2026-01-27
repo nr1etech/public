@@ -39,7 +39,7 @@
     "build.lib": "vite build --mode lib",
     "build.types": "tsc --emitDeclarationOnly",
     "clean": "rm -rf lib lib-types",
-    "dev": "vite --mode ssr",
+    "dev": "vite --mode ssr --port 5175",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
