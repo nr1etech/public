@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.22
+### Patch Changes
+
+- b108b41: Fixed erorr bug with Field types
+
 ## 0.0.21
 ### Patch Changes
 
