@@ -7,7 +7,7 @@ export interface CheckboxFieldProps {
   checked?: boolean;
 }
 
-export default component$((props: CheckboxFieldProps) => {
+export const CheckboxField = component$((props: CheckboxFieldProps) => {
   return (
     <div class="fieldset">
       <label class="label" {...(props.id && {for: props.id})}>

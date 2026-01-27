@@ -9,7 +9,7 @@ import {AlertInfo} from './components/alert-info';
 import {Dialog} from './components/dialog';
 import {TextField} from './components/text-field';
 import {MdiAirHorn} from '@nr1e/qwik-icons';
-import CheckboxField from './components/checkbox-field';
+import {CheckboxField} from './components/checkbox-field';
 import {SelectField} from './components/select-field';
 
 export default component$(() => {
