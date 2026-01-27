@@ -28,6 +28,7 @@ export default component$(() => {
       <body>
         {currentPage.value === 'home' ? (
           <div class="flex flex-col items-center p-4">
+            {/* eslint-disable-next-line qwik/jsx-img */}
             <img
               src="https://nr1e.com/images/logo-tagline.svg"
               alt="NR1E"
