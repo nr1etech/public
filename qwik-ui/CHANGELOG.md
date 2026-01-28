@@ -1,5 +1,11 @@
 # @nr1e/qwik-ui
 
+## 0.0.28
+### Patch Changes
+
+- aa7267b: Added padding to Dialog loading
+- a4acccc: Added onPostOpen and onPostClosed to Dialog
+
 ## 0.0.27
 ### Patch Changes
 
