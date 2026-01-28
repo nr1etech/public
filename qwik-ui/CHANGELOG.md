@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.25
+### Patch Changes
+
+- e89b47d: Modified signal props to be updated on change for Field types
+
 ## 0.0.24
 ### Patch Changes
 
