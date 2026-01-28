@@ -11,6 +11,7 @@ export interface SelectFieldProps {
   id?: string;
   label: string;
   name?: string;
+  value?: string | null | Signal<string | null | undefined>;
   error?: string | Signal<string | undefined>;
   onChange$?: QRL<
     (event: Event, value: string, error: Signal<string | undefined>) => void
@@ -36,6 +37,9 @@ export const SelectField = component$((props: SelectFieldProps) => {
   const error = useSignal<string | undefined>(
     typeof props.error === 'string' ? props.error : props.error?.value,
   );
+  const value = useSignal<string | null | undefined>(
+    typeof props.value === 'string' ? props.value : props.value?.value,
+  );
   useTask$(({track}) => {
     if (props.error && typeof props.error !== 'string') {
       track(() => error.value);
@@ -52,6 +56,22 @@ export const SelectField = component$((props: SelectFieldProps) => {
       }
     }
   });
+  useTask$(({track}) => {
+    if (props.value && typeof props.value !== 'string') {
+      track(() => value.value);
+      if (value.value !== props.value?.value) {
+        props.value.value = value.value;
+      }
+    }
+  });
+  useTask$(({track}) => {
+    if (props.value && typeof props.value !== 'string') {
+      track(() => (props.value as Signal).value);
+      if (props.value && error.value !== props.value.value) {
+        value.value = props.value.value;
+      }
+    }
+  });
   return (
     <div class="fieldset">
       <label class="label" {...(props.id && {for: props.id})}>
@@ -62,26 +82,28 @@ export const SelectField = component$((props: SelectFieldProps) => {
         {...(props.id && {id: props.id})}
         class={`select ${error.value ? 'select-error' : ''}`}
         onChange$={(e) => {
-          if (props.onChange$)
-            props.onChange$(e, (e.target as HTMLSelectElement).value, error);
-          if (props.onEvent$)
-            props.onEvent$(
-              'change',
-              e,
-              (e.target as HTMLSelectElement).value,
-              error,
-            );
+          const target = e.target as HTMLSelectElement;
+          if (props.onChange$) {
+            props.onChange$(e, target.value, error);
+          }
+          if (props.onEvent$) {
+            props.onEvent$('change', e, target.value, error);
+          }
+          if (props.value && typeof props.value !== 'string') {
+            value.value = target.value;
+          }
         }}
         onBlur$={(e) => {
-          if (props.onBlur$)
-            props.onBlur$(e, (e.target as HTMLSelectElement).value, error);
-          if (props.onEvent$)
-            props.onEvent$(
-              'blur',
-              e,
-              (e.target as HTMLSelectElement).value,
-              error,
-            );
+          const target = e.target as HTMLSelectElement;
+          if (props.onBlur$) {
+            props.onBlur$(e, target.value, error);
+          }
+          if (props.onEvent$) {
+            props.onEvent$('blur', e, target.value, error);
+          }
+          if (props.value && typeof props.value !== 'string') {
+            value.value = target.value;
+          }
         }}
       >
         <Slot />

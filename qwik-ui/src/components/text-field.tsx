@@ -93,26 +93,28 @@ export const TextField = component$((props: TextFieldProps) => {
           class="placeholder:opacity-50"
           placeholder={props.placeholder}
           onBlur$={(e) => {
-            if (props.onBlur$)
-              props.onBlur$(e, (e.target as HTMLInputElement).value, error);
-            if (props.onEvent$)
-              props.onEvent$(
-                'blur',
-                e,
-                (e.target as HTMLInputElement).value,
-                error,
-              );
+            const target = e.target as HTMLInputElement;
+            if (props.onBlur$) {
+              props.onBlur$(e, target.value, error);
+            }
+            if (props.onEvent$) {
+              props.onEvent$('blur', e, target.value, error);
+            }
+            if (props.value && typeof props.value !== 'string') {
+              value.value = target.value;
+            }
           }}
           onInput$={(e) => {
-            if (props.onInput$)
-              props.onInput$(e, (e.target as HTMLInputElement).value, error);
-            if (props.onEvent$)
-              props.onEvent$(
-                'input',
-                e,
-                (e.target as HTMLInputElement).value,
-                error,
-              );
+            const target = e.target as HTMLInputElement;
+            if (props.onInput$) {
+              props.onInput$(e, target.value, error);
+            }
+            if (props.onEvent$) {
+              props.onEvent$('input', e, target.value, error);
+            }
+            if (props.value && typeof props.value !== 'string') {
+              value.value = target.value;
+            }
           }}
         />
         <Slot name="right" />

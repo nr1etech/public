@@ -61,10 +61,13 @@ export const CheckboxField = component$((props: CheckboxFieldProps) => {
           {...(props.id && {id: props.id})}
           checked={checked.value}
           class={`checkbox ${error.value ? 'checkbox-error' : ''}`}
-          onClick$={(e) =>
-            props.onClick$ &&
-            props.onClick$(e, (e.target as HTMLInputElement).checked, error)
-          }
+          onClick$={(e) => {
+            const target = e.target as HTMLInputElement;
+            if (props.onClick$) {
+              props.onClick$(e, (e.target as HTMLInputElement).checked, error);
+            }
+            checked.value = target.checked;
+          }}
         />
         {props.label}
       </label>

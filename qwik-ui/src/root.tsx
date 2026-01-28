@@ -20,6 +20,9 @@ export default component$(() => {
   const openDialog3 = useSignal(false);
   const dialog3Error = useSignal<string | undefined>(undefined);
   const dialog3Warning = useSignal<string | undefined>(undefined);
+  const textFieldValue = useSignal<string | undefined | null>();
+  const selectedFieldValue = useSignal<string | undefined | null>();
+  const checkedFieldValue = useSignal<boolean>(false);
   return (
     <>
       <head>
@@ -213,6 +216,16 @@ export default component$(() => {
                       }}
                     ></TextField>
                   </div>
+                  <div class="w-sm">
+                    <TextField
+                      label="Enter something in input"
+                      value={textFieldValue}
+                      onInput$={(_, value, error) => {
+                        error.value = `Input value is ${value}`;
+                      }}
+                    ></TextField>
+                    {textFieldValue.value}
+                  </div>
                 </div>
               </div>
 
@@ -256,6 +269,21 @@ export default component$(() => {
                       <option value="3">Option 3</option>
                     </SelectField>
                   </div>
+                  <div class="w-sm">
+                    <SelectField
+                      value={selectedFieldValue}
+                      label="Make a selection"
+                      onChange$={(_, value, error) => {
+                        error.value = `Selected value is ${value}`;
+                      }}
+                    >
+                      <option value="empty">Select something</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </SelectField>
+                    {selectedFieldValue.value}
+                  </div>
                 </div>
               </div>
 
@@ -287,6 +315,16 @@ export default component$(() => {
                         error.value = checked ? 'Checked' : 'Unchecked';
                       }}
                     />
+                  </div>
+                  <div class="w-sm">
+                    <CheckboxField
+                      checked={checkedFieldValue}
+                      label="Remember me"
+                      onClick$={(_, checked, error) => {
+                        error.value = checked ? 'Checked' : 'Unchecked';
+                      }}
+                    />
+                    {checkedFieldValue.value ? 'Checked' : 'Unchecked'}
                   </div>
                 </div>
               </div>
