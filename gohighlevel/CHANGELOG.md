@@ -1,5 +1,10 @@
 # @nr1e/gohighlevel
 
+## 0.0.4
+### Patch Changes
+
+- 84475f2: Fixed invoice items
+
 ## 0.0.3
 ### Patch Changes
 
