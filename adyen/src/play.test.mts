@@ -45,6 +45,7 @@ test('Test createLegalEntity (Organization) @none', async () => {
         number: '+14155551234',
         type: 'mobile',
       },
+
       taxInformation: [
         {
           country: 'US',
@@ -54,7 +55,7 @@ test('Test createLegalEntity (Organization) @none', async () => {
       ],
     },
   });
-  console.log('Organization', JSON.stringify(output, null, 2));
+  console.log('Legal entity', JSON.stringify(output, null, 2));
 });
 
 // {
@@ -200,7 +201,18 @@ test('Test associate individual with org @none', async () => {
   console.log('Legal entity associations', JSON.stringify(output, null, 2));
 });
 
-test('Test createTransferInstrument @none', async () => {
+test('Test createAccountHolder @only', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.BCL_API_KEY!,
+    env: 'test',
+  });
+  const output = await createAccountHolder(client, {
+    legalEntityId: 'LE32CVS22322775NT3G4KFR5Q',
+  });
+  console.log('Account holder', JSON.stringify(output, null, 2));
+});
+
+test('Test createTransferInstrument', async () => {
   const client = createAdyenClient({
     apiKey: process.env.LEM_API_KEY!,
     env: 'test',
