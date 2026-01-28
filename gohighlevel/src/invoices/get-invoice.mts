@@ -62,7 +62,7 @@ export type GetInvoiceOutput = {
   issueDate: string;
   dueDate: string;
   discount?: {[key: string]: unknown};
-  invoiceItems: string[];
+  invoiceItems: InvoiceItem[];
   total: number;
   title: string;
   amountDue: number;
