@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.14
+### Patch Changes
+
+- 8e27896: Added MDI crown icons
+
 ## 0.0.13
 ### Patch Changes
 
