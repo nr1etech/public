@@ -77,7 +77,7 @@ export const Dialog = component$((props: DialogProps) => {
         {props.title && <div class="text-lg font-bold">{props.title}</div>}
         <div class="py-4">
           {props.loading && props.loading.value && (
-            <div class="flex justify-center">
+            <div class="flex justify-center p-20">
               <div class="opacity-20">
                 <Spinners6DotsRotate size={64} />
               </div>
