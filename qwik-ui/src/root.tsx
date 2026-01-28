@@ -18,6 +18,8 @@ export default component$(() => {
   const openDialog1 = useSignal(false);
   const openDialog2 = useSignal(false);
   const openDialog3 = useSignal(false);
+  const openDialog4 = useSignal(false);
+  const openDialog4Loading = useSignal(true);
   const dialog3Error = useSignal<string | undefined>(undefined);
   const dialog3Warning = useSignal<string | undefined>(undefined);
   const textFieldValue = useSignal<string | undefined | null>();
@@ -85,13 +87,19 @@ export default component$(() => {
                     class="btn"
                     onClick$={() => (openDialog2.value = true)}
                   >
-                    Open with title
+                    Open title
                   </button>
                   <button
                     class="btn"
                     onClick$={() => (openDialog3.value = true)}
                   >
-                    Open with error
+                    Open error
+                  </button>
+                  <button
+                    class="btn"
+                    onClick$={() => (openDialog4.value = true)}
+                  >
+                    Open loading
                   </button>
                 </div>
                 <Dialog id="dialog1" open={openDialog1} showCloseIcon={true}>
@@ -158,6 +166,15 @@ export default component$(() => {
                   >
                     Show Error
                   </button>
+                </Dialog>
+                <Dialog
+                  id="dialog2"
+                  open={openDialog4}
+                  loading={openDialog4Loading}
+                  showCloseIcon={true}
+                  title="Doing something"
+                >
+                  <div>Nothing to see here.</div>
                 </Dialog>
               </div>
 

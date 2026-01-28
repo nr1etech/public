@@ -8,7 +8,7 @@ import {
   useSignal,
   useTask$,
 } from '@builder.io/qwik';
-import {MdiClose} from '@nr1e/qwik-icons';
+import {MdiClose, Spinners6DotsRotate} from '@nr1e/qwik-icons';
 import {AlertError} from './alert-error';
 import {AlertInfo} from './alert-info';
 import {AlertWarning} from './alert-warning';
@@ -26,6 +26,7 @@ export interface DialogProps {
   warningMessage?: string;
   onClose$?: QRL<(e: HTMLDialogElement) => void>;
   onOpen$?: QRL<(e: HTMLDialogElement) => void>;
+  loading?: Signal<boolean>;
 }
 
 export const Dialog = component$((props: DialogProps) => {
@@ -75,25 +76,38 @@ export const Dialog = component$((props: DialogProps) => {
         )}
         {props.title && <div class="text-lg font-bold">{props.title}</div>}
         <div class="py-4">
-          <Slot />
-          {props.errorMessage ||
-          props.infoMessage ||
-          props.successMessage ||
-          props.warningMessage ? (
-            <div class="mt-3 space-y-2">
-              {props.infoMessage && <AlertInfo message={props.infoMessage} />}
-              {props.warningMessage && (
-                <AlertWarning message={props.warningMessage} />
-              )}
-              {props.errorMessage && (
-                <AlertError message={props.errorMessage} />
-              )}
-              {props.successMessage && (
-                <AlertSuccess message={props.successMessage} />
-              )}
+          {props.loading && props.loading.value && (
+            <div class="flex justify-center">
+              <div class="opacity-20">
+                <Spinners6DotsRotate size={64} />
+              </div>
             </div>
-          ) : (
-            ''
+          )}
+          {(!props.loading || !props.loading.value) && (
+            <>
+              <Slot />
+              {props.errorMessage ||
+              props.infoMessage ||
+              props.successMessage ||
+              props.warningMessage ? (
+                <div class="mt-3 space-y-2">
+                  {props.infoMessage && (
+                    <AlertInfo message={props.infoMessage} />
+                  )}
+                  {props.warningMessage && (
+                    <AlertWarning message={props.warningMessage} />
+                  )}
+                  {props.errorMessage && (
+                    <AlertError message={props.errorMessage} />
+                  )}
+                  {props.successMessage && (
+                    <AlertSuccess message={props.successMessage} />
+                  )}
+                </div>
+              ) : (
+                ''
+              )}
+            </>
           )}
         </div>
         <div class="modal-action mt-2">
