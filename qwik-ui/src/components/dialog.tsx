@@ -25,26 +25,34 @@ export interface DialogProps {
   successMessage?: string;
   warningMessage?: string;
   onClose$?: QRL<(e: HTMLDialogElement) => void>;
+  onPostClose$?: QRL<(e: HTMLDialogElement) => void>;
   onOpen$?: QRL<(e: HTMLDialogElement) => void>;
+  onPostOpen$?: QRL<(e: HTMLDialogElement) => void>;
   loading?: Signal<boolean>;
 }
 
 export const Dialog = component$((props: DialogProps) => {
   const internalOpen = useSignal(props.open.value);
   const dialog = useSignal<HTMLDialogElement>();
-  useTask$(({track}) => {
+  useTask$(async ({track}) => {
     track(() => props.open.value);
     if (!props.open.value && internalOpen.value) {
       if (props.onClose$ && dialog.value) {
-        props.onClose$(dialog.value);
+        await props.onClose$(dialog.value);
       }
       internalOpen.value = false;
+      if (props.onPostClose$ && dialog.value) {
+        await props.onPostClose$(dialog.value);
+      }
     }
     if (props.open.value && !internalOpen.value) {
       if (props.onOpen$ && dialog.value) {
-        props.onOpen$(dialog.value);
+        await props.onOpen$(dialog.value);
       }
       internalOpen.value = true;
+      if (props.onPostOpen$ && dialog.value) {
+        await props.onPostOpen$(dialog.value);
+      }
     }
   });
   // Close dialog on escape key press
