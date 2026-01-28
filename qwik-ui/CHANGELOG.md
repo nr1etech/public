@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.24
+### Patch Changes
+
+- 08c663d: Changed check and value to allow Signal for CheckboxField and InputField
+
 ## 0.0.23
 ### Patch Changes
 
