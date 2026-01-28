@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.26
+### Patch Changes
+
+- 5fb70d4: Added onClick to AddButton
+
 ## 0.0.25
 ### Patch Changes
 
