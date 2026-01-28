@@ -1,0 +1,53 @@
+{
+  "name": "@nr1e/adyen",
+  "description": "Unofficial Adyen client",
+  "version": "0.0.4",
+  "type": "module",
+  "author": "NR1E, Inc.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nr1etech/lib-js.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "prettier --check . && eslint .",
+    "build": "tsc -p tsconfig.build.json",
+    "watch": "tsc -w",
+    "test": "vitest run -t @unit src",
+    "test:int": "dotenv -- vitest run -t @int src",
+    "test:only": "dotenv -- vitest run -t @only src",
+    "clean": "rm -rf dist",
+    "fmt": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@types/node": "catalog:",
+    "@types/uuid": "catalog:",
+    "dotenv-cli": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vitest": "catalog:"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
+    },
+    "bcl": {
+      "import": "./dist/bcl/index.mjs",
+      "types": "./dist/bcl/index.d.mts"
+    },
+    "lem": {
+      "import": "./dist/lem/index.mjs",
+      "types": "./dist/lem/index.d.mts"
+    }
+  }
+}
