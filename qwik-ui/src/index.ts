@@ -1,3 +1,4 @@
+export * from './components/add-button';
 export * from './components/alert-error';
 export * from './components/alert-info';
 export * from './components/alert-success';

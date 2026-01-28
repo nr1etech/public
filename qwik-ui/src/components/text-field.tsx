@@ -44,16 +44,16 @@ export const TextField = component$((props: TextFieldProps) => {
     typeof props.error === 'string' ? props.error : props.error?.value,
   );
   useTask$(({track}) => {
-    track(() => error.value);
     if (props.error && typeof props.error !== 'string') {
+      track(() => error.value);
       if (error.value !== props.error?.value) {
         props.error.value = error.value;
       }
     }
   });
   useTask$(({track}) => {
-    track(() => (props.error as Signal).value);
     if (props.error && typeof props.error !== 'string') {
+      track(() => (props.error as Signal).value);
       if (props.error && error.value !== props.error.value) {
         error.value = props.error.value;
       }

@@ -11,6 +11,7 @@ import {TextField} from './components/text-field';
 import {MdiAirHorn} from '@nr1e/qwik-icons';
 import {CheckboxField} from './components/checkbox-field';
 import {SelectField} from './components/select-field';
+import {AddButton} from './components/add-button';
 
 export default component$(() => {
   const currentPage = useSignal<'home' | 'universal-layout'>('home');
@@ -287,6 +288,14 @@ export default component$(() => {
                       }}
                     />
                   </div>
+                </div>
+              </div>
+
+              <div class="w-full space-y-2">
+                <div class="text-2xl">Buttons</div>
+                <div class="flex flex-wrap gap-4 space-y-2 space-x-2">
+                  <AddButton>Add something</AddButton>
+                  <AddButton class="btn-primary">Add something</AddButton>
                 </div>
               </div>
             </div>
