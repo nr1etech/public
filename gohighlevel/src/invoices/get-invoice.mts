@@ -5,6 +5,48 @@ export type GetInvoiceInput = {
   invoiceId: string;
 };
 
+export type AddressDetails = {
+  addressLine1?: string | null;
+  city?: string | null;
+  state?: string | null;
+  countryCode?: string | null;
+  postalCode?: string | null;
+  [key: string]: unknown;
+};
+
+export type ContactDetails = {
+  id: string | null;
+  name: string | null;
+  phoneNo?: string | null;
+  email?: string | null;
+  additionalEmails?: unknown[] | null;
+  customFields?: unknown[] | null;
+  address?: AddressDetails | null;
+  [key: string]: unknown;
+};
+
+export type BusinessDetails = {
+  name: string | null;
+  address?: AddressDetails | null;
+  phoneNo?: string | null;
+  website?: string | null;
+  [key: string]: unknown;
+};
+
+export type InvoiceItem = {
+  taxes: unknown[];
+  taxInclusive: boolean;
+  _id: string;
+  productId: string;
+  priceId: string;
+  currency: string;
+  name: string;
+  qty: number;
+  amount: number;
+  description: string;
+  [key: string]: unknown;
+};
+
 export type GetInvoiceOutput = {
   _id: string;
   status: string;
@@ -13,10 +55,10 @@ export type GetInvoiceOutput = {
   altId: string;
   altType: string;
   name: string;
-  businessDetails: {[key: string]: unknown};
+  businessDetails: BusinessDetails;
   invoiceNumber: number;
   currency: string;
-  contactDetails: {[key: string]: unknown};
+  contactDetails: ContactDetails;
   issueDate: string;
   dueDate: string;
   discount?: {[key: string]: unknown};
