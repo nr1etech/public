@@ -11,7 +11,7 @@ export interface TextFieldProps {
   id?: string;
   label: string;
   name?: string;
-  value?: string | null;
+  value?: string | null | Signal<string | null | undefined>;
   placeholder?: string;
   error?: string | Signal<string | undefined>;
   maxLength?: number;
@@ -43,6 +43,9 @@ export const TextField = component$((props: TextFieldProps) => {
   const error = useSignal<string | undefined>(
     typeof props.error === 'string' ? props.error : props.error?.value,
   );
+  const value = useSignal<string | null | undefined>(
+    typeof props.value === 'string' ? props.value : props.value?.value,
+  );
   useTask$(({track}) => {
     if (props.error && typeof props.error !== 'string') {
       track(() => error.value);
@@ -59,6 +62,22 @@ export const TextField = component$((props: TextFieldProps) => {
       }
     }
   });
+  useTask$(({track}) => {
+    if (props.value && typeof props.value !== 'string') {
+      track(() => value.value);
+      if (value.value !== props.value?.value) {
+        props.value.value = value.value;
+      }
+    }
+  });
+  useTask$(({track}) => {
+    if (props.value && typeof props.value !== 'string') {
+      track(() => (props.value as Signal).value);
+      if (props.value && error.value !== props.value.value) {
+        value.value = props.value.value;
+      }
+    }
+  });
   return (
     <div class="fieldset">
       <label class="label" {...(props.id && {for: props.id})}>
@@ -70,7 +89,7 @@ export const TextField = component$((props: TextFieldProps) => {
           type="text"
           {...(props.id && {id: props.id})}
           {...(props.name && {name: props.name})}
-          {...(props.value && {value: props.value})}
+          value={value.value}
           class="placeholder:opacity-50"
           placeholder={props.placeholder}
           onBlur$={(e) => {

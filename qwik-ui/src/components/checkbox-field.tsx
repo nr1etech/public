@@ -4,7 +4,7 @@ export interface CheckboxFieldProps {
   id?: string;
   label: string;
   name?: string;
-  checked?: boolean;
+  checked?: boolean | Signal<boolean>;
   error?: string | Signal<string | undefined>;
   onClick$?: QRL<
     (event: Event, checked: boolean, error: Signal<string | undefined>) => void
@@ -14,6 +14,11 @@ export interface CheckboxFieldProps {
 export const CheckboxField = component$((props: CheckboxFieldProps) => {
   const error = useSignal<string | undefined>(
     typeof props.error === 'string' ? props.error : props.error?.value,
+  );
+  const checked = useSignal<boolean>(
+    typeof props.checked === 'boolean'
+      ? props.checked
+      : (props.checked?.value ?? false),
   );
   useTask$(({track}) => {
     if (props.error && typeof props.error !== 'string') {
@@ -31,6 +36,22 @@ export const CheckboxField = component$((props: CheckboxFieldProps) => {
       }
     }
   });
+  useTask$(({track}) => {
+    if (props.checked && typeof props.checked !== 'boolean') {
+      track(() => checked.value);
+      if (checked.value !== props.checked?.value) {
+        props.checked.value = checked.value;
+      }
+    }
+  });
+  useTask$(({track}) => {
+    if (props.checked && typeof props.checked !== 'boolean') {
+      track(() => (props.checked as Signal).value);
+      if (props.checked && checked.value !== props.checked.value) {
+        checked.value = props.checked.value;
+      }
+    }
+  });
   return (
     <div class="fieldset">
       <label class="label" {...(props.id && {for: props.id})}>
@@ -38,7 +59,7 @@ export const CheckboxField = component$((props: CheckboxFieldProps) => {
           type="checkbox"
           {...(props.name && {name: props.name})}
           {...(props.id && {id: props.id})}
-          {...(props.checked && {checked: props.checked})}
+          checked={checked.value}
           class={`checkbox ${error.value ? 'checkbox-error' : ''}`}
           onClick$={(e) =>
             props.onClick$ &&
