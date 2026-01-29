@@ -1,5 +1,10 @@
 # @nr1e/gohighlevel
 
+## 0.0.5
+### Patch Changes
+
+- fe2b49c: Added invoiceNumberPrefix and fixed invoiceNumber type
+
 ## 0.0.4
 ### Patch Changes
 
