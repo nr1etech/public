@@ -17,6 +17,9 @@ export async function getDocument(
   options?: GetDocumentOptions,
 ) {
   let path = `documents/${documentId}`;
+  if (options?.skipContent) {
+    path += '?skipContent=true';
+  }
 
   if (options?.skipContent) {
     path += '?skipContent=true';

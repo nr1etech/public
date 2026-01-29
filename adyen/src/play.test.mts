@@ -15,6 +15,15 @@ import {
   updateStore,
 } from './management/index.mjs';
 
+test('Test getLegalEntity @only', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.LEM_API_KEY!,
+    env: 'test',
+  });
+  const output = await getLegalEntity(client, 'LE32CVS22322775NT3G4KFR5Q');
+  console.log('Get legal entity', JSON.stringify(output, null, 2));
+});
+
 test('Test getLegalEntity @none', async () => {
   const client = createAdyenClient({
     apiKey: process.env.LEM_API_KEY!,
