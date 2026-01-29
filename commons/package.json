@@ -43,6 +43,10 @@
       "import": "./dist/bitsnbytes/index.mjs",
       "types": "./dist/bitsnbytes/index.d.mts"
     },
+    "./business": {
+      "import": "./dist/business/index.mjs",
+      "types": "./dist/business/index.d.mts"
+    },
     "./encryption": {
       "import": "./dist/encryption/index.mjs",
       "types": "./dist/encryption/index.d.mts"
