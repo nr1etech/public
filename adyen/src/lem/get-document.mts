@@ -20,11 +20,6 @@ export async function getDocument(
   if (options?.skipContent) {
     path += '?skipContent=true';
   }
-
-  if (options?.skipContent) {
-    path += '?skipContent=true';
-  }
-
   return await client.get<GetDocumentOutput>({
     baseUrl: lemV4BaseUrl,
     path,
