@@ -1,7 +1,16 @@
 import {test} from 'vitest';
 import {createAdyenClient} from './client.mjs';
 import {createAccountHolder} from './bcl/index.mjs';
-import {createLegalEntity, createTransferInstrument} from './lem/index.mjs';
+import {createLegalEntity, createTransferInstrument, getLegalEntity} from './lem/index.mjs';
+
+test('Test getLegalEntity @only', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.LEM_API_KEY!,
+    env: 'test',
+  });
+  const output = await getLegalEntity(client, 'LE32CVS22322775NT3G4KFR5Q');
+  console.log('Get legal entity', JSON.stringify(output, null, 2));
+});
 
 test('Test createLegalEntity @none', async () => {
   const client = createAdyenClient({
@@ -92,7 +101,7 @@ test('Test createLegalEntity @none', async () => {
 //   "id": "LE32CT622322775NT3JV43MGF"
 // }
 
-test('Test createAccountHolder @only', async () => {
+test('Test createAccountHolder @none', async () => {
   const client = createAdyenClient({
     apiKey: process.env.BCL_API_KEY!,
     env: 'test',
