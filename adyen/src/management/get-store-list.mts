@@ -19,7 +19,6 @@ export async function getStoreList(
   options?: GetStoreListOptions,
 ) {
   let path = 'stores';
-
   const queryParams: string[] = [];
   if (options?.pageNumber !== undefined) {
     queryParams.push(`pageNumber=${options.pageNumber}`);
@@ -30,11 +29,9 @@ export async function getStoreList(
   if (options?.reference) {
     queryParams.push(`reference=${encodeURIComponent(options.reference)}`);
   }
-
   if (queryParams.length > 0) {
     path += `?${queryParams.join('&')}`;
   }
-
   return await client.get<GetStoreListOutput>({
     baseUrl: managementV3BaseUrl,
     path,
