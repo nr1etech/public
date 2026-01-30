@@ -37,11 +37,9 @@ export async function getTermsOfServiceDocument(
   options?: GetTermsOfServiceDocumentOptions,
 ) {
   let path = `legalEntities/${legalEntityId}/acceptedTermsOfServiceDocument/${termsOfServiceAcceptanceReference}`;
-
   if (options?.termsOfServiceDocumentFormat) {
     path += `?termsOfServiceDocumentFormat=${options.termsOfServiceDocumentFormat}`;
   }
-
   return await client.get<GetTermsOfServiceDocumentOutput>({
     baseUrl: lemV4BaseUrl,
     path,
