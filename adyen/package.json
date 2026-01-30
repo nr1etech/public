@@ -48,6 +48,10 @@
     "lem": {
       "import": "./dist/lem/index.mjs",
       "types": "./dist/lem/index.d.mts"
+    },
+    "management": {
+      "import": "./dist/management/index.mjs",
+      "types": "./dist/management/index.d.mts"
     }
   }
 }
