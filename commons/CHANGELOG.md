@@ -1,5 +1,10 @@
 # @nr1e/commons
 
+## 0.3.3
+### Patch Changes
+
+- d60d9c9: Added amount functions and refactored currency function.
+
 ## 0.3.2
 ### Patch Changes
 
