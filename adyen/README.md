@@ -1,9 +1,6 @@
 # Adyen Client
 
 [![NPM Version][npm-image]][npm-url]
-<<<<<<< HEAD
-=======
-[![GitHub Actions][github-image]][github-url]
 
 > > > > > > > 6a0d0cb (Starting adyen client development)
 
@@ -79,11 +76,5 @@ Install the package
 pnpm i @nr1e/adyen
 ```
 
-# <<<<<<< HEAD
-
-[github-url]: https://github.com/nr1etech/lib-js/actions
-[github-image]: https://github.com/nr1etech/lib-js/workflows/publish/badge.svg
-
-> > > > > > > 6a0d0cb (Starting adyen client development)
-> > > > > > > [npm-url]: https://npmjs.org/package/@nr1e/gohighlevel
-> > > > > > > [npm-image]: https://img.shields.io/npm/v/@nr1e/gohighlevel.svg
+[npm-url]: https://npmjs.org/package/@nr1e/adyen
+[npm-image]: https://img.shields.io/npm/v/@nr1e/adyen.svg
