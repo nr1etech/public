@@ -14,3 +14,14 @@ pnpm -r test
 pnpx @changesets/cli publish --tag snapshot --no-git-tag
 git reset --hard HEAD
 ```
+
+## Inside npmjs.com
+
+| Field                | Value       |
+|----------------------|-------------|
+| Organization or user | nr1etech    |
+| Repository           | public      |
+| Workflow filename    | publish.yml |
+
+Then update package settings to "Require two-factor authentication and disallow tokens"
+
