@@ -5,12 +5,12 @@
 ```bash
 pnpm -r i 
 pnpm -r build
-npx @changesets/cli
+pnpx @changesets/cli
 git add <changesetfile and other files>
 git commit
-npx @changesets/cli version --snapshot snapshot
+pnpx @changesets/cli version --snapshot snapshot
 pnpm -r build
 pnpm -r test
-npx @changesets/cli publish --tag snapshot --no-git-tag
+pnpx @changesets/cli publish --tag snapshot --no-git-tag
 git reset --hard HEAD
 ```
