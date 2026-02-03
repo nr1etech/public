@@ -7,6 +7,7 @@ packages:
   - 'lucia-adapter-dynamodb'
   - 'qwik-icons'
   - 'qwik-ui'
+  - 'usps'
   - '!**/dist/**'
 catalog:
   "@aws-sdk/client-dynamodb": "3.958.0"
