@@ -56,7 +56,8 @@ export type GetInvoiceOutput = {
   altType: string;
   name: string;
   businessDetails: BusinessDetails;
-  invoiceNumber: number;
+  invoiceNumber: string;
+  invoiceNumberPrefix: string;
   currency: string;
   contactDetails: ContactDetails;
   issueDate: string;

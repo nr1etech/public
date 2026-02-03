@@ -1,5 +1,16 @@
 # @nr1e/commons
 
+## 0.3.3
+### Patch Changes
+
+- d60d9c9: Added amount functions and refactored currency function.
+
+## 0.3.2
+### Patch Changes
+
+- 3349694: Added business module
+- 370cb3c: Removing business package
+
 ## 0.3.1
 ### Patch Changes
 

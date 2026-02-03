@@ -1,3 +1,4 @@
+export * from './amount.mjs';
 export * from './currency.mjs';
 export * from './datetime.mjs';
 export * from './equality.mjs';

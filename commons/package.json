@@ -1,7 +1,7 @@
 {
   "name": "@nr1e/commons",
   "description": "Common utilities for TypeScript projects",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "type": "module",
   "author": "NR1E, Inc.",
   "publishConfig": {
@@ -19,7 +19,7 @@
     "prebuild": "prettier --check . && eslint .",
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "vitest run",
+    "test": "vitest run src",
     "clean": "rm -rf dist",
     "fmt": "prettier --write ."
   },
