@@ -1,7 +1,6 @@
 # GoHighLevel Client
 
 [![NPM Version][npm-image]][npm-url]
-[![GitHub Actions][github-image]][github-url]
 
 ⚠️ This is an unofficial client library for GoHighLevel.
 
@@ -77,7 +76,5 @@ Install the package
 pnpm i @nr1e/gohighlevel
 ```
 
-[github-url]: https://github.com/nr1etech/lib-js/actions
-[github-image]: https://github.com/nr1etech/lib-js/workflows/publish/badge.svg
 [npm-url]: https://npmjs.org/package/@nr1e/gohighlevel
 [npm-image]: https://img.shields.io/npm/v/@nr1e/gohighlevel.svg

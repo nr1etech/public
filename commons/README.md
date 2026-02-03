@@ -1,7 +1,6 @@
 # Commons JS
 
 [![NPM Version][npm-image]][npm-url]
-[![GitHub Actions][github-image]][github-url]
 
 This project provides reusable components commonly needed in TypeScript projects.
 
@@ -17,7 +16,5 @@ This project provides reusable components commonly needed in TypeScript projects
 | `@nr1e/commons/os`         | Operating system utilities including environment variable helpers                             |
 | `@nr1e/commons/validator`  | Input validation utilities                                                                    |
 
-[github-url]: https://github.com/nr1etech/lib-js/actions
-[github-image]: https://github.com/nr1etech/lib-js/workflows/ci/badge.svg
 [npm-url]: https://npmjs.org/package/@nr1e/commons-js
 [npm-image]: https://img.shields.io/npm/v/@nre1/commons-js.svg

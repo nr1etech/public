@@ -1,7 +1,6 @@
 # Logging
 
 [![NPM Version][npm-image]][npm-url]
-[![GitHub Actions][github-image]][github-url]
 
 Provides a simple logging interface for typescript projects that
 adheres to the NR1E logging standard. The goal of this wrapper is to
@@ -94,7 +93,5 @@ try {
 }
 ```
 
-[github-url]: https://github.com/nr1etech/lib-js
-[github-image]: https://github.com/nr1etech/lib-js/workflows/ci/badge.svg
 [npm-url]: https://npmjs.com/package/@nr1e/logging
 [npm-image]: https://img.shields.io/npm/v/@nr1e/logging.svg

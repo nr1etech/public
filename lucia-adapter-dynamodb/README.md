@@ -1,7 +1,6 @@
 # A DynamoDB Adapter For [lucia-auth](https://github.com/lucia-auth/lucia)
 
 [![NPM Version][npm-image]][npm-url]
-[![GitHub Actions][github-image]][github-url]
 
 This is a fork of [lucida-adapter-dynamodb](https://github.com/choutianxius/lucia-adapter-dynamodb).
 
@@ -119,7 +118,5 @@ The configuration object can be specified as follows:
 | extraUserAttributes     | string[] | []             | Names of non-key attributes in the DynamoDB table to be excluded from DatabaseUser objects    |
 | extraSessionAttributes  | string[] | []             | Names of non-key attributes in the DynamoDB table to be excluded from DatabaseSession objects |
 
-[github-url]: https://github.com/nr1etech/lib-js
-[github-image]: https://github.com/nr1etech/lib-js/workflows/ci/badge.svg
 [npm-url]: https://npmjs.org/package/@nr1e/lucia-adapter-dynamodb
 [npm-image]: https://img.shields.io/npm/v/@nr1e/lucia-adapter-dynamodb.svg
