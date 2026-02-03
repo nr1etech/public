@@ -8,3 +8,6 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # These have large downstream ramifications. So, we pin these packages and are strategic about when we upgrade.
+      - dependency-name: "@aws-sdk/*"
