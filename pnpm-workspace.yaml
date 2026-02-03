@@ -36,7 +36,7 @@ catalog:
   "globals": "17.0.0"
   "ksuid": "3.0.0"
   "lucia": "^3.2.2"
-  "np": "^8.0.4"
+  "np": "^11.0.2"
   "openapi-typescript": "7.10.1"
   "pino": "^10.1.0"
   "pino-abstract-transport": "^3.0.0"
