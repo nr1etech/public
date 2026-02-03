@@ -10,7 +10,7 @@ packages:
   - 'usps'
   - '!**/dist/**'
 catalog:
-  "@aws-sdk/client-dynamodb": "3.958.0"
+  "@aws-sdk/client-dynamodb": "3.982.0"
   "@aws-sdk/client-eventbridge": "3.958.0"
   "@aws-sdk/client-geo-places": "3.958.0"
   "@aws-sdk/client-lambda": "3.958.0"
