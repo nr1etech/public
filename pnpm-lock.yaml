@@ -133,6 +133,7 @@ catalogs:
 overrides:
   tmp: '>=0.2.4'
   diff: '>=5.2.2'
+  fast-xml-parser: '>=5.3.4'
   lodash: '>=4.17.23'
   undici: '>=7.18.2'
 
@@ -2800,8 +2801,8 @@ packages:
   fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
 
-  fast-xml-parser@5.2.5:
-    resolution: {integrity: sha512-pfX9uG9Ki0yekDHx2SiuRIyFdyAr1kMIMitPvb0YBo8SUfKvia7w7FIyd/l6av85pFYRhZscS75MwMnbvY+hcQ==}
+  fast-xml-parser@5.3.4:
+    resolution: {integrity: sha512-EFd6afGmXlCx8H8WTZHhAoDaWaGyuIBoZJ2mknrNxug+aZKjkp0a0dlars9Izl+jF+7Gu1/5f/2h68cQpe0IiA==}
     hasBin: true
 
   fastq@1.20.1:
@@ -5845,7 +5846,7 @@ snapshots:
   '@aws-sdk/xml-builder@3.957.0':
     dependencies:
       '@smithy/types': 4.11.0
-      fast-xml-parser: 5.2.5
+      fast-xml-parser: 5.3.4
       tslib: 2.8.1
 
   '@aws/lambda-invoke-store@0.2.2': {}
@@ -8127,7 +8128,7 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
-  fast-xml-parser@5.2.5:
+  fast-xml-parser@5.3.4:
     dependencies:
       strnum: 2.1.2
 
