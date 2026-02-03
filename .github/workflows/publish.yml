@@ -3,6 +3,10 @@ on:
     branches:
       - main
       - develop
+  pull_request:
+    branches:
+      - main
+      - develop
   workflow_dispatch:
 name: publish
 permissions:
@@ -12,7 +16,6 @@ permissions:
 jobs:
   publish:
     uses: ./.github/workflows/javascript-library-v2.yml
-    if: github.actor != 'dependabot[bot]'
     secrets:
       app-id: ${{ secrets.RELEASE_BOT_ID }}
       private-key: ${{ secrets.RELEASE_BOT_KEY }}
