@@ -3,7 +3,9 @@ import {lemV4BaseUrl} from './env.mjs';
 import type {CreateBusinessLinesInput} from './create-business-lines.mjs';
 import type {GetBusinessLinesOutput} from './get-business-lines.mjs';
 
-export type UpdateBusinessLinesInput = Partial<Omit<CreateBusinessLinesInput, 'legalEntityId'>>;
+export type UpdateBusinessLinesInput = Partial<
+  Omit<CreateBusinessLinesInput, 'legalEntityId'>
+>;
 
 export type UpdateBusinessLinesOutput = GetBusinessLinesOutput;
 

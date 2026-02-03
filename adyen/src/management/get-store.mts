@@ -4,10 +4,7 @@ import type {Store} from './get-merchant-store-list.mjs';
 
 export type GetStoreOutput = Store;
 
-export async function getStore(
-  client: AdyenClient,
-  storeId: string,
-) {
+export async function getStore(client: AdyenClient, storeId: string) {
   return await client.get<GetStoreOutput>({
     baseUrl: managementV3BaseUrl,
     path: `stores/${storeId}`,
