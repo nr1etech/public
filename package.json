@@ -1,5 +1,5 @@
 {
-  "name": "lib-js",
+  "name": "public",
   "description": "DO NOT ADD DEPENDENCIES HERE",
   "devDependencies": {
 		"@changesets/cli": "^2.29.8"
