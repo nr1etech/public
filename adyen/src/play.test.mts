@@ -1,7 +1,11 @@
 import {test} from 'vitest';
 import {createAdyenClient} from './client.mjs';
 import {createAccountHolder} from './bcl/index.mjs';
-import {createLegalEntity, createTransferInstrument, getLegalEntity} from './lem/index.mjs';
+import {
+  createLegalEntity,
+  createTransferInstrument,
+  getLegalEntity,
+} from './lem/index.mjs';
 
 test('Test getLegalEntity @only', async () => {
   const client = createAdyenClient({

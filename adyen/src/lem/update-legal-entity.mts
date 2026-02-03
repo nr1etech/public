@@ -1,9 +1,6 @@
 import {AdyenClient} from '../client.mjs';
 import {lemV4BaseUrl} from './env.mjs';
-import type {
-  EntityType,
-  OrganizationInput,
-} from './create-legal-entity.mjs';
+import type {EntityType, OrganizationInput} from './create-legal-entity.mjs';
 import type {GetLegalEntityOutput} from './get-legal-entity.mjs';
 
 export type UpdateLegalEntityInput = {

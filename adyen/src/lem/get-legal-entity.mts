@@ -1,6 +1,11 @@
 import {AdyenClient} from '../client.mjs';
 import {lemV4BaseUrl} from './env.mjs';
-import type {Address, EntityType, OrganizationType, Phone} from './create-legal-entity.mjs';
+import type {
+  Address,
+  EntityType,
+  OrganizationType,
+  Phone,
+} from './create-legal-entity.mjs';
 
 export type Capability = {
   allowed?: boolean;

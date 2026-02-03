@@ -17,11 +17,11 @@ export async function getDocument(
   options?: GetDocumentOptions,
 ) {
   let path = `documents/${documentId}`;
-  
+
   if (options?.skipContent) {
     path += '?skipContent=true';
   }
-  
+
   return await client.get<GetDocumentOutput>({
     baseUrl: lemV4BaseUrl,
     path,

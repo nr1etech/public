@@ -1,16 +1,16 @@
 import {AdyenClient} from '../client.mjs';
 import {lemV4BaseUrl} from './env.mjs';
 
-export type BusinessLineServiceType = 
-  | 'paymentProcessing' 
-  | 'issuing' 
+export type BusinessLineServiceType =
+  | 'paymentProcessing'
+  | 'issuing'
   | 'banking';
 
-export type SalesChannel = 
-  | 'pos' 
-  | 'posMoto' 
-  | 'eCommerce' 
-  | 'ecomMoto' 
+export type SalesChannel =
+  | 'pos'
+  | 'posMoto'
+  | 'eCommerce'
+  | 'ecomMoto'
   | 'payByLink';
 
 export type SourceOfFundsType =
