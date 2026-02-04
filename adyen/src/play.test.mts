@@ -15,7 +15,7 @@ import {
   updateStore,
 } from './management/index.mjs';
 
-test('Test getLegalEntity @only', async () => {
+test('Test getLegalEntity @none', async () => {
   const client = createAdyenClient({
     apiKey: process.env.LEM_API_KEY!,
     env: 'test',
@@ -54,7 +54,6 @@ test('Test createLegalEntity (Organization) @none', async () => {
         number: '+14155551234',
         type: 'mobile',
       },
-
       taxInformation: [
         {
           country: 'US',
@@ -64,7 +63,7 @@ test('Test createLegalEntity (Organization) @none', async () => {
       ],
     },
   });
-  console.log('Legal entity', JSON.stringify(output, null, 2));
+  console.log('Organization', JSON.stringify(output, null, 2));
 });
 
 // {
@@ -210,7 +209,7 @@ test('Test associate individual with org @none', async () => {
   console.log('Legal entity associations', JSON.stringify(output, null, 2));
 });
 
-test('Test createAccountHolder @only', async () => {
+test('Test createAccountHolder @none', async () => {
   const client = createAdyenClient({
     apiKey: process.env.BCL_API_KEY!,
     env: 'test',
@@ -221,7 +220,7 @@ test('Test createAccountHolder @only', async () => {
   console.log('Account holder', JSON.stringify(output, null, 2));
 });
 
-test('Test createTransferInstrument', async () => {
+test('Test createTransferInstrument @none', async () => {
   const client = createAdyenClient({
     apiKey: process.env.LEM_API_KEY!,
     env: 'test',
@@ -984,3 +983,19 @@ test('Create balance account @none', async () => {
 // AH3292W22322B55NV2TDC3JXF
 // Balance Account
 // BA32CMZ22322B55NV2TJZDGFM
+
+// test('Test create store @only', async () => {
+//   const client = createAdyenClient({
+//     apiKey: process.env.LEM_API_KEY!,
+//     env: 'test',
+//   });
+//   const output = await createStore(client, {});
+// });
+
+// 5. Create store - https://docs.adyen.com/api-explorer/Management/latest/post/stores
+// 6. Add payment methods to store - https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings
+// 7. Add an account holder - https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders
+// 8. Create balance account - https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts
+// 9. Send in acceptance of terms of service - https://docs.adyen.com/platforms/onboard-users/terms-of-service/
+// 10. Send in security questionnaire - https://docs.adyen.com/platforms/onboard-users/pci-forms#generate-questionnaires/
+// 11. Resolver verification errors. We can get verification updates from https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/accountHolders/{id}

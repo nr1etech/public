@@ -112,6 +112,7 @@ export async function encryptWithPublicKey(
   } catch (error) {
     throw new Error(
       `Failed to encrypt data: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      {cause: error},
     );
   }
 }
