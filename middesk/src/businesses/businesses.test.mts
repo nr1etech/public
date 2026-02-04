@@ -9,7 +9,6 @@ test("Test listBusinesses and retrieveBusiness @int", async () => {
   expect(listResult).toBeDefined();
   expect(listResult.data).toBeDefined();
 
-  // Assuming the test account might be empty initially, but list should succeed
   if (listResult.data.length > 0) {
     const businessId = listResult.data[0].id;
     const retrieveResult = await retrieveBusiness(client, { businessId });

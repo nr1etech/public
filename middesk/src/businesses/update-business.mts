@@ -1,5 +1,5 @@
 import { MiddeskClient } from "../client.mjs";
-import type { Business } from "./list-businesses.mjs";
+import type { Business } from "./types.mjs";
 
 export type UpdateBusinessInput = {
   businessId: string;
@@ -24,7 +24,7 @@ export type UpdateBusinessInput = {
   }>;
   phone_numbers?: Array<{ number: string }>;
   tags?: string[];
-  status?: string; // Sometimes status can be updated
+  status?: string;
 };
 
 /**
