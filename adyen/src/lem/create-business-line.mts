@@ -9,7 +9,7 @@ import type {
   WebDataExemption,
 } from './get-legal-entity-business-lines.mjs';
 
-export type CreateBusinessLinesInput = {
+export type CreateBusinessLineInput = {
   /**
    * A code that represents the industry of the legal entity for marketplaces or platforms.
    * For example, **4431A** for computer software stores.
@@ -48,9 +48,9 @@ export type CreateBusinessLinesInput = {
 
 export type CreateBusinessLinesOutput = BusinessLine;
 
-export async function createBusinessLines(
+export async function createBusinessLine(
   client: AdyenClient,
-  input: CreateBusinessLinesInput,
+  input: CreateBusinessLineInput,
 ) {
   return await client.post<CreateBusinessLinesOutput>({
     baseUrl: lemV4BaseUrl,

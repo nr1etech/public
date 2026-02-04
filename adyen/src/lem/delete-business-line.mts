@@ -1,7 +1,7 @@
 import {AdyenClient} from '../client.mjs';
 import {lemV4BaseUrl} from './env.mjs';
 
-export async function deleteBusinessLines(
+export async function deleteBusinessLine(
   client: AdyenClient,
   businessLineId: string,
 ): Promise<void> {
