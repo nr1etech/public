@@ -54,7 +54,7 @@ export function createAdyenClient(config: AdyenClientConfig): AdyenClient {
     const response = await fetch(new URL(input.path, input.baseUrl(env)), {
       headers: {
         'Accept': 'application/json',
-        'X-API-Key': apiKey,
+        'x-api-key': apiKey,
       },
       method: 'GET',
     });
@@ -68,7 +68,7 @@ export function createAdyenClient(config: AdyenClientConfig): AdyenClient {
     const response = await fetch(new URL(input.path, input.baseUrl(env)), {
       headers: {
         'Content-Type': 'application/json',
-        'x-API-key': apiKey,
+        'x-api-key': apiKey,
       },
       method: 'POST',
       body: JSON.stringify(input.body),
@@ -83,7 +83,7 @@ export function createAdyenClient(config: AdyenClientConfig): AdyenClient {
     const response = await fetch(new URL(input.path, input.baseUrl(env)), {
       headers: {
         'Content-Type': 'application/json',
-        'x-API-key': apiKey,
+        'x-api-key': apiKey,
       },
       method: 'PATCH',
       body: JSON.stringify(input.body),
@@ -97,7 +97,7 @@ export function createAdyenClient(config: AdyenClientConfig): AdyenClient {
   const deleteMethod = async (input: DeleteInput): Promise<void> => {
     const response = await fetch(new URL(input.path, input.baseUrl(env)), {
       headers: {
-        'X-API-Key': apiKey,
+        'x-api-key': apiKey,
       },
       method: 'DELETE',
     });

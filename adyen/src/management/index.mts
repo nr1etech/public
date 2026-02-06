@@ -4,6 +4,8 @@ export * from './get-merchant-store.mjs';
 export * from './get-merchant-store-list.mjs';
 export * from './get-store.mjs';
 export * from './get-store-list.mjs';
+export * from './list-merchant-accounts.mjs';
+export * from './request-payment-method.mjs';
 export * from './update-merchant-store.mjs';
 export * from './update-store.mjs';
 export * from './env.mjs';

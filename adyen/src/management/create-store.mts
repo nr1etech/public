@@ -9,15 +9,15 @@ import type {
 } from './get-merchant-store-list.mjs';
 
 export type CreateStoreInput = {
-  address?: Address;
+  address: Address;
   businessLineIds?: string[];
-  description?: string;
+  description: string;
   externalReferenceId?: string;
   localizedInformation?: LocalizedInformation;
   merchantId: string;
-  phoneNumber?: string;
+  phoneNumber: string;
   reference?: string;
-  shopperStatement?: string;
+  shopperStatement: string;
   splitConfiguration?: SplitConfiguration;
   subMerchantData?: SubMerchantData;
 };
