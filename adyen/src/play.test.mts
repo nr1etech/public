@@ -209,17 +209,6 @@ test('Test associate individual with org @none', async () => {
   console.log('Legal entity associations', JSON.stringify(output, null, 2));
 });
 
-test('Test createAccountHolder @none', async () => {
-  const client = createAdyenClient({
-    apiKey: process.env.BCL_API_KEY!,
-    env: 'test',
-  });
-  const output = await createAccountHolder(client, {
-    legalEntityId: 'LE32CVS22322775NT3G4KFR5Q',
-  });
-  console.log('Account holder', JSON.stringify(output, null, 2));
-});
-
 test('Test createTransferInstrument @none', async () => {
   const client = createAdyenClient({
     apiKey: process.env.LEM_API_KEY!,
@@ -992,10 +981,21 @@ test('Create balance account @none', async () => {
 //   const output = await createStore(client, {});
 // });
 
-// 5. Create store - https://docs.adyen.com/api-explorer/Management/latest/post/stores
-// 6. Add payment methods to store - https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings
-// 7. Add an account holder - https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders
-// 8. Create balance account - https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts
 // 9. Send in acceptance of terms of service - https://docs.adyen.com/platforms/onboard-users/terms-of-service/
 // 10. Send in security questionnaire - https://docs.adyen.com/platforms/onboard-users/pci-forms#generate-questionnaires/
 // 11. Resolver verification errors. We can get verification updates from https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/accountHolders/{id}
+
+// Test Company LLC
+// LE32CTB22322765NNZPLK29CG
+// James Kirk
+// LE32CM722322795NTXGNX53SZ
+// Transfer Instrument
+// AH32CQB22322B35NT3NCVBDQH
+// Business Line
+// SE32CM722322795NTXQ496ZT5
+// Store
+// ST3298S223229G5NTXW3N5326
+// Account Holder
+// AH3292W22322B55NV2TDC3JXF
+// Balance Account
+// BA32CMZ22322B55NV2TJZDGFM
