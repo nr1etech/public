@@ -1,6 +1,6 @@
 import {test} from 'vitest';
 import {createAdyenClient} from './client.mjs';
-import {createAccountHolder} from './bcl/index.mjs';
+import {createAccountHolder, createBalanceAccount} from './bcl/index.mjs';
 import {
   createBusinessLine,
   createLegalEntity,
@@ -8,7 +8,12 @@ import {
   getLegalEntity,
   updateLegalEntity,
 } from './lem/index.mjs';
-// import {createStore} from './management/index.mjs';
+import {
+  createStore,
+  listMerchantAccounts,
+  requestPaymentMethod,
+  updateStore,
+} from './management/index.mjs';
 
 test('Test getLegalEntity @none', async () => {
   const client = createAdyenClient({
@@ -195,17 +200,6 @@ test('Test associate individual with org @none', async () => {
   console.log('Legal entity associations', JSON.stringify(output, null, 2));
 });
 
-test('Test createAccountHolder @none', async () => {
-  const client = createAdyenClient({
-    apiKey: process.env.BCL_API_KEY!,
-    env: 'test',
-  });
-  const output = await createAccountHolder(client, {
-    legalEntityId: 'LE32CVS22322775NT3G4KFR5Q',
-  });
-  console.log('Account holder', JSON.stringify(output, null, 2));
-});
-
 test('Test createTransferInstrument @none', async () => {
   const client = createAdyenClient({
     apiKey: process.env.LEM_API_KEY!,
@@ -354,18 +348,618 @@ test('Test create business line @none', async () => {
 //   "id": "SE32CM722322795NTXQ496ZT5"
 // }
 
-// test('Test create store @only', async () => {
-//   const client = createAdyenClient({
-//     apiKey: process.env.LEM_API_KEY!,
-//     env: 'test',
-//   });
-//   const output = await createStore(client, {});
-// });
+test('Test listMerchantAccounts @none', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.US_PSP_API_KEY!,
+    env: 'test',
+  });
+  const output = await listMerchantAccounts(client);
+  console.log('Merchant accounts', JSON.stringify(output, null, 2));
+});
 
-// 5. Create store - https://docs.adyen.com/api-explorer/Management/latest/post/stores
-// 6. Add payment methods to store - https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings
-// 7. Add an account holder - https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders
-// 8. Create balance account - https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts
+test('Test create store @none', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.US_PSP_API_KEY!,
+    env: 'test',
+  });
+  const output = await createStore(client, {
+    address: {
+      city: 'San Francisco',
+      country: 'US',
+      postalCode: '94107',
+      stateOrProvince: 'CA',
+      line1: '123 Market Street',
+    },
+    description: 'Test store',
+    merchantId: 'ClientloopAdminipay_US',
+    phoneNumber: '+14155551234',
+    shopperStatement: 'Test Store',
+    businessLineIds: ['SE32CM722322795NTXQ496ZT5'],
+  });
+  console.log('Store', JSON.stringify(output, null, 2));
+});
+
+test('Update store @none', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.US_PSP_API_KEY!,
+    env: 'test',
+  });
+  const output = await updateStore(client, 'ST3298S223229G5NTXW3N5326', {
+    businessLineIds: ['SE32CM722322795NTXQ496ZT5'],
+  });
+  console.log('Updated store', JSON.stringify(output, null, 2));
+});
+
+// {
+//   "address": {
+//     "city": "San Francisco",
+//     "line1": "123 Market Street",
+//     "postalCode": "94107",
+//     "stateOrProvince": "CA",
+//     "country": "US"
+//   },
+//   "businessLineIds": [
+//     "SE32CM722322795NTXQ496ZT5"
+//   ],
+//   "description": "Test store",
+//   "id": "ST3298S223229G5NTXW3N5326",
+//   "_links": {
+//     "self": {
+//       "href": "https://management-test.adyen.com/v3/stores/ST3298S223229G5NTXW3N5326"
+//     }
+//   },
+//   "merchantId": "ClientloopAdminipay_US",
+//   "phoneNumber": "+14155551234",
+//   "reference": "ST3298S223229G5NTXW3N5326",
+//   "shopperStatement": "Test Store",
+//   "status": "active"
+// }
+
+test('Add VISA to store @only', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.US_PSP_API_KEY!,
+    env: 'test',
+  });
+  const output = await requestPaymentMethod(client, 'ClientloopAdminipay_US', {
+    type: 'visa',
+    businessLineId: 'SE32CM722322795NTXQ496ZT5',
+    currencies: ['USD'],
+    countries: ['US'],
+  });
+  console.log('Payment methods', JSON.stringify(output, null, 2));
+});
+
+test('Test createAccountHolder @none', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.BCL_API_KEY!,
+    env: 'test',
+  });
+  const output = await createAccountHolder(client, {
+    legalEntityId: 'LE32CVS22322775NT3G4KFR5Q',
+  });
+  console.log('Account holder', JSON.stringify(output, null, 2));
+});
+
+// {
+//   "balancePlatform": "ClientloopAdminipayPlatform",
+//   "legalEntityId": "LE32CVS22322775NT3G4KFR5Q",
+//   "timeZone": "America/Los_Angeles",
+//   "capabilities": {
+//     "receiveFromPlatformPayments": {
+//       "enabled": true,
+//       "requested": true,
+//       "allowed": false,
+//       "problems": [
+//         {
+//           "entity": {
+//             "id": "LE32CVS22322775NT3G4KFR5Q",
+//             "type": "LegalEntity"
+//           },
+//           "verificationErrors": [
+//             {
+//               "code": "2_902",
+//               "message": "Terms Of Service forms are not accepted.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_902",
+//                   "message": "Accept TOS"
+//                 }
+//               ],
+//               "type": "invalidInput"
+//             }
+//           ]
+//         }
+//       ],
+//       "verificationStatus": "invalid"
+//     },
+//     "receiveFromBalanceAccount": {
+//       "enabled": true,
+//       "requested": true,
+//       "allowed": false,
+//       "problems": [
+//         {
+//           "entity": {
+//             "id": "LE32CVS22322775NT3G4KFR5Q",
+//             "type": "LegalEntity"
+//           },
+//           "verificationErrors": [
+//             {
+//               "code": "2_902",
+//               "message": "Terms Of Service forms are not accepted.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_902",
+//                   "message": "Accept TOS"
+//                 }
+//               ],
+//               "type": "invalidInput"
+//             }
+//           ]
+//         }
+//       ],
+//       "verificationStatus": "invalid"
+//     },
+//     "sendToBalanceAccount": {
+//       "enabled": true,
+//       "requested": true,
+//       "allowed": false,
+//       "problems": [
+//         {
+//           "entity": {
+//             "id": "LE32CVS22322775NT3G4KFR5Q",
+//             "type": "LegalEntity"
+//           },
+//           "verificationErrors": [
+//             {
+//               "code": "2_8189",
+//               "message": "'UBO through control' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_151",
+//                   "message": "Add 'organization.entityAssociations' of type 'uboThroughControl' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8086",
+//               "message": "'organization.doingBusinessAs' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_133",
+//                   "message": "Add 'organization.doingBusinessAs' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8175",
+//               "message": "'taxInformation.number' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_171",
+//                   "message": "Add 'taxInformation.number' to legal entity."
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8043",
+//               "message": "'organization.registrationNumber' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_117",
+//                   "message": "Add 'organization.registrationNumber' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8174",
+//               "message": "'taxInformation' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_170",
+//                   "message": "Add tax information to legal entity."
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8069",
+//               "message": "'organization.type' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_125",
+//                   "message": "Add 'organization.type' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8067",
+//               "message": "'Signatory' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_124",
+//                   "message": "Add 'organization.entityAssociations' of type 'signatory' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8045",
+//               "message": "'organization.taxId' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_118",
+//                   "message": "Add 'organization.taxId' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             }
+//           ]
+//         },
+//         {
+//           "entity": {
+//             "id": "LE32CVS22322775NT3G4KFR5Q",
+//             "type": "LegalEntity"
+//           },
+//           "verificationErrors": [
+//             {
+//               "code": "2_902",
+//               "message": "Terms Of Service forms are not accepted.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_902",
+//                   "message": "Accept TOS"
+//                 }
+//               ],
+//               "type": "invalidInput"
+//             }
+//           ]
+//         }
+//       ],
+//       "verificationStatus": "invalid"
+//     },
+//     "sendToTransferInstrument": {
+//       "enabled": true,
+//       "requested": true,
+//       "allowed": false,
+//       "problems": [
+//         {
+//           "entity": {
+//             "id": "LE32CVS22322775NT3G4KFR5Q",
+//             "type": "LegalEntity"
+//           },
+//           "verificationErrors": [
+//             {
+//               "code": "2_8174",
+//               "message": "'taxInformation' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_170",
+//                   "message": "Add tax information to legal entity."
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8045",
+//               "message": "'organization.taxId' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_118",
+//                   "message": "Add 'organization.taxId' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8036",
+//               "message": "'bankAccount' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_115",
+//                   "message": "Add bank account"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8043",
+//               "message": "'organization.registrationNumber' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_117",
+//                   "message": "Add 'organization.registrationNumber' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8086",
+//               "message": "'organization.doingBusinessAs' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_133",
+//                   "message": "Add 'organization.doingBusinessAs' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8175",
+//               "message": "'taxInformation.number' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_171",
+//                   "message": "Add 'taxInformation.number' to legal entity."
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8067",
+//               "message": "'Signatory' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_124",
+//                   "message": "Add 'organization.entityAssociations' of type 'signatory' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8189",
+//               "message": "'UBO through control' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_151",
+//                   "message": "Add 'organization.entityAssociations' of type 'uboThroughControl' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8069",
+//               "message": "'organization.type' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_125",
+//                   "message": "Add 'organization.type' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             }
+//           ]
+//         },
+//         {
+//           "entity": {
+//             "id": "LE32CVS22322775NT3G4KFR5Q",
+//             "type": "LegalEntity"
+//           },
+//           "verificationErrors": [
+//             {
+//               "code": "2_902",
+//               "message": "Terms Of Service forms are not accepted.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_902",
+//                   "message": "Accept TOS"
+//                 }
+//               ],
+//               "type": "invalidInput"
+//             }
+//           ]
+//         }
+//       ],
+//       "verificationStatus": "invalid"
+//     },
+//     "receivePayments": {
+//       "enabled": true,
+//       "requested": true,
+//       "allowed": false,
+//       "problems": [
+//         {
+//           "entity": {
+//             "id": "LE32CVS22322775NT3G4KFR5Q",
+//             "type": "LegalEntity"
+//           },
+//           "verificationErrors": [
+//             {
+//               "code": "2_8067",
+//               "message": "'Signatory' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_124",
+//                   "message": "Add 'organization.entityAssociations' of type 'signatory' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8174",
+//               "message": "'taxInformation' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_170",
+//                   "message": "Add tax information to legal entity."
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8043",
+//               "message": "'organization.registrationNumber' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_117",
+//                   "message": "Add 'organization.registrationNumber' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8175",
+//               "message": "'taxInformation.number' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_171",
+//                   "message": "Add 'taxInformation.number' to legal entity."
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8069",
+//               "message": "'organization.type' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_125",
+//                   "message": "Add 'organization.type' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8190",
+//               "message": "'businessLine' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_136",
+//                   "message": "Add business line"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8189",
+//               "message": "'UBO through control' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_151",
+//                   "message": "Add 'organization.entityAssociations' of type 'uboThroughControl' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8249",
+//               "message": "'organization.support.phone.number' was missing",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_236",
+//                   "message": "Add 'organization.support.phone.number' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8045",
+//               "message": "'organization.taxId' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_118",
+//                   "message": "Add 'organization.taxId' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8247",
+//               "message": "'organization.support.email' was missing",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_234",
+//                   "message": "Add 'organization.support.email' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             },
+//             {
+//               "code": "2_8086",
+//               "message": "'organization.doingBusinessAs' was missing.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_133",
+//                   "message": "Add 'organization.doingBusinessAs' to legal entity"
+//                 }
+//               ],
+//               "type": "dataMissing"
+//             }
+//           ]
+//         },
+//         {
+//           "entity": {
+//             "id": "LE32CVS22322775NT3G4KFR5Q",
+//             "type": "LegalEntity"
+//           },
+//           "verificationErrors": [
+//             {
+//               "code": "2_902",
+//               "message": "Terms Of Service forms are not accepted.",
+//               "remediatingActions": [
+//                 {
+//                   "code": "2_902",
+//                   "message": "Accept TOS"
+//                 }
+//               ],
+//               "type": "invalidInput"
+//             }
+//           ]
+//         }
+//       ],
+//       "verificationStatus": "invalid"
+//     }
+//   },
+//   "id": "AH3292W22322B55NV2TDC3JXF",
+//   "status": "active"
+// }
+
+test('Create balance account @none', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.BCL_API_KEY!,
+    env: 'test',
+  });
+  const output = await createBalanceAccount(client, {
+    accountHolderId: 'AH3292W22322B55NV2TDC3JXF',
+  });
+  console.log('Balance account', JSON.stringify(output, null, 2));
+});
+
+// {
+//   "accountHolderId": "AH3292W22322B55NV2TDC3JXF",
+//   "defaultCurrencyCode": "USD",
+//   "timeZone": "America/Los_Angeles",
+//   "balances": [
+//     {
+//       "available": 0,
+//       "balance": 0,
+//       "currency": "USD",
+//       "pending": 0,
+//       "reserved": 0
+//     }
+//   ],
+//   "id": "BA32CMZ22322B55NV2TJZDGFM",
+//   "status": "active"
+// }
+
 // 9. Send in acceptance of terms of service - https://docs.adyen.com/platforms/onboard-users/terms-of-service/
 // 10. Send in security questionnaire - https://docs.adyen.com/platforms/onboard-users/pci-forms#generate-questionnaires/
 // 11. Resolver verification errors. We can get verification updates from https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/accountHolders/{id}
+
+// Test Company LLC
+// LE32CTB22322765NNZPLK29CG
+// James Kirk
+// LE32CM722322795NTXGNX53SZ
+// Transfer Instrument
+// AH32CQB22322B35NT3NCVBDQH
+// Business Line
+// SE32CM722322795NTXQ496ZT5
+// Store
+// ST3298S223229G5NTXW3N5326
+// Account Holder
+// AH3292W22322B55NV2TDC3JXF
+// Balance Account
+// BA32CMZ22322B55NV2TJZDGFM
