@@ -1,8 +1,8 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export interface Webhook {
   id: string;
-  object: "webhook";
+  object: 'webhook';
   url: string;
   status: string;
   created_at: string;
@@ -18,7 +18,7 @@ export type ListWebhooksInput = {
 };
 
 export type ListWebhooksOutput = {
-  object: "list";
+  object: 'list';
   data: Webhook[];
   has_more: boolean;
   total_count: number;
@@ -40,7 +40,7 @@ export async function listWebhooks(
   };
   if (input?.limit != null) query.limit = input.limit;
   return client.get<ListWebhooksOutput>({
-    path: "/webhooks",
+    path: '/webhooks',
     query: Object.keys(query).length ? query : undefined,
   });
 }

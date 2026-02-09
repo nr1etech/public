@@ -1,15 +1,15 @@
-import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
 
 const config = tseslint.config(
   {
     ignores: [
-      "dist",
-      "coverage",
-      "node_modules",
-      "**/*.js",
-      "**/*.d.*",
-      "**/*.map",
+      'dist',
+      'coverage',
+      'node_modules',
+      '**/*.js',
+      '**/*.d.*',
+      '**/*.map',
     ],
   },
   eslint.configs.recommended,

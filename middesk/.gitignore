@@ -1,6 +1,4 @@
 notes.txt
-generated
-highlevel-api-docs
 *.zip
 *.js
 !jest.config.js
@@ -13,4 +11,3 @@ ncryptyr.json
 !.prettierrc.js
 site
 coverage
-.env

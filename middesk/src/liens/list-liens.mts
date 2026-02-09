@@ -1,8 +1,8 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export interface Lien {
   id: string;
-  object: "lien";
+  object: 'lien';
   business_id: string;
   // Add other fields
 }
@@ -14,7 +14,7 @@ export type ListLiensInput = {
 };
 
 export type ListLiensOutput = {
-  object: "list";
+  object: 'list';
   data: Lien[];
   has_more: boolean;
   total_count: number;

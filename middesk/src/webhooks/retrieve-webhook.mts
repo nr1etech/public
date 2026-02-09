@@ -1,5 +1,5 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Webhook } from "./list-webhooks.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Webhook} from './list-webhooks.mjs';
 
 export type RetrieveWebhookInput = {
   webhookId: string;

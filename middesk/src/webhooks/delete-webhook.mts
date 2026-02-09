@@ -1,4 +1,4 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export type DeleteWebhookInput = {
   webhookId: string;

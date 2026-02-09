@@ -1,8 +1,8 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export interface Review {
   id: string;
-  object: "review";
+  object: 'review';
   business_id?: string;
   status: string;
   created_at: string;

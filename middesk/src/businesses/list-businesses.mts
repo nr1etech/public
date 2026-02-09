@@ -1,5 +1,5 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Business } from "./types.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Business} from './types.mjs';
 
 export type ListBusinessesInput = {
   limit?: number;
@@ -8,7 +8,7 @@ export type ListBusinessesInput = {
 };
 
 export type ListBusinessesOutput = {
-  object: "list";
+  object: 'list';
   data: Business[];
   has_more: boolean;
   total_count: number;
@@ -31,7 +31,7 @@ export async function listBusinesses(
   if (input?.limit != null) query.limit = input.limit;
   if (input?.after != null) query.after = input.after;
   return client.get<ListBusinessesOutput>({
-    path: "/businesses",
+    path: '/businesses',
     query: Object.keys(query).length ? query : undefined,
   });
 }

@@ -1,5 +1,5 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Order } from "./list-orders.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Order} from './list-orders.mjs';
 
 export type RetrieveOrderInput = {
   business_id: string;

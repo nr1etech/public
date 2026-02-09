@@ -7,9 +7,9 @@ export function isBadRequestErrorOutput(
   obj: unknown,
 ): obj is BadRequestErrorOutput {
   return (
-    typeof obj === "object" &&
+    typeof obj === 'object' &&
     obj !== null &&
-    "statusCode" in obj &&
+    'statusCode' in obj &&
     (obj as BadRequestErrorOutput).statusCode === 400
   );
 }
@@ -19,8 +19,8 @@ export class BadRequestError extends Error {
   public readonly errorMessage?: string;
 
   constructor(output: BadRequestErrorOutput) {
-    super(output.message ?? "Bad Request");
-    this.name = "BadRequestError";
+    super(output.message ?? 'Bad Request');
+    this.name = 'BadRequestError';
     this.statusCode = output.statusCode ?? 400;
     this.errorMessage = output.message;
     Object.setPrototypeOf(this, BadRequestError.prototype);
@@ -37,9 +37,9 @@ export function isUnauthorizedErrorOutput(
   obj: unknown,
 ): obj is UnauthorizedErrorOutput {
   return (
-    typeof obj === "object" &&
+    typeof obj === 'object' &&
     obj !== null &&
-    "statusCode" in obj &&
+    'statusCode' in obj &&
     (obj as UnauthorizedErrorOutput).statusCode === 401
   );
 }
@@ -50,8 +50,8 @@ export class UnauthorizedError extends Error {
   public readonly error?: string;
 
   constructor(output: UnauthorizedErrorOutput) {
-    super(output.message ?? "Unauthorized");
-    this.name = "UnauthorizedError";
+    super(output.message ?? 'Unauthorized');
+    this.name = 'UnauthorizedError';
     this.statusCode = output.statusCode ?? 401;
     this.errorMessage = output.message;
     this.error = output.error;
@@ -69,9 +69,9 @@ export function isForbiddenErrorOutput(
   obj: unknown,
 ): obj is ForbiddenErrorOutput {
   return (
-    typeof obj === "object" &&
+    typeof obj === 'object' &&
     obj !== null &&
-    "statusCode" in obj &&
+    'statusCode' in obj &&
     (obj as ForbiddenErrorOutput).statusCode === 403
   );
 }
@@ -82,8 +82,8 @@ export class ForbiddenError extends Error {
   public readonly error?: string;
 
   constructor(output: ForbiddenErrorOutput) {
-    super(output.message ?? "Forbidden");
-    this.name = "ForbiddenError";
+    super(output.message ?? 'Forbidden');
+    this.name = 'ForbiddenError';
     this.statusCode = output.statusCode ?? 403;
     this.errorMessage = output.message;
     this.error = output.error;
@@ -101,9 +101,9 @@ export function isUnprocessableErrorOutput(
   obj: unknown,
 ): obj is UnprocessableErrorOutput {
   return (
-    typeof obj === "object" &&
+    typeof obj === 'object' &&
     obj !== null &&
-    "statusCode" in obj &&
+    'statusCode' in obj &&
     (obj as UnprocessableErrorOutput).statusCode === 422
   );
 }
@@ -114,8 +114,8 @@ export class UnprocessableError extends Error {
   public readonly error?: string;
 
   constructor(output: UnprocessableErrorOutput) {
-    super(output.message?.join(", ") ?? "Unprocessable Entity");
-    this.name = "UnprocessableError";
+    super(output.message?.join(', ') ?? 'Unprocessable Entity');
+    this.name = 'UnprocessableError';
     this.statusCode = output.statusCode ?? 422;
     this.messages = output.message ?? [];
     this.error = output.error;
@@ -124,7 +124,7 @@ export class UnprocessableError extends Error {
 }
 
 export async function handleError(response: Response) {
-  if (response.headers.get("Content-Type")?.includes("application/json")) {
+  if (response.headers.get('Content-Type')?.includes('application/json')) {
     const error = await response.json();
     if (isBadRequestErrorOutput(error)) {
       throw new BadRequestError(error);

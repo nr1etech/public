@@ -1,5 +1,5 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Order } from "./list-orders.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Order} from './list-orders.mjs';
 
 export type UpdateOrderInput = {
   orderId: string;
@@ -17,7 +17,7 @@ export async function updateOrder(
   client: MiddeskClient,
   input: UpdateOrderInput,
 ): Promise<Order> {
-  const { orderId, body } = input;
+  const {orderId, body} = input;
   return client.patch<Order>({
     path: `/orders/${orderId}`,
     body: body ?? {},

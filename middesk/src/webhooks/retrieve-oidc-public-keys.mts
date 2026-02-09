@@ -1,4 +1,4 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export type RetrieveOidcPublicKeysOutput = {
   keys: Array<{
@@ -20,6 +20,6 @@ export async function retrieveOidcPublicKeys(
   client: MiddeskClient,
 ): Promise<RetrieveOidcPublicKeysOutput> {
   return client.get<RetrieveOidcPublicKeysOutput>({
-    path: "/webhooks/oidc_public_keys",
+    path: '/webhooks/oidc_public_keys',
   });
 }

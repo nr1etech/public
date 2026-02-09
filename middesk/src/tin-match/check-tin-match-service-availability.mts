@@ -1,4 +1,4 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export type CheckTinMatchServiceAvailabilityOutput = {
   available: boolean;
@@ -16,6 +16,6 @@ export async function checkTinMatchServiceAvailability(
   client: MiddeskClient,
 ): Promise<CheckTinMatchServiceAvailabilityOutput> {
   return client.get<CheckTinMatchServiceAvailabilityOutput>({
-    path: "/tin_match/availability",
+    path: '/tin_match/availability',
   });
 }

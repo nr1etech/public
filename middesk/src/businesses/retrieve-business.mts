@@ -1,5 +1,5 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Business } from "./types.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Business} from './types.mjs';
 
 export type RetrieveBusinessInput = {
   businessId: string;

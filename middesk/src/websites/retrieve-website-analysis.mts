@@ -1,8 +1,8 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export interface Website {
   url: string;
-  object: "website";
+  object: 'website';
   // Add analysis fields
 }
 

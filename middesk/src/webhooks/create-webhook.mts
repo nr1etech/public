@@ -1,5 +1,5 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Webhook } from "./list-webhooks.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Webhook} from './list-webhooks.mjs';
 
 export type CreateWebhookInput = {
   url: string;
@@ -19,7 +19,7 @@ export async function createWebhook(
   input: CreateWebhookInput,
 ): Promise<Webhook> {
   return client.post<Webhook>({
-    path: "/webhooks",
+    path: '/webhooks',
     body: input,
   });
 }

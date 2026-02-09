@@ -1,8 +1,8 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export interface PolicyResult {
   id: string;
-  object: "policy_result";
+  object: 'policy_result';
   business_id: string;
   // Add fields
 }
@@ -14,7 +14,7 @@ export type ListPolicyResultsInput = {
 };
 
 export type ListPolicyResultsOutput = {
-  object: "list";
+  object: 'list';
   data: PolicyResult[];
   has_more: boolean;
   total_count: number;

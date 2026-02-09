@@ -1,5 +1,5 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Order } from "./list-orders.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Order} from './list-orders.mjs';
 
 export type CreateOrderInput = {
   business_id: string;
@@ -20,7 +20,7 @@ export async function createOrder(
   client: MiddeskClient,
   input: CreateOrderInput,
 ): Promise<Order> {
-  const { business_id, ...body } = input;
+  const {business_id, ...body} = input;
   return client.post<Order>({
     path: `/businesses/${business_id}/orders`,
     body,

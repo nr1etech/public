@@ -1,4 +1,4 @@
-import { handleError } from "./errors.mjs";
+import {handleError} from './errors.mjs';
 
 export type MiddeskClientConfig = {
   readonly apiKey: string;
@@ -36,16 +36,16 @@ export function createMiddeskClient(
   config: MiddeskClientConfig,
 ): MiddeskClient {
   if (!config.apiKey) {
-    throw new Error("apiKey is required");
+    throw new Error('apiKey is required');
   }
-  let baseUrl = config.baseUrl ?? "https://api.middesk.com/v1";
-  if (!baseUrl.endsWith("/")) {
-    baseUrl += "/";
+  let baseUrl = config.baseUrl ?? 'https://api.middesk.com/v1';
+  if (!baseUrl.endsWith('/')) {
+    baseUrl += '/';
   }
   const apiKey = config.apiKey;
 
   const get = async <T,>(input: GetInput): Promise<T> => {
-    const path = input.path.startsWith("/") ? input.path.slice(1) : input.path;
+    const path = input.path.startsWith('/') ? input.path.slice(1) : input.path;
     const url = new URL(path, baseUrl);
     if (input.query) {
       for (const [key, value] of Object.entries(input.query)) {
@@ -54,10 +54,10 @@ export function createMiddeskClient(
     }
     const response = await fetch(url, {
       headers: {
-        Accept: "application/json",
+        Accept: 'application/json',
         Authorization: `Bearer ${apiKey}`,
       },
-      method: "GET",
+      method: 'GET',
     });
     if (!response.ok) {
       await handleError(response);
@@ -66,14 +66,14 @@ export function createMiddeskClient(
   };
 
   const post = async <T,>(input: PostInput): Promise<T> => {
-    const path = input.path.startsWith("/") ? input.path.slice(1) : input.path;
+    const path = input.path.startsWith('/') ? input.path.slice(1) : input.path;
     const url = new URL(path, baseUrl);
     const response = await fetch(url, {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
       },
-      method: "POST",
+      method: 'POST',
       body: input.body ? JSON.stringify(input.body) : undefined,
     });
     if (!response.ok) {
@@ -83,14 +83,14 @@ export function createMiddeskClient(
   };
 
   const patch = async <T,>(input: PatchInput): Promise<T> => {
-    const path = input.path.startsWith("/") ? input.path.slice(1) : input.path;
+    const path = input.path.startsWith('/') ? input.path.slice(1) : input.path;
     const url = new URL(path, baseUrl);
     const response = await fetch(url, {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
       },
-      method: "PATCH",
+      method: 'PATCH',
       body: JSON.stringify(input.body),
     });
     if (!response.ok) {
@@ -100,14 +100,14 @@ export function createMiddeskClient(
   };
 
   const del = async <T,>(input: DeleteInput): Promise<T> => {
-    const path = input.path.startsWith("/") ? input.path.slice(1) : input.path;
+    const path = input.path.startsWith('/') ? input.path.slice(1) : input.path;
     const url = new URL(path, baseUrl);
     const response = await fetch(url, {
       headers: {
-        Accept: "application/json",
+        Accept: 'application/json',
         Authorization: `Bearer ${apiKey}`,
       },
-      method: "DELETE",
+      method: 'DELETE',
     });
     if (!response.ok) {
       await handleError(response);

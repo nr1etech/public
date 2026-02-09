@@ -1,1 +1,1 @@
-export * from "./list-policy-results.mjs";
+export * from './list-policy-results.mjs';

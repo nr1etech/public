@@ -1,10 +1,10 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Business } from "./types.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Business} from './types.mjs';
 
 export type CreateBusinessInput = {
   name: string;
-  website?: { url: string };
-  tin?: { tin: string };
+  website?: {url: string};
+  tin?: {tin: string};
   addresses?: Array<{
     address_line1: string;
     address_line2?: string;
@@ -14,14 +14,14 @@ export type CreateBusinessInput = {
   }>;
   external_id?: string;
   unique_external_id?: string;
-  names?: Array<{ name: string; type?: string }>;
+  names?: Array<{name: string; type?: string}>;
   people?: Array<{
     name: string;
     title?: string;
     date_of_birth?: string;
     ssn_last_4?: string;
   }>;
-  phone_numbers?: Array<{ number: string }>;
+  phone_numbers?: Array<{number: string}>;
   tags?: string[];
 };
 
@@ -37,7 +37,7 @@ export async function createBusiness(
   input: CreateBusinessInput,
 ): Promise<Business> {
   return client.post<Business>({
-    path: "/businesses",
+    path: '/businesses',
     body: input,
   });
 }

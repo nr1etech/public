@@ -1,5 +1,5 @@
-import { MiddeskClient } from "../client.mjs";
-import type { Webhook } from "./list-webhooks.mjs";
+import {MiddeskClient} from '../client.mjs';
+import type {Webhook} from './list-webhooks.mjs';
 
 export type UpdateWebhookInput = {
   webhookId: string;
@@ -19,7 +19,7 @@ export async function updateWebhook(
   client: MiddeskClient,
   input: UpdateWebhookInput,
 ): Promise<Webhook> {
-  const { webhookId, ...body } = input;
+  const {webhookId, ...body} = input;
   return client.patch<Webhook>({
     path: `/webhooks/${webhookId}`,
     body,

@@ -1,6 +1,6 @@
 export interface Address {
   id?: string;
-  object?: "address";
+  object?: 'address';
   address_line1?: string;
   address_line2?: string;
   city?: string;
@@ -26,13 +26,13 @@ export interface Tin {
   error?: string | null;
   updated_at?: string;
   created_at?: string;
-  object?: "tin";
+  object?: 'tin';
   name?: string;
 }
 
 export interface Name {
   id?: string;
-  object?: "name";
+  object?: 'name';
   name?: string;
   type?: string;
   submitted?: boolean;
@@ -41,19 +41,19 @@ export interface Name {
 
 export interface Website {
   url?: string;
-  object?: "website";
+  object?: 'website';
 }
 
 export interface PhoneNumber {
   id?: string;
-  object?: "phone_number";
+  object?: 'phone_number';
   number?: string;
   business_id?: string;
 }
 
 export interface Person {
   id?: string;
-  object?: "person";
+  object?: 'person';
   name?: string;
   business_id?: string;
   title?: string;
@@ -63,7 +63,7 @@ export interface Person {
 
 export interface Business {
   id: string;
-  object: "business";
+  object: 'business';
   name: string;
   status: string;
   created_at: string;
@@ -79,7 +79,7 @@ export interface Business {
   people?: Person[];
   review?: {
     id?: string;
-    object?: "review";
+    object?: 'review';
     created_at?: string;
     updated_at?: string;
     completed_at?: string;

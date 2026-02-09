@@ -1,7 +1,6 @@
 # Middesk Client
 
 [![NPM Version][npm-image]][npm-url]
-[![GitHub Actions][github-image]][github-url]
 
 ⚠️ This is an unofficial client library for Middesk.
 
@@ -19,13 +18,13 @@ pnpm i @nr1e/middesk
 Create a client and use it to list businesses
 
 ```typescript
-import { createMiddeskClient } from "@nr1e/middesk";
-import { listBusinesses } from "@nr1e/middesk/businesses";
+import {createMiddeskClient} from '@nr1e/middesk';
+import {listBusinesses} from '@nr1e/middesk/businesses';
 
 const client = createMiddeskClient({
-    apiKey: "YOUR_API_KEY",
+    apiKey: 'YOUR_API_KEY',
 });
-const { data: businesses } = await listBusinesses(client);
+const {data: businesses} = await listBusinesses(client);
 ```
 
 ## Why does this exist?
@@ -46,7 +45,5 @@ This client is not intended to cover every possible use case. We only add functi
 
 We've standardized on ESM. We do not plan to release CJS or UMD versions.
 
-[github-url]: https://github.com/nr1etech/lib-js/actions
-[github-image]: https://github.com/nr1etech/lib-js/workflows/publish/badge.svg
 [npm-url]: https://npmjs.org/package/@nr1e/middesk
 [npm-image]: https://img.shields.io/npm/v/@nr1e/middesk.svg

@@ -1,1 +1,1 @@
-export * from "./check-tin-match-service-availability.mjs";
+export * from './check-tin-match-service-availability.mjs';

@@ -1,8 +1,8 @@
-import { MiddeskClient } from "../client.mjs";
+import {MiddeskClient} from '../client.mjs';
 
 export interface Order {
   id: string;
-  object: "order";
+  object: 'order';
   business_id: string;
   package: string;
   status: string;
@@ -18,7 +18,7 @@ export type ListOrdersInput = {
 };
 
 export type ListOrdersOutput = {
-  object: "list";
+  object: 'list';
   data: Order[];
   has_more: boolean;
   total_count: number;
