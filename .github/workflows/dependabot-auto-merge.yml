@@ -1,3 +1,4 @@
+# See https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/automating-dependabot-with-github-actions
 name: Dependabot auto-merge
 on: pull_request
 
