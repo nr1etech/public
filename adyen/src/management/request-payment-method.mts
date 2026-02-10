@@ -1,18 +1,6 @@
 import {AdyenClient} from '../client.mjs';
 import {managementV3BaseUrl} from './env.mjs';
-
-export type PaymentMethodType =
-  | 'amex'
-  | 'applepay'
-  | 'diners'
-  | 'discover'
-  | 'googlepay'
-  | 'interac'
-  | 'jcb'
-  | 'mc'
-  | 'paybybank_plaid'
-  | 'paypal'
-  | 'visa';
+import {PaymentMethodType} from '../types.mjs';
 
 // maestro_usa
 // star

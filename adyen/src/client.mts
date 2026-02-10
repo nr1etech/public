@@ -17,6 +17,7 @@ export type PostInput = {
   readonly baseUrl: BaseUrlFn;
   readonly path: string;
   readonly body: object;
+  readonly idempotencyKey?: string;
 };
 
 export type PatchInput = {
@@ -69,6 +70,9 @@ export function createAdyenClient(config: AdyenClientConfig): AdyenClient {
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': apiKey,
+        ...(input.idempotencyKey
+          ? {'Idempotency-Key': input.idempotencyKey}
+          : {}),
       },
       method: 'POST',
       body: JSON.stringify(input.body),

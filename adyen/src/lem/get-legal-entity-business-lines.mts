@@ -1,5 +1,6 @@
 import {AdyenClient} from '../client.mjs';
 import {lemV4BaseUrl} from './env.mjs';
+import {Amount} from '../types.mjs';
 
 export type BusinessLineServiceType =
   | 'paymentProcessing'
@@ -29,11 +30,6 @@ export type SourceOfFundsType =
   | 'assetSale'
   | 'loans'
   | 'gamblingWinnings';
-
-export type Amount = {
-  currency: string;
-  value: number;
-};
 
 export type Financier = {
   amount?: Amount;

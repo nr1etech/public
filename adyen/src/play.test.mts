@@ -14,6 +14,7 @@ import {
   requestPaymentMethod,
   updateStore,
 } from './management/index.mjs';
+import {createPaymentSession} from './checkout/index.mjs';
 
 test('Test getLegalEntity @none', async () => {
   const client = createAdyenClient({
@@ -424,7 +425,7 @@ test('Update store @none', async () => {
 //   "status": "active"
 // }
 
-test('Add VISA to store @only', async () => {
+test('Add VISA to store @none', async () => {
   const client = createAdyenClient({
     apiKey: process.env.US_PSP_API_KEY!,
     env: 'test',
@@ -999,3 +1000,35 @@ test('Create balance account @none', async () => {
 // AH3292W22322B55NV2TDC3JXF
 // Balance Account
 // BA32CMZ22322B55NV2TJZDGFM
+
+test('Test createPaymentSession @only', async () => {
+  const client = createAdyenClient({
+    apiKey: process.env.US_PSP_API_KEY!,
+    env: 'test',
+  });
+  const output = await createPaymentSession(client, {
+    amount: {
+      value: 99900,
+      currency: 'USD',
+    },
+    merchantAccount: 'ClientloopAdminipay_US',
+    reference: '12345',
+    returnUrl: 'https://checkout.clientloop.com/tesst',
+  });
+  console.log('Payment Session', JSON.stringify(output, null, 2));
+});
+
+// {
+//   "amount": {
+//     "currency": "USD",
+//     "value": 10
+//   },
+//   "expiresAt": "2026-02-09T16:41:40+01:00",
+//   "id": "CSBD2DFB68E243D42F97F621E",
+//   "merchantAccount": "ClientloopAdminipay_US",
+//   "reference": "12345",
+//   "returnUrl": "https://checkout.clientloop.com/tesst",
+//   "shopperLocale": "en-US",
+//   "mode": "embedded",
+//   "sessionData": "Ab02b4c0!BQABAgBDteNBk7ugQGi9AxwRJsXAeZ1/PyZf0jvLqKZLH31iz20fmKU2GYXQ61G+X4ei25xKzjqOZO1vDl+sotjZQ4kAg5mbPmSluV/A5FlJ2jc7v1nzDR7wUmKoMP0RDa8bhYdYFWA9jDJuf2Ql2T7Z3pHqw12dG+M44NonwEdLg11p6Ct6Z1ULl/kjYlL/xg06MSYraecIe2AgdI8EltOh6BUg6YceonRRlZIHlTghfjjzLj5l5OAuJbV5A6s9ax53rJEUK/Z/HOPe33bEhmAKoO8h+v4jiy96DdJvxqG7EbmUXfSDXLHqXcc9wob7/MkEtgfQjTZvcc8TJ1c03MNKTbdkvJtxny/ReF/RjLMU7Z2FfwYaEI1JqQHXigDuzpeZuQb3pdHpzO1NOhYWUpvnj/Jxxfs5036axoc/m7bKQd0vjPee6gZvD7aZIOAvv6Sndb21iWMlYDJsOxnXQ+Bh7fX6jVUrhZtr8RQIPg/suYNalKEPr9dHWCCFBEShNPRsvlZ+pJTUAEu2bWHNLNvGTCifsJVZ/q1UsFo68kj7R/31c5hBGqx+dWplzjhy5QwumIErbnwTawR7jt1iA1+9G6UbgVMC0EphbMvU/7AvIv261GIlIU1IxhzzEDAQfcTpbRKN39bsEPaNa/R2cPsYxJf6/StGaY8zEBjc+go7fm71Dwxe+tvLTZOXlHSYPP8ASnsia2V5IjoiQUYwQUFBMTAzQ0E1MzdFQUVEODdDMjRERDUzOTA5QjgwQTc4QTkyM0UzODIzRDY4REFDQzk0QjlGRjgzMDVEQyJ9S+L60FrZ6uSngyVGNpesGlhqmAPA6QzB9zTWuTNzj483KsPS5Qd5UWmGrPQMXogLIFu29zll+SA60mDEwzpJ19Ff0yANkMh/E5kgINQ5q8z4/6b6pRd1+4gGamamgzhF08XLK1ohcF09lVf1lj5FW2X0taiXHiA2oisRN3OoRVrRdSNi/7tx1kXUPbJH+eoISm2mV8Jg4Enaj8mxOPxxXmIUAkXRQqM4GTdMUrHSPlX6V+PP0i/L6yxNxQsbqeUrN8ymM4yVlRqi5+YXebfxmBRKahV/4sFAn1wlsz4lKcrA+dR3MIkyfpCgW6geTYFQeH14IaQCBnxrtcpjzGh4FXgswLi59VuIQv/ciA4MYh8I7mbiAcdueqaKdZaRIsuUXIWMpnDc7AtpuD6RRCQ4i9HPiETpBMFpee63C6cQVBPliJQCKjNGpNIezn4JXul/YIwkVBI9Bt7jOv+vtdnOgCMYqiJg133p7a180FciottBVg582vuY+Op/0dD3bz+Uw0679N38n5mDUKfppgef1Q6XWxwnnNhngIjh/l36k5iJUdMEznqERAbG/pRcEI5LdN7jF9GGlz0sjgoFEuxwwirImWYPn6wHKpJdEENgYxMIoAA9OneByTzS/9FR16PL+g=="
+// }

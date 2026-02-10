@@ -41,15 +41,19 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.mts"
     },
-    "bcl": {
+    "./bcl": {
       "import": "./dist/bcl/index.mjs",
       "types": "./dist/bcl/index.d.mts"
     },
-    "lem": {
+    "./checkout": {
+      "import": "./dist/checkout/index.mjs",
+      "types": "./dist/checkout/index.d.mts"
+    },
+    "./lem": {
       "import": "./dist/lem/index.mjs",
       "types": "./dist/lem/index.d.mts"
     },
-    "management": {
+    "./management": {
       "import": "./dist/management/index.mjs",
       "types": "./dist/management/index.d.mts"
     }
