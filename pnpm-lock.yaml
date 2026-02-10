@@ -76,8 +76,8 @@ catalogs:
       specifier: 9.39.2
       version: 9.39.2
     eslint-plugin-qwik:
-      specifier: 1.18.0
-      version: 1.18.0
+      specifier: 1.19.0
+      version: 1.19.0
     globals:
       specifier: 17.0.0
       version: 17.0.0
@@ -438,7 +438,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       eslint-plugin-qwik:
         specifier: 'catalog:'
-        version: 1.18.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.4.5)
+        version: 1.19.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.4.5)
       globals:
         specifier: 'catalog:'
         version: 17.0.0
@@ -496,7 +496,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       eslint-plugin-qwik:
         specifier: 'catalog:'
-        version: 1.18.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.4.5)
+        version: 1.19.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.4.5)
       globals:
         specifier: 'catalog:'
         version: 17.0.0
@@ -3081,8 +3081,8 @@ packages:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
-  eslint-plugin-qwik@1.18.0:
-    resolution: {integrity: sha512-9xlr8qROSep4GIgkCMfy/6Z3xY/DflKE9gdSiQv/nQkraCEwH3kQbjY4MgKvOOEPsYk18cHlwOxpTFRtbjfmww==}
+  eslint-plugin-qwik@1.19.0:
+    resolution: {integrity: sha512-xZQxlUsDgX1V+z+DVqD0YicN83k3SpJul4ArCSjuz7uJ6P2IXno7iSKSupuFzQuqRMwDtkSB4uR9mY+3sd0E3w==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
@@ -8876,7 +8876,7 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-plugin-qwik@1.18.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.4.5):
+  eslint-plugin-qwik@1.19.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.4.5):
     dependencies:
       '@typescript-eslint/utils': 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.4.5)
       eslint: 9.39.2(jiti@2.6.1)
