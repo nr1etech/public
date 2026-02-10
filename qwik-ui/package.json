@@ -49,10 +49,13 @@
     "test": "vitest run src",
     "qwik": "qwik"
   },
+  "peerDependencies": {
+    "@builder.io/qwik-city": "catalog:",
+    "@nr1e/qwik-icons": "workspace:"
+  },
   "devDependencies": {
     "@builder.io/qwik": "catalog:",
     "@eslint/js": "catalog:",
-    "@nr1e/qwik-icons": "workspace:",
     "@tailwindcss/vite": "catalog:",
     "@types/node": "catalog:",
     "daisyui": "catalog:",

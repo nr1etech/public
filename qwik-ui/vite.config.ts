@@ -2,6 +2,7 @@ import {defineConfig} from 'vite';
 // @ts-ignore
 import pkg from './package.json';
 import {qwikVite} from '@builder.io/qwik/optimizer';
+import {qwikCity} from '@builder.io/qwik-city/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 // @ts-ignore
 import tailwindcss from '@tailwindcss/vite';
@@ -9,7 +10,9 @@ const {dependencies = {}, peerDependencies = {}} = pkg as any;
 const makeRegex = (dep) => new RegExp(`^${dep}(/.*)?$`);
 const excludeAll = (obj) => Object.keys(obj).map(makeRegex);
 
-export default defineConfig(() => {
+export default defineConfig(({mode}) => {
+  const isDevMode = mode === 'ssr';
+
   return {
     build: {
       target: 'es2020',
@@ -32,6 +35,15 @@ export default defineConfig(() => {
         ],
       },
     },
-    plugins: [qwikVite(), tsconfigPaths({root: '.'}), tailwindcss()],
+    optimizeDeps: {
+      exclude: ['@qwik-city-plan', '@qwik-city-sw-register'],
+    },
+
+    plugins: [
+      qwikVite(),
+      ...(isDevMode ? [qwikCity()] : []),
+      tsconfigPaths({root: '.'}),
+      tailwindcss(),
+    ],
   };
 });

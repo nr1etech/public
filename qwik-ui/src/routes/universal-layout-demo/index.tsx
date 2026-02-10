@@ -1,7 +1,7 @@
 import {component$} from '@builder.io/qwik';
-import {UniversalLayout} from './components/universal-layout';
+import {UniversalLayout} from '../../components/universal-layout';
 
-export const UniversalLayoutDemo = component$(() => {
+export default component$(() => {
   return (
     <UniversalLayout
       class="bg-gray-100"
