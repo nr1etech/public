@@ -1,5 +1,12 @@
 # @nr1e/qwik-ui
 
+## 0.0.30
+### Patch Changes
+
+- 18741e1: Added DropUp component
+- Updated dependencies [f8ea11a]
+  - @nr1e/qwik-icons@0.0.15
+
 ## 0.0.29
 ### Patch Changes
 
