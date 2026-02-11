@@ -1,7 +1,7 @@
 {
   "name": "@nr1e/adyen",
   "description": "Unofficial Adyen client",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "author": "NR1E, Inc.",
   "publishConfig": {

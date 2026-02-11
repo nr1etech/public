@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.29
+### Patch Changes
+
+- 7c9d88a: Added Menu components
+
 ## 0.0.28
 ### Patch Changes
 

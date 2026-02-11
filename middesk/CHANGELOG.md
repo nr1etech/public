@@ -1,5 +1,10 @@
 # @nr1e/middesk
 
+## 0.0.2
+### Patch Changes
+
+- 7cea515: Added middesk library
+
 ## 0.0.1
 
 ### Patch Changes
