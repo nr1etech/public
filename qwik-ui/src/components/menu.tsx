@@ -77,7 +77,7 @@ export interface MenuProps {
 
 export const Menu = component$((props?: MenuProps) => {
   return (
-    <ul class={`menu w-56 ${props?.class || null}`}>
+    <ul class={`menu w-56 ${props?.class ?? ''}`}>
       <Slot />
     </ul>
   );

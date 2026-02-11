@@ -10,6 +10,12 @@ import {MdiAirHorn} from '@nr1e/qwik-icons';
 import {CheckboxField} from '../components/checkbox-field';
 import {SelectField} from '../components/select-field';
 import {AddButton} from '../components/add-button';
+import {
+  DropUp,
+  DropUpItem,
+  DropUpButtonSelector,
+  DropUpSubmenu,
+} from '../components/drop-up';
 
 export default component$(() => {
   const openDialog1 = useSignal(false);
@@ -61,6 +67,19 @@ export default component$(() => {
           <AlertSuccess message="This is a successful message" />
           <AlertWarning message="This is a warning message" />
           <AlertError message="This is an error message" />
+        </div>
+        <div class="pad-4 w-full space-y-2">
+          <div class="text-2xl">Drop Up</div>
+          <div class="flex gap-4">
+            <DropUp>
+              <DropUpButtonSelector>XXXX</DropUpButtonSelector>
+              <DropUpSubmenu>
+                <DropUpItem>Something 1</DropUpItem>
+                <DropUpItem>Something 2</DropUpItem>
+                <DropUpItem>Something 3</DropUpItem>
+              </DropUpSubmenu>
+            </DropUp>
+          </div>
         </div>
 
         <div class="pad-4 w-full space-y-2">
