@@ -1,0 +1,259 @@
+import {component$} from '@builder.io/qwik';
+import {IconProps, Svg} from '../svg';
+
+export const TrueMarkIconDarkBg = component$((props: IconProps) => {
+  return (
+    <Svg {...props} viewBox="0 0 102.5 102.5">
+      <g>
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -21.3646 51.0116)"
+          fill="#B72C27"
+          cx="50.9"
+          cy="51.3"
+          rx="8.1"
+          ry="8.1"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -26.8478 64.8504)"
+          opacity="0.8"
+          fill="#FFFFFF"
+          cx="64.9"
+          cy="64.8"
+          rx="6"
+          ry="6"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -14.8482 36.8056)"
+          opacity="0.8"
+          fill="#FFFFFF"
+          cx="37"
+          cy="36.3"
+          rx="6"
+          ry="6"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -35.0058 45.1552)"
+          opacity="0.8"
+          fill="#B72C27"
+          cx="37"
+          cy="64.8"
+          rx="6"
+          ry="6"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -39.7797 58.6393)"
+          opacity="0.6"
+          fill="#FFFFFF"
+          cx="50.9"
+          cy="77.3"
+          rx="4.1"
+          ry="4.1"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -31.9718 77.4892)"
+          opacity="0.6"
+          fill="#FFFFFF"
+          cx="77.6"
+          cy="77.3"
+          rx="4.1"
+          ry="4.1"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -10.2455 23.1846)"
+          opacity="0.6"
+          fill="#FFFFFF"
+          cx="22.9"
+          cy="24"
+          rx="4.1"
+          ry="4.1"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -21.9216 19.7291)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="12.9"
+          cy="36.3"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -42.0792 28.0786)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="12.9"
+          cy="64.8"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -5.9013 13.0932)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="12.9"
+          cy="13.7"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -36.6571 89.1618)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="89.3"
+          cy="88.8"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -43.8159 71.8788)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="64.9"
+          cy="88.8"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -51.9739 52.1836)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="37"
+          cy="88.8"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -59.0473 35.107)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="12.9"
+          cy="88.8"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 16.4889 67.148)"
+          opacity="0.4"
+          fill="#B72C27"
+          cx="89.3"
+          cy="13.7"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.5489 30.3519)"
+          opacity="0.6"
+          fill="#B72C27"
+          cx="22.9"
+          cy="48.4"
+          rx="4.1"
+          ry="4.1"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -47.9896 38.8187)"
+          opacity="0.6"
+          fill="#FFFFFF"
+          cx="22.9"
+          cy="77.3"
+          rx="4.1"
+          ry="4.1"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -6.6902 56.5008)"
+          opacity="0.8"
+          fill="#B72C27"
+          cx="64.9"
+          cy="36.3"
+          rx="6"
+          ry="6"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -2.0355 43.0052)"
+          opacity="0.6"
+          fill="#FFFFFF"
+          cx="50.9"
+          cy="24"
+          rx="4.1"
+          ry="4.1"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -19.6889 82.1333)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="89.3"
+          cy="64.8"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 0.4686 73.7838)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="89.3"
+          cy="36.3"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 1.1721 30.1698)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="37"
+          cy="13.7"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 9.3301 49.865)"
+          opacity="0.4"
+          fill="#FFFFFF"
+          cx="64.9"
+          cy="13.7"
+          rx="2.9"
+          ry="2.9"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 -14.2779 70.1602)"
+          opacity="0.6"
+          fill="#FFFFFF"
+          cx="77.6"
+          cy="52.3"
+          rx="4.1"
+          ry="4.1"
+        />
+
+        <ellipse
+          transform="matrix(0.7071 -0.7071 0.7071 0.7071 5.7724 61.8551)"
+          opacity="0.6"
+          fill="#B72C27"
+          cx="77.6"
+          cy="24"
+          rx="4.1"
+          ry="4.1"
+        />
+      </g>
+    </Svg>
+  );
+});

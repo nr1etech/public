@@ -125,6 +125,21 @@ export * from './components/icons/flag-us-4x3';
 export * from './components/icons/flag-za-1x1';
 export * from './components/icons/flag-za-4x3';
 
+// Brands - AdminiPay
+export * from './components/brands/admini-pay-icon';
+export * from './components/brands/admini-pay-logo';
+
+// Brands - CenterGauge
+export * from './components/brands/center-gauge-icon-dark-bg';
+export * from './components/brands/center-gauge-icon-light-bg';
+export * from './components/brands/center-gauge-logo-dark-bg';
+export * from './components/brands/center-gauge-logo-light-bg';
+
+// Brands - CloudAccountManager
+export * from './components/brands/cloud-account-manager-icon';
+export * from './components/brands/cloud-account-manager-logo-dark-bg';
+export * from './components/brands/cloud-account-manager-logo-light-bg';
+
 // Brands - Plaid
 export * from './components/brands/plaid-icon-bw';
 export * from './components/brands/plaid-logo-bw';
@@ -180,6 +195,12 @@ export * from './components/brands/reverbly-logo-dark-bg';
 export * from './components/brands/reverbly-logo-light-bg';
 export * from './components/brands/reverbly-logo-tagline-dark-bg';
 export * from './components/brands/reverbly-logo-tagline-light-bg';
+
+// Brands - TrueMark
+export * from './components/brands/true-mark-icon-dark-bg';
+export * from './components/brands/true-mark-icon-light-bg';
+export * from './components/brands/true-mark-logo-dark-bg';
+export * from './components/brands/true-mark-logo-light-bg';
 
 // Brands - Trigger Point
 export * from './components/brands/trigger-point-icon-blue-dark-bg';

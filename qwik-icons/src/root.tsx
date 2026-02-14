@@ -175,6 +175,19 @@ import {
   TriggerPointLogoTaglineTealLightBg,
   TriggerPointLogoTaglineVioletDarkBg,
   TriggerPointLogoTaglineVioletLightBg,
+  AdminiPayIcon,
+  AdminiPayLogo,
+  CenterGaugeIconDarkBg,
+  CenterGaugeIconLightBg,
+  CenterGaugeLogoDarkBg,
+  CenterGaugeLogoLightBg,
+  CloudAccountManagerIcon,
+  CloudAccountManagerLogoDarkBg,
+  CloudAccountManagerLogoLightBg,
+  TrueMarkIconDarkBg,
+  TrueMarkIconLightBg,
+  TrueMarkLogoDarkBg,
+  TrueMarkLogoLightBg,
 } from './index';
 
 export default component$(() => {
@@ -302,6 +315,10 @@ export default component$(() => {
   ];
 
   const brandIcons = [
+    {component: AdminiPayIcon, name: 'AdminiPayIcon'},
+    {component: CenterGaugeIconDarkBg, name: 'CenterGaugeIconDarkBg'},
+    {component: CenterGaugeIconLightBg, name: 'CenterGaugeIconLightBg'},
+    {component: CloudAccountManagerIcon, name: 'CloudAccountManagerIcon'},
     {component: ClientLoopIconOnWhite, name: 'ClientLoopIconOnWhite'},
     {component: ClientLoopIconOnDarkBlue, name: 'ClientLoopIconOnDarkBlue'},
     {component: ClientLoopIconOnLightBlue, name: 'ClientLoopIconOnLightBlue'},
@@ -312,6 +329,8 @@ export default component$(() => {
     {component: EnpagoIcon, name: 'EnpagoIcon'},
     {component: PurpleShipIcon, name: 'PurpleShipIcon'},
     {component: ReverblyIcon, name: 'ReverblyIcon'},
+    {component: TrueMarkIconDarkBg, name: 'TrueMarkIconDarkBg'},
+    {component: TrueMarkIconLightBg, name: 'TrueMarkIconLightBg'},
     {component: TriggerPointIconBlueDarkBg, name: 'TriggerPointIconBlueDarkBg'},
     {
       component: TriggerPointIconBlueLightBg,
@@ -334,6 +353,17 @@ export default component$(() => {
   ];
 
   const brandLogos = [
+    {component: AdminiPayLogo, name: 'AdminiPayLogo'},
+    {component: CenterGaugeLogoDarkBg, name: 'CenterGaugeLogoDarkBg'},
+    {component: CenterGaugeLogoLightBg, name: 'CenterGaugeLogoLightBg'},
+    {
+      component: CloudAccountManagerLogoDarkBg,
+      name: 'CloudAccountManagerLogoDarkBg',
+    },
+    {
+      component: CloudAccountManagerLogoLightBg,
+      name: 'CloudAccountManagerLogoLightBg',
+    },
     {component: ClientLoopLogoBlack, name: 'ClientLoopLogoBlack'},
     {component: ClientLoopLogoDarkBlue, name: 'ClientLoopLogoDarkBlue'},
     {component: ClientLoopLogoGray, name: 'ClientLoopLogoGray'},
@@ -360,6 +390,8 @@ export default component$(() => {
     {component: ReverblyLogoLightBg, name: 'ReverblyLogoLightBg'},
     {component: ReverblyLogoTaglineDarkBg, name: 'ReverblyLogoTaglineDarkBg'},
     {component: ReverblyLogoTaglineLightBg, name: 'ReverblyLogoTaglineLightBg'},
+    {component: TrueMarkLogoDarkBg, name: 'TrueMarkLogoDarkBg'},
+    {component: TrueMarkLogoLightBg, name: 'TrueMarkLogoLightBg'},
     {component: TriggerPointLogoBlueDarkBg, name: 'TriggerPointLogoBlueDarkBg'},
     {
       component: TriggerPointLogoBlueLightBg,
@@ -797,7 +829,6 @@ export default component$(() => {
             })}
           </div>
         </section>
-        <ClientLoopIconOnDarkBlue />
       </body>
     </>
   );

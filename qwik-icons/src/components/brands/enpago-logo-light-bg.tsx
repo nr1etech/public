@@ -6,7 +6,7 @@ export const EnpagoLogoLightBg = component$((props: IconProps) => {
     <Svg {...props} viewBox="0 0 757 180.29">
       <defs>
         <linearGradient
-          id="linear-gradient"
+          id="enpago-logo-light-bg-linear-gradient"
           x1="45.18"
           y1="172.66"
           x2="214.23"
@@ -45,7 +45,7 @@ export const EnpagoLogoLightBg = component$((props: IconProps) => {
       </g>
       <path
         d="M233.82,119.98h-58.66c1.56-4.45,2.82-9.04,3.67-13.78H54.84c-5.24,0-9.65-3.36-11.31-8.03h158.69c6.65,0,12.04-5.39,12.04-12.04s-5.39-12.04-12.04-12.04h-23.43c-.85-4.73-2.03-9.34-3.59-13.78H54.84c-5.24,0-9.65-3.36-11.31-8.03h190.29c6.65,0,12.04-5.39,12.04-12.04s-5.39-12.04-12.04-12.04h-78.21C139.18,10.83,115.93,0,90.14,0,40.36,0,0,40.36,0,90.14s40.36,90.14,90.14,90.14c25.78,0,49.01-10.84,65.44-28.19H54.84c-5.24,0-9.65-3.36-11.31-8.03h190.29c6.65,0,12.04-5.39,12.04-12.04s-5.39-12.04-12.04-12.04Z"
-        style="fill: url(#linear-gradient);"
+        style="fill: url(#enpago-logo-light-bg-linear-gradient);"
       />
     </Svg>
   );
