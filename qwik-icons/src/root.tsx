@@ -130,6 +130,51 @@ import {
   ClientLoopLogoLightBlue,
   ClientLoopLogoGray,
   ClientLoopLogoDarkBlue,
+  Nr1eIcon,
+  Nr1eLogoDarkBg,
+  Nr1eLogoLightBg,
+  Nr1eLogoTaglineDarkBg,
+  Nr1eLogoTaglineLightBg,
+  AuthSureIcon,
+  AuthSureLogoDarkBg,
+  AuthSureLogoLightBg,
+  AuthSureLogoTaglineDarkBg,
+  AuthSureLogoTaglineLightBg,
+  UpgilityIcon,
+  UpgilityLogoDarkBg,
+  UpgilityLogoLightBg,
+  UpgilityLogoTaglineDarkBg,
+  UpgilityLogoTaglineLightBg,
+  DigitalPlatIcon,
+  DigitalPlatLogo,
+  EnpagoIcon,
+  EnpagoLogoDarkBg,
+  EnpagoLogoLightBg,
+  PurpleShipIcon,
+  PurpleShipLogo,
+  ReverblyIcon,
+  ReverblyLogoDarkBg,
+  ReverblyLogoLightBg,
+  ReverblyLogoTaglineDarkBg,
+  ReverblyLogoTaglineLightBg,
+  TriggerPointIconBlueDarkBg,
+  TriggerPointIconBlueLightBg,
+  TriggerPointIconTealDarkBg,
+  TriggerPointIconTealLightBg,
+  TriggerPointIconVioletDarkBg,
+  TriggerPointIconVioletLightBg,
+  TriggerPointLogoBlueDarkBg,
+  TriggerPointLogoBlueLightBg,
+  TriggerPointLogoTealDarkBg,
+  TriggerPointLogoTealLightBg,
+  TriggerPointLogoVioletDarkBg,
+  TriggerPointLogoVioletLightBg,
+  TriggerPointLogoTaglineBlueDarkBg,
+  TriggerPointLogoTaglineBlueLightBg,
+  TriggerPointLogoTaglineTealDarkBg,
+  TriggerPointLogoTaglineTealLightBg,
+  TriggerPointLogoTaglineVioletDarkBg,
+  TriggerPointLogoTaglineVioletLightBg,
 } from './index';
 
 export default component$(() => {
@@ -260,6 +305,31 @@ export default component$(() => {
     {component: ClientLoopIconOnWhite, name: 'ClientLoopIconOnWhite'},
     {component: ClientLoopIconOnDarkBlue, name: 'ClientLoopIconOnDarkBlue'},
     {component: ClientLoopIconOnLightBlue, name: 'ClientLoopIconOnLightBlue'},
+    {component: Nr1eIcon, name: 'Nr1eIcon'},
+    {component: AuthSureIcon, name: 'AuthSureIcon'},
+    {component: UpgilityIcon, name: 'UpgilityIcon'},
+    {component: DigitalPlatIcon, name: 'DigitalPlatIcon'},
+    {component: EnpagoIcon, name: 'EnpagoIcon'},
+    {component: PurpleShipIcon, name: 'PurpleShipIcon'},
+    {component: ReverblyIcon, name: 'ReverblyIcon'},
+    {component: TriggerPointIconBlueDarkBg, name: 'TriggerPointIconBlueDarkBg'},
+    {
+      component: TriggerPointIconBlueLightBg,
+      name: 'TriggerPointIconBlueLightBg',
+    },
+    {component: TriggerPointIconTealDarkBg, name: 'TriggerPointIconTealDarkBg'},
+    {
+      component: TriggerPointIconTealLightBg,
+      name: 'TriggerPointIconTealLightBg',
+    },
+    {
+      component: TriggerPointIconVioletDarkBg,
+      name: 'TriggerPointIconVioletDarkBg',
+    },
+    {
+      component: TriggerPointIconVioletLightBg,
+      name: 'TriggerPointIconVioletLightBg',
+    },
     {component: PlaidIconBw, name: 'PlaidIconBw'},
   ];
 
@@ -270,6 +340,68 @@ export default component$(() => {
     {component: ClientLoopLogoLightBlue, name: 'ClientLoopLogoLightBlue'},
     {component: ClientLoopLogoPrimary, name: 'ClientLoopLogoPrimary'},
     {component: ClientLoopLogoWhite, name: 'ClientLoopLogoWhite'},
+    {component: Nr1eLogoDarkBg, name: 'Nr1eLogoDarkBg'},
+    {component: Nr1eLogoLightBg, name: 'Nr1eLogoLightBg'},
+    {component: Nr1eLogoTaglineDarkBg, name: 'Nr1eLogoTaglineDarkBg'},
+    {component: Nr1eLogoTaglineLightBg, name: 'Nr1eLogoTaglineLightBg'},
+    {component: AuthSureLogoDarkBg, name: 'AuthSureLogoDarkBg'},
+    {component: AuthSureLogoLightBg, name: 'AuthSureLogoLightBg'},
+    {component: AuthSureLogoTaglineDarkBg, name: 'AuthSureLogoTaglineDarkBg'},
+    {component: AuthSureLogoTaglineLightBg, name: 'AuthSureLogoTaglineLightBg'},
+    {component: UpgilityLogoDarkBg, name: 'UpgilityLogoDarkBg'},
+    {component: UpgilityLogoLightBg, name: 'UpgilityLogoLightBg'},
+    {component: UpgilityLogoTaglineDarkBg, name: 'UpgilityLogoTaglineDarkBg'},
+    {component: UpgilityLogoTaglineLightBg, name: 'UpgilityLogoTaglineLightBg'},
+    {component: DigitalPlatLogo, name: 'DigitalPlatLogo'},
+    {component: EnpagoLogoDarkBg, name: 'EnpagoLogoDarkBg'},
+    {component: EnpagoLogoLightBg, name: 'EnpagoLogoLightBg'},
+    {component: PurpleShipLogo, name: 'PurpleShipLogo'},
+    {component: ReverblyLogoDarkBg, name: 'ReverblyLogoDarkBg'},
+    {component: ReverblyLogoLightBg, name: 'ReverblyLogoLightBg'},
+    {component: ReverblyLogoTaglineDarkBg, name: 'ReverblyLogoTaglineDarkBg'},
+    {component: ReverblyLogoTaglineLightBg, name: 'ReverblyLogoTaglineLightBg'},
+    {component: TriggerPointLogoBlueDarkBg, name: 'TriggerPointLogoBlueDarkBg'},
+    {
+      component: TriggerPointLogoBlueLightBg,
+      name: 'TriggerPointLogoBlueLightBg',
+    },
+    {component: TriggerPointLogoTealDarkBg, name: 'TriggerPointLogoTealDarkBg'},
+    {
+      component: TriggerPointLogoTealLightBg,
+      name: 'TriggerPointLogoTealLightBg',
+    },
+    {
+      component: TriggerPointLogoVioletDarkBg,
+      name: 'TriggerPointLogoVioletDarkBg',
+    },
+    {
+      component: TriggerPointLogoVioletLightBg,
+      name: 'TriggerPointLogoVioletLightBg',
+    },
+    {
+      component: TriggerPointLogoTaglineBlueDarkBg,
+      name: 'TriggerPointLogoTaglineBlueDarkBg',
+    },
+    {
+      component: TriggerPointLogoTaglineBlueLightBg,
+      name: 'TriggerPointLogoTaglineBlueLightBg',
+    },
+    {
+      component: TriggerPointLogoTaglineTealDarkBg,
+      name: 'TriggerPointLogoTaglineTealDarkBg',
+    },
+    {
+      component: TriggerPointLogoTaglineTealLightBg,
+      name: 'TriggerPointLogoTaglineTealLightBg',
+    },
+    {
+      component: TriggerPointLogoTaglineVioletDarkBg,
+      name: 'TriggerPointLogoTaglineVioletDarkBg',
+    },
+    {
+      component: TriggerPointLogoTaglineVioletLightBg,
+      name: 'TriggerPointLogoTaglineVioletLightBg',
+    },
     {component: PlaidLogoBw, name: 'PlaidLogoBw'},
   ];
 
@@ -576,7 +708,9 @@ export default component$(() => {
           <div class="icon-grid">
             {brandIcons.map((icon) => {
               const Icon = icon.component;
-              const isDark = icon.name.toLowerCase().includes('white');
+              const isDark =
+                icon.name.toLowerCase().includes('white') ||
+                icon.name.toLowerCase().includes('darkbg');
               return (
                 <div
                   key={icon.name}
@@ -602,7 +736,9 @@ export default component$(() => {
           <div class="logo-grid">
             {brandLogos.map((icon) => {
               const Icon = icon.component;
-              const isDark = icon.name.toLowerCase().includes('white');
+              const isDark =
+                icon.name.toLowerCase().includes('white') ||
+                icon.name.toLowerCase().includes('darkbg');
               return (
                 <div
                   key={icon.name}

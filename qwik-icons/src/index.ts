@@ -139,3 +139,64 @@ export * from './components/brands/clientloop-logo-gray';
 export * from './components/brands/clientloop-logo-light-blue';
 export * from './components/brands/clientloop-logo-primary';
 export * from './components/brands/clientloop-logo-white';
+
+// Brands - NR1E
+export * from './components/brands/nr1e-icon';
+export * from './components/brands/nr1e-logo-dark-bg';
+export * from './components/brands/nr1e-logo-light-bg';
+export * from './components/brands/nr1e-logo-tagline-dark-bg';
+export * from './components/brands/nr1e-logo-tagline-light-bg';
+
+// Brands - AuthSure
+export * from './components/brands/auth-sure-icon';
+export * from './components/brands/auth-sure-logo-dark-bg';
+export * from './components/brands/auth-sure-logo-light-bg';
+export * from './components/brands/auth-sure-logo-tagline-dark-bg';
+export * from './components/brands/auth-sure-logo-tagline-light-bg';
+
+// Brands - Upgility
+export * from './components/brands/upgility-icon';
+export * from './components/brands/upgility-logo-dark-bg';
+export * from './components/brands/upgility-logo-light-bg';
+export * from './components/brands/upgility-logo-tagline-dark-bg';
+export * from './components/brands/upgility-logo-tagline-light-bg';
+
+// Brands - Digital Plat
+export * from './components/brands/digital-plat-icon';
+export * from './components/brands/digital-plat-logo';
+
+// Brands - Enpago
+export * from './components/brands/enpago-icon';
+export * from './components/brands/enpago-logo-dark-bg';
+export * from './components/brands/enpago-logo-light-bg';
+
+// Brands - Purple Ship
+export * from './components/brands/purple-ship-icon';
+export * from './components/brands/purple-ship-logo';
+
+// Brands - Reverbly
+export * from './components/brands/reverbly-icon';
+export * from './components/brands/reverbly-logo-dark-bg';
+export * from './components/brands/reverbly-logo-light-bg';
+export * from './components/brands/reverbly-logo-tagline-dark-bg';
+export * from './components/brands/reverbly-logo-tagline-light-bg';
+
+// Brands - Trigger Point
+export * from './components/brands/trigger-point-icon-blue-dark-bg';
+export * from './components/brands/trigger-point-icon-blue-light-bg';
+export * from './components/brands/trigger-point-icon-teal-dark-bg';
+export * from './components/brands/trigger-point-icon-teal-light-bg';
+export * from './components/brands/trigger-point-icon-violet-dark-bg';
+export * from './components/brands/trigger-point-icon-violet-light-bg';
+export * from './components/brands/trigger-point-logo-blue-dark-bg';
+export * from './components/brands/trigger-point-logo-blue-light-bg';
+export * from './components/brands/trigger-point-logo-teal-dark-bg';
+export * from './components/brands/trigger-point-logo-teal-light-bg';
+export * from './components/brands/trigger-point-logo-violet-dark-bg';
+export * from './components/brands/trigger-point-logo-violet-light-bg';
+export * from './components/brands/trigger-point-logo-tagline-blue-dark-bg';
+export * from './components/brands/trigger-point-logo-tagline-blue-light-bg';
+export * from './components/brands/trigger-point-logo-tagline-teal-dark-bg';
+export * from './components/brands/trigger-point-logo-tagline-teal-light-bg';
+export * from './components/brands/trigger-point-logo-tagline-violet-dark-bg';
+export * from './components/brands/trigger-point-logo-tagline-violet-light-bg';
