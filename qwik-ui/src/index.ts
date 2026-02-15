@@ -6,6 +6,7 @@ export * from './components/alert-warning';
 export * from './components/checkbox-field';
 export * from './components/dialog';
 export * from './components/drop-up';
+export * from './components/gtm';
 export * from './components/menu';
 export * from './components/pace-bar';
 export * from './components/select-field';
