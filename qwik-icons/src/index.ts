@@ -185,6 +185,20 @@ export * from './components/brands/enpago-icon';
 export * from './components/brands/enpago-logo-dark-bg';
 export * from './components/brands/enpago-logo-light-bg';
 
+// Brands - Kavelia
+export * from './components/brands/kavelia-icon';
+export * from './components/brands/kavelia-logo';
+export * from './components/brands/kavelia-black-logo';
+export * from './components/brands/kavelia-white-logo';
+export * from './components/brands/kavelia-green-logo';
+export * from './components/brands/kavelia-light-green-logo';
+
+// Brands - Latter Day Spirits
+export * from './components/brands/latter-day-spirits-logo';
+export * from './components/brands/latter-day-spirits-black-logo';
+export * from './components/brands/latter-day-spirits-blue-logo';
+export * from './components/brands/latter-day-spirits-white-logo';
+
 // Brands - Purple Ship
 export * from './components/brands/purple-ship-icon';
 export * from './components/brands/purple-ship-logo';

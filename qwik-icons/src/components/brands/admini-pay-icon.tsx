@@ -20,7 +20,7 @@ export const AdminiPayIcon = component$((props: IconProps) => {
         </linearGradient>
         <clipPath id="clippath">
           <rect
-            style="fill:none"
+            style="fill: none;"
             y="0"
             width="1024"
             height="1024"
@@ -46,7 +46,7 @@ export const AdminiPayIcon = component$((props: IconProps) => {
       </defs>
       <g id="Layer_1-2">
         <rect
-          style="fill:url(#linear-gradient)"
+          style="fill: url(#linear-gradient);"
           y="0"
           width="1024"
           height="1024"
@@ -54,25 +54,25 @@ export const AdminiPayIcon = component$((props: IconProps) => {
           ry="105.67"
           transform="translate(1024 1024) rotate(-180)"
         />
-        <g style="opacity:0.17">
-          <g style="clip-path:url(#clippath)">
+        <g style="opacity: 0.17;">
+          <g style="clip-path: url(#clippath);">
             <path
-              style="opacity:0.73;fill:#fff"
+              style="opacity: 0.73; fill: #fff;"
               d="M-116.26,831.96c248.35-23.76,1093.19-554.57,1169.75-755.07,125.14-327.73-6.35-154.93-6.35-154.93L-54.56-21.7l-61.71,853.66Z"
             />
           </g>
         </g>
         <path
-          style="fill:#fff"
+          style="fill: #fff;"
           d="M565.02,216.59l-272.92,580.71c-8.17,11.42-20.16,16.54-36.39,16.54h-84.48S442.06,235.89,442.06,235.89c8.01-17.15,21.77-25.72,41.26-25.72h28.38s28.38,0,28.38,0l24.94,6.43"
         />
         <path
-          style="fill:#fff"
+          style="fill: #fff;"
           d="M458.39,216.59l272.92,580.71c8.17,11.42,20.16,16.54,36.39,16.54h84.48L581.35,235.89c-8.01-17.15-21.77-25.72-41.26-25.72h-56.76c-16.38,0-24.94,6.43-24.94,6.43"
         />
-        <circle style="fill:#fff" cx="511.7" cy="587.58" r="67.59" />
+        <circle style="fill: #fff;" cx="511.7" cy="587.58" r="67.59" />
         <polygon
-          style="fill:#fff;filter:url(#drop-shadow-1)"
+          style="fill: #fff; filter: url(#drop-shadow-1);"
           points="471.8 223.75 458.39 216.59 520.58 348.91 471.8 223.75"
         />
       </g>
