@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.31
+### Patch Changes
+
+- 8db6170: Added GTM components
+
 ## 0.0.30
 ### Patch Changes
 
