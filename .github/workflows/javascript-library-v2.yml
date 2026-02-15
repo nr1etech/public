@@ -141,8 +141,8 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs
         # Allow Patch and Minor updates
-        if: github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' && (steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor')
+        if: github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' && (steps.metadata.outputs['update-type'] == 'version-update:semver-patch' || steps.metadata.outputs['update-type'] == 'version-update:semver-minor')
         run: gh pr merge --auto --rebase "$PR_URL"
         env:
-          PR_URL: ${{ github.event.workflow_run.pull_requests[0].html_url }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
