@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.18
+### Patch Changes
+
+- 18e513e: Added additional brand logos
+
 ## 0.0.17
 ### Patch Changes
 
