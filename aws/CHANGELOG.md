@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 1.0.5
+### Patch Changes
+
+- aab66bd: Added AWS sts
+
 ## 1.0.4
 ### Patch Changes
 
