@@ -20,3 +20,10 @@ jobs:
     secrets:
       app-id: ${{ secrets.RELEASE_BOT_ID }}
       private-key: ${{ secrets.RELEASE_BOT_KEY }}
+  dependabot-auto-merge:
+    uses: ./.github/workflows/dependabot-auto-merge.yml
+    needs: publish
+    if: github.actor == 'dependabot[bot]'
+    secrets:
+      app-id: ${{ secrets.RELEASE_BOT_ID }}
+      private-key: ${{ secrets.RELEASE_BOT_KEY }}
