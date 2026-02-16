@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@types/aws-lambda": "catalog:",
+    "@aws-sdk/client-bedrock-runtime": "catalog:",
     "@aws-sdk/client-dynamodb": "catalog:",
     "@aws-sdk/client-eventbridge": "catalog:",
     "@aws-sdk/client-geo-places": "catalog:",

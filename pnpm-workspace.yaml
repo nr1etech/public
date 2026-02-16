@@ -11,6 +11,7 @@ packages:
   - 'usps'
   - '!**/dist/**'
 catalog:
+  "@aws-sdk/client-bedrock-runtime": "^3.958.0"
   "@aws-sdk/client-dynamodb": "3.958.0"
   "@aws-sdk/client-eventbridge": "3.958.0"
   "@aws-sdk/client-geo-places": "3.958.0"
@@ -25,7 +26,7 @@ catalog:
   "@aws-sdk/util-dynamodb": "3.958.0"
   "@builder.io/qwik": "1.19.0"
   "@builder.io/qwik-city": "1.19.0"
-  "@eslint/js": "latest"
+  "@eslint/js": "^9.39.2"
   "@lucia-auth/adapter-test": "^5.0.2"
   "@tailwindcss/vite": "^4.1.17"
   "@types/aws-lambda": "8.10.160"
