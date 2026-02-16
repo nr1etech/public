@@ -15,7 +15,7 @@ updates:
       - dependency-name: "@types/node"
         update-types: [ "version-update:semver-major" ]
       # Jumping major versions of eslint needs to be handled manually
-      - dependency-name: "@eslint"
+      - dependency-name: "eslint"
         update-types: [ "version-update:semver-major" ]
       - dependency-name: "@eslint/js"
         update-types: [ "version-update:semver-major" ]
