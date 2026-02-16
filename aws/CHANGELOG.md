@@ -1,5 +1,10 @@
 # @nr1e/aws
 
+## 1.0.4
+### Patch Changes
+
+- 8db8f4a: Added bedrock-runtime.
+
 ## 1.0.3
 ### Patch Changes
 
