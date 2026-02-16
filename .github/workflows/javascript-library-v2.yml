@@ -122,8 +122,12 @@ jobs:
         run: |
           git config user.email "${{ inputs.github-email }}"
           git config user.name "${{ inputs.github-name }}"
-          git commit -a -m "Publish packages" -m "[skip ci]"
-          git push
+          if ! git diff --quiet; then
+            git commit -a -m "Publish packages" -m "[skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
       - name: "Publish release packages"
         if: matrix.node-version == inputs.publish-node-version && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: pnpx @changesets/cli publish
