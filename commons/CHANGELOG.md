@@ -1,5 +1,10 @@
 # @nr1e/commons
 
+## 0.3.5
+### Patch Changes
+
+- 3a3d787: Removed tslib dependency
+
 ## 0.3.4
 ### Patch Changes
 
