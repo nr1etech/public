@@ -3,11 +3,11 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: daily
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: daily
     ignore:
       # These have large downstream ramifications. So, we pin these packages and are strategic about when we upgrade.
       - dependency-name: "@aws-sdk/*"
