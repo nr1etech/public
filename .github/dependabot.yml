@@ -11,3 +11,6 @@ updates:
     ignore:
       # These have large downstream ramifications. So, we pin these packages and are strategic about when we upgrade.
       - dependency-name: "@aws-sdk/*"
+      # We will update major versions @types/node when Lambda function runtimes change
+      - dependency-name: "@types/node"
+        update-types: [ "version-update:semver-major" ]
