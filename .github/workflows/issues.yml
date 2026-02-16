@@ -49,7 +49,7 @@ jobs:
         with:
           app-id: ${{ secrets.app-id }}
           private-key: ${{ secrets.private-key }}
-      - uses: octokit/graphql-action@v2.3.2
+      - uses: octokit/graphql-action@v3.0.2
         id: get-projects
         with:
           query: |
