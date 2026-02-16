@@ -9,3 +9,4 @@ export * from './s3.mjs';
 export * from './secrets-manager.mjs';
 export * from './ses.mjs';
 export * from './sqs.mjs';
+export * from './sts.mjs';
