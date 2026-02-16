@@ -33,7 +33,6 @@
     "vitest": "catalog:"
   },
   "dependencies": {
-    "tslib": "catalog:",
     "uuid": "catalog:",
     "ksuid": "catalog:"
   },

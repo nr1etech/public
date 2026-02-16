@@ -35,8 +35,7 @@
   "dependencies": {
     "pino": "catalog:",
     "pino-abstract-transport": "catalog:",
-    "sonic-boom": "catalog:",
-    "tslib": "catalog:"
+    "sonic-boom": "catalog:"
   },
   "peerDependencies": {
     "pino": "catalog:"
