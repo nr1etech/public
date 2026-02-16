@@ -1,0 +1,91 @@
+###############################################################################
+# Issues Workflow
+###############################################################################
+# This workflow is intended to be triggered when an issue or pull-request is
+# created. This workflow will automatically add the issue or pull-request to
+# all projects associated with the repository.
+#
+# To use this workflow, you need to create a GitHub application with a private
+# key and pass the key as an secret to this workflow.
+#
+# GitHub App Permissions Required
+# - Read and Write access to organization projects
+# - Read access to metadata
+# - Read and Write access to issues and pull requests
+#
+# Example Usage
+#on:
+#  pull_request:
+#  issues:
+#    types:
+#      - opened
+#jobs:
+#  add-to-project:
+#    name: Add issue to project
+#    if: github.actor != 'dependabot[bot]'
+#    uses: nr1etech/github-workflows/.github/workflows/issues.yml@main
+#    secrets:
+#      app-key: ${{ secrets.PRIVATE_KEY }}
+#      app-id: ${{ vars.APP_ID }}
+
+name: Issues
+on:
+  workflow_call:
+    secrets:
+      private-key:
+        description: "GitHub App Key"
+        required: true
+      app-id:
+        description: "GitHub App ID"
+        required: true
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.MATRIX }}
+    steps:
+      - uses: actions/create-github-app-token@v1.11.0
+        id: app-token
+        with:
+          app-id: ${{ secrets.app-id }}
+          private-key: ${{ secrets.private-key }}
+      - uses: octokit/graphql-action@v2.3.2
+        id: get-projects
+        with:
+          query: |
+            query($name: String!, $owner: String!) {
+              repository(name: $name, owner: $owner) {
+                projectsV2(first: 10) {
+                  nodes {
+                    title
+                    url
+                  }
+                }
+              }
+            }
+          variables: |
+            name: ${{ github.event.repository.name }}
+            owner: ${{ github.event.repository.owner.login }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+      - id: set-matrix
+        run: |
+          MATRIX=$(echo '${{ steps.get-projects.outputs.data }}' |  jq -r '{url: [.repository.projectsV2.nodes[].url]}')
+          echo MATRIX=$MATRIX
+          echo MATRIX=$MATRIX >> $GITHUB_OUTPUT
+  add-to-project:
+    needs: [prepare]
+    strategy:
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v1.11.0
+        id: app-token
+        with:
+          app-id: ${{ secrets.app-id }}
+          private-key: ${{ secrets.private-key }}
+      - uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: ${{ matrix.url }}
+          github-token: ${{ steps.app-token.outputs.token }}

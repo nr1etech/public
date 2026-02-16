@@ -1,0 +1,95 @@
+###############################################################################
+# Terraform Module Workflow
+# Build and publish a Terraform module
+###############################################################################
+# Assumptions made in this workflow:
+# - The branch you create releases from is called 'main'
+# - You have a GitHub App that allows content changes to the repository
+
+on:
+  workflow_call:
+    inputs:
+      github-email:
+        description: 'GitHub email for pushing'
+        required: false
+        default: '41898282+github-actions[bot]@users.noreply.github.co'
+        type: string
+      github-name:
+        description: 'GitHub name for pushing'
+        required: false
+        default: 'github-actions[bot]'
+        type: string
+    secrets:
+      private-key:
+        description: "GitHub App Key"
+        required: true
+      app-id:
+        description: "GitHub App ID"
+        required: true
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  terraform-module:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate token
+        id: app-token
+        uses: getsentry/action-github-app-token@v3
+        with:
+          app_id: ${{ secrets.app-id }}
+          private_key: ${{ secrets.private-key }}
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Terraform Init
+        run: terraform init
+      - name: Terraform Validate
+        run: terraform validate
+      - name: Terraform Fmt Check
+        run: terraform fmt -check
+      - name: Increment Version
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |-
+          version=$(grep 'next_version' version.txt | cut -d '=' -f 2)
+          version=${version#v}
+          major=${version%%.*}
+          rest=${version#*.}
+          minor=${rest%%.*}
+          patch=${rest#*.}
+          patch=$((patch + 1))
+          new_version="${major}.${minor}.${patch}"
+          echo "Version to Publish: ${version}"
+          echo "Next Version: ${new_version}" 
+          sed -i "s/^next_version=.*/next_version=v${new_version}/" version.txt
+          sed -i "s/^version=.*/version=v${version}/" version.txt
+          echo "VERSION=v$version" >> $GITHUB_ENV
+      - name: Setup git config
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          git config user.email "${{ inputs.github-email }}"
+          git config user.name "${{ inputs.github-name }}"
+      - name: Commit and push version bump
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          git commit -a -m "$VERSION" -m "GitHub Run Number ${{ github.run_number }}" -m "[skip ci]"
+          git push
+      - name: Create tag ${{ env.VERSION }}
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          git tag -a "$VERSION" -m "$VERSION"
+          git push origin "$VERSION"
+      - name: Create Release
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token  }}
+        with:
+          tag_name: ${{ env.VERSION }}
+          release_name: Release ${{ env.VERSION }}
+          draft: false
+          prerelease: false

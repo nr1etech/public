@@ -1,0 +1,24 @@
+###############################################################################
+# Terraform Module Workflow
+# Build and publish a Terraform module
+###############################################################################
+# Assumptions made in this workflow:
+# - The branch you create releases from is called 'main'
+# - You have a GitHub App that allows content changes to the repository
+
+on:
+  workflow_call:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Terraform Init
+        run: terraform init
+      - name: Terraform Validate
+        run: terraform validate
+      - name: Terraform Fmt Check
+        run: terraform fmt -check
