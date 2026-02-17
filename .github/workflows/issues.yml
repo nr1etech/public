@@ -29,6 +29,8 @@
 #      app-id: ${{ vars.APP_ID }}
 
 name: Issues
+permissions:
+  contents: read
 on:
   workflow_call:
     secrets:
