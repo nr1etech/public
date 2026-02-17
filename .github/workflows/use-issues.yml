@@ -6,6 +6,8 @@ on:
 jobs:
   add-to-project:
     name: Add issue to project
+    permissions:
+      contents: read
     if: github.actor != 'dependabot[bot]'
     uses: ./.github/workflows/issues.yml
     secrets:
