@@ -80,7 +80,7 @@ export function parseApiKey(rawKey: string): ParsedApiKey {
   return {prefix, keyId, secret};
 }
 
-function verifySecret(
+export function verifySecret(
   providedSecret: string,
   storedSecretHash: string,
 ): boolean {
