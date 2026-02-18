@@ -33,8 +33,9 @@
     "vitest": "catalog:"
   },
   "dependencies": {
-    "uuid": "catalog:",
-    "ksuid": "catalog:"
+    "ksuid": "catalog:",
+    "nanoid": "catalog:",
+    "uuid": "catalog:"
   },
   "exports": {
     "./bitsnbytes": {
