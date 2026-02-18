@@ -1,5 +1,10 @@
 # @nr1e/commons
 
+## 0.4.0
+### Minor Changes
+
+- 554d7c5: Replaced generateApiKey with new SHA-256 based implementation
+
 ## 0.3.5
 ### Patch Changes
 
