@@ -1,5 +1,10 @@
 # @nr1e/commons
 
+## 0.4.1
+### Patch Changes
+
+- 24ccb21: Added export for verifySecret
+
 ## 0.4.0
 ### Minor Changes
 
