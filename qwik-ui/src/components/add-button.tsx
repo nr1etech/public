@@ -9,7 +9,7 @@ export interface AddButtonProps {
 export const AddButton = component$((props: AddButtonProps) => {
   return (
     <button class={`btn ${props.class ?? ''}`} onClick$={props.onClick$}>
-      <MdiAddCircleOutline size={24} />
+      <MdiAddCircleOutline size={18} />
       <Slot />
     </button>
   );
