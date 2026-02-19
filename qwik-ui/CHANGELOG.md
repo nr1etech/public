@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.32
+### Patch Changes
+
+- be65f5a: Changed default icon size to 18 for add-button
+
 ## 0.0.31
 ### Patch Changes
 
