@@ -100,6 +100,7 @@ export default component$(() => {
           </div>
           <Dialog id="dialog1" open={openDialog1} showCloseIcon={true}>
             <div>Nothing to see here.</div>
+            <div q:slot="action">Just some text</div>
             <button
               q:slot="action"
               class="btn"

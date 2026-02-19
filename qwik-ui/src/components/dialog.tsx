@@ -118,7 +118,7 @@ export const Dialog = component$((props: DialogProps) => {
             </>
           )}
         </div>
-        <div class="modal-action mt-2">
+        <div class="modal-action mt-2 items-center">
           <Slot name="action" />
         </div>
       </div>
