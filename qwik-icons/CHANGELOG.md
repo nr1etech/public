@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.19
+### Patch Changes
+
+- 5a79327: Added MDI terminal icons
+
 ## 0.0.18
 ### Patch Changes
 
