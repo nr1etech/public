@@ -99,6 +99,8 @@ export * from './components/icons/mdi-warning-circle';
 export * from './components/icons/mdi-warning-circle-outline';
 export * from './components/icons/mdi-warning-outline';
 export * from './components/icons/mdi-wrench-outline';
+export * from './components/icons/mdi-terminal';
+export * from './components/icons/mdi-terminal-line';
 
 // Spinners
 export * from './components/icons/spinners-6-dots-rotate';
