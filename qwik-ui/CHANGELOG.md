@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.33
+### Patch Changes
+
+- e701b0d: Fixed item centering in dialog action space
+
 ## 0.0.32
 ### Patch Changes
 
