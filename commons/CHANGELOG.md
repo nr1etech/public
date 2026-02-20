@@ -1,5 +1,10 @@
 # @nr1e/commons
 
+## 0.4.2
+### Patch Changes
+
+- 45b6386: Added additional string helper functions.
+
 ## 0.4.1
 ### Patch Changes
 
