@@ -1,12 +1,20 @@
-import {component$, Slot} from '@builder.io/qwik';
+import {component$, Signal, Slot, useVisibleTask$} from '@builder.io/qwik';
 
 export interface AutoDismissProps {
   class?: string;
-  hidden?: boolean;
+  visible?: Signal<boolean>;
 }
 
 export const AutoDismiss = component$((props?: AutoDismissProps) => {
-  if (props?.hidden) return null;
+  if (props?.visible && !props.visible.value) return null;
+  useVisibleTask$(({cleanup}) => {
+    // Set a timeout to update the progress signal after 500 milliseconds
+    const id = setTimeout(() => {
+      if (props?.visible) props.visible.value = false;
+    }, 6000);
+
+    cleanup(() => clearTimeout(id));
+  });
   return (
     <div
       class={[

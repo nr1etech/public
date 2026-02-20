@@ -29,6 +29,7 @@ export default component$(() => {
   const textFieldValue = useSignal<string | undefined | null>();
   const selectedFieldValue = useSignal<string | undefined | null>();
   const checkedFieldValue = useSignal<boolean>(false);
+  const autoDismissVisible = useSignal<boolean>(true);
   return (
     <div class="flex flex-col items-center p-4">
       {/* eslint-disable-next-line qwik/jsx-img */}
@@ -52,7 +53,11 @@ export default component$(() => {
       <div class="flex w-full max-w-4xl flex-col space-y-6 pb-[200px]">
         <div class="w-full space-y-2">
           <div class="text-2xl">AutoDismiss</div>
-          <AutoDismiss>Some text is going to disappear</AutoDismiss>
+          <AutoDismiss visible={autoDismissVisible}>
+            Some text is going to disappear
+          </AutoDismiss>
+          AutoDismiss is currently{' '}
+          {autoDismissVisible.value ? 'visible' : 'hidden'}
         </div>
 
         <div class="w-full space-y-2">
