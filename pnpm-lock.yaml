@@ -114,6 +114,9 @@ catalogs:
     tailwindcss:
       specifier: ^4.2.0
       version: 4.2.0
+    tailwindcss-animated:
+      specifier: 2.0.0
+      version: 2.0.0
     testcontainers:
       specifier: ^11.12.0
       version: 11.12.0
@@ -469,6 +472,9 @@ importers:
       '@nr1e/qwik-icons':
         specifier: 'workspace:'
         version: link:../qwik-icons
+      tailwindcss-animated:
+        specifier: 'catalog:'
+        version: 2.0.0(tailwindcss@4.2.0)
     devDependencies:
       '@builder.io/qwik':
         specifier: 'catalog:'
@@ -5499,8 +5505,10 @@ packages:
     resolution: {integrity: sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==}
     engines: {node: '>=20'}
 
-  tailwindcss@4.1.18:
-    resolution: {integrity: sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==}
+  tailwindcss-animated@2.0.0:
+    resolution: {integrity: sha512-anNNGpxNgjydD8p1lcJjxxH+XbjW6KR8Xs29owTrbcf3tOJ6IRblpyFob43HBkfxFJJTAfFQqugoEG2b1EsR0A==}
+    peerDependencies:
+      tailwindcss: '>=3.1.0 || >=4.0.0'
 
   tailwindcss@4.2.0:
     resolution: {integrity: sha512-yYzTZ4++b7fNYxFfpnberEEKu43w44aqDMNM9MHMmcKuCH7lL8jJ4yJ7LGHv7rSwiqM0nkiobF9I6cLlpS2P7Q==}
@@ -12494,7 +12502,9 @@ snapshots:
 
   tagged-tag@1.0.0: {}
 
-  tailwindcss@4.1.18: {}
+  tailwindcss-animated@2.0.0(tailwindcss@4.2.0):
+    dependencies:
+      tailwindcss: 4.2.0
 
   tailwindcss@4.2.0: {}
 

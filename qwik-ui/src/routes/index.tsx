@@ -16,6 +16,7 @@ import {
   DropUpButtonSelector,
   DropUpSubmenu,
 } from '../components/drop-up';
+import {AutoDismiss} from '../components/auto-dismiss';
 
 export default component$(() => {
   const openDialog1 = useSignal(false);
@@ -49,6 +50,11 @@ export default component$(() => {
         </a>
       </div>
       <div class="flex w-full max-w-4xl flex-col space-y-6 pb-[200px]">
+        <div class="w-full space-y-2">
+          <div class="text-2xl">AutoDismiss</div>
+          <AutoDismiss>Some text is going to disappear</AutoDismiss>
+        </div>
+
         <div class="w-full space-y-2">
           <div class="text-2xl">PaceBar</div>
           <PaceBar value={1} class="progress-accent" />
