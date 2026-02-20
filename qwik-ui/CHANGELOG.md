@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.35
+### Patch Changes
+
+- bc26aa6: Added visible to AutoDismiss
+
 ## 0.0.34
 ### Patch Changes
 
