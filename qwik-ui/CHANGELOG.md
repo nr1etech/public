@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.34
+### Patch Changes
+
+- 921f456: Added AutoDismiss component
+
 ## 0.0.33
 ### Patch Changes
 
