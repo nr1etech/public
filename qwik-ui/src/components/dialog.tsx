@@ -75,7 +75,7 @@ export const Dialog = component$((props: DialogProps) => {
       <div class={`modal-box ${props.modalBoxClass ?? ''}`}>
         {props.showCloseIcon && (
           <button
-            class="btn btn-sm btn-circle btn-ghost absolute top-1 right-1"
+            class="btn btn-sm btn-circle btn-ghost absolute top-1 right-1 z-50"
             onClick$={() => {
               props.open.value = false;
             }}
