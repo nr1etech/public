@@ -7,14 +7,15 @@ export interface MenuItemProps {
   selected?: boolean;
   loading?: Signal<boolean>;
   onClick$?: QRL<(event: Event) => void>;
+  class?: string;
 }
 
 export const MenuItem = component$((props: MenuItemProps) => {
   const nav = useNavigate();
   return (
-    <li>
+    <li class={props.class ?? ''}>
       <Link
-        class={`truncate ${props.selected && 'bg-base-200'}`}
+        class={`truncate ${props.selected ? 'bg-base-200' : ''}`}
         href={props.href}
         prefetch={props.prefetch ?? true}
         onClick$={async (event) => {
@@ -37,9 +38,13 @@ export const MenuItem = component$((props: MenuItemProps) => {
   );
 });
 
-export const MenuGroupSummary = component$(() => {
+export interface MenuGroupSummaryProps {
+  class?: string;
+}
+
+export const MenuGroupSummary = component$((props?: MenuGroupSummaryProps) => {
   return (
-    <summary class="truncate">
+    <summary class={`truncate ${props?.class ?? ''}`}>
       <Slot />
     </summary>
   );
@@ -47,11 +52,12 @@ export const MenuGroupSummary = component$(() => {
 
 export interface MenuGroupProps {
   open?: boolean;
+  class?: string;
 }
 
 export const MenuGroup = component$((props: MenuGroupProps) => {
   return (
-    <li>
+    <li class={props.class ?? ''}>
       <details open={props.open}>
         <Slot />
       </details>
@@ -59,16 +65,24 @@ export const MenuGroup = component$((props: MenuGroupProps) => {
   );
 });
 
-export const Submenu = component$(() => {
+export interface SubmenuProps {
+  class?: string;
+}
+
+export const Submenu = component$((props?: SubmenuProps) => {
   return (
-    <ul>
+    <ul class={props?.class ?? ''}>
       <Slot />
     </ul>
   );
 });
 
-export const MenuDivider = component$(() => {
-  return <li class="divier"></li>;
+export interface MenuDividerProps {
+  class?: string;
+}
+
+export const MenuDivider = component$((props?: MenuDividerProps) => {
+  return <li class={`divider ${props?.class ?? ''}`}></li>;
 });
 
 export interface MenuProps {
