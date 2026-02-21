@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.37
+### Patch Changes
+
+- c2092a9: Adjusted close icon on Dialog to stay above content
+
 ## 0.0.36
 ### Patch Changes
 
