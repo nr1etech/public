@@ -7,6 +7,7 @@ export interface AutoDismissProps {
 
 export const AutoDismiss = component$((props?: AutoDismissProps) => {
   if (props?.visible && !props.visible.value) return null;
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({cleanup}) => {
     // Set a timeout to update the progress signal after 500 milliseconds
     const id = setTimeout(() => {
