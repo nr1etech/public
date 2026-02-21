@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.39
+### Patch Changes
+
+- f7eeac4: Added linkClass to MenuItem
+
 ## 0.0.38
 ### Patch Changes
 
