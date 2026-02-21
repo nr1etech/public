@@ -19,6 +19,7 @@ export interface DialogProps {
   open: Signal<boolean>;
   showCloseIcon?: boolean;
   class?: string;
+  modalBoxClass?: string;
   title?: string;
   errorMessage?: string;
   infoMessage?: string;
@@ -71,7 +72,7 @@ export const Dialog = component$((props: DialogProps) => {
       id={props.id}
       open={internalOpen.value}
     >
-      <div class="modal-box">
+      <div class={`modal-box ${props.modalBoxClass ?? ''}`}>
         {props.showCloseIcon && (
           <button
             class="btn btn-sm btn-circle btn-ghost absolute top-1 right-1"
