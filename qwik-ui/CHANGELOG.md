@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.36
+### Patch Changes
+
+- a12a3cd: Added class overrides for modal box
+
 ## 0.0.35
 ### Patch Changes
 
