@@ -1,9 +1,6 @@
 {
   "name": "public",
   "description": "DO NOT ADD DEPENDENCIES HERE",
-  "devDependencies": {
-		"@changesets/cli": "^2.29.8"
-	},
   "scripts": {
     "changeset": "pnpx @changesets/cli"
   },
