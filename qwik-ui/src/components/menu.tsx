@@ -8,6 +8,7 @@ export interface MenuItemProps {
   loading?: Signal<boolean>;
   onClick$?: QRL<(event: Event) => void>;
   class?: string;
+  linkClass?: string;
 }
 
 export const MenuItem = component$((props: MenuItemProps) => {
@@ -15,7 +16,7 @@ export const MenuItem = component$((props: MenuItemProps) => {
   return (
     <li class={props.class ?? ''}>
       <Link
-        class={`truncate ${props.selected ? 'bg-base-200' : ''}`}
+        class={`truncate ${props.selected ? 'bg-base-200' : ''} ${props.linkClass ?? ''}`}
         href={props.href}
         prefetch={props.prefetch ?? true}
         onClick$={async (event) => {
