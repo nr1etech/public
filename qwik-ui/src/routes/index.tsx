@@ -6,7 +6,7 @@ import {AlertError} from '../components/alert-error';
 import {AlertInfo} from '../components/alert-info';
 import {Dialog} from '../components/dialog';
 import {TextField} from '../components/text-field';
-import {MdiAirHorn} from '@nr1e/qwik-icons';
+import {MdiAirHorn, Nr1eLogoTaglineLightBg} from '@nr1e/qwik-icons';
 import {CheckboxField} from '../components/checkbox-field';
 import {SelectField} from '../components/select-field';
 import {AddButton} from '../components/add-button';
@@ -32,13 +32,8 @@ export default component$(() => {
   const autoDismissVisible = useSignal<boolean>(true);
   return (
     <div class="flex flex-col items-center p-4">
-      {/* eslint-disable-next-line qwik/jsx-img */}
-      <img
-        src="https://nr1e.com/images/logo-tagline.svg"
-        alt="NR1E"
-        class="mb-3 h-auto max-w-75"
-      />
-      <h1 class="text-4xl">Qwik UI</h1>
+      <Nr1eLogoTaglineLightBg height={96} />
+      <h1 class="pt-4 text-4xl">Qwik UI</h1>
 
       {/* Navigation Links */}
       <div class="my-6 flex gap-4">
