@@ -689,11 +689,7 @@ export default component$(() => {
       </head>
       <body>
         <div class="header">
-          <img
-            src="https://nr1e.com/images/logo-tagline.svg"
-            alt="NR1E"
-            class="logo"
-          />
+          <Nr1eLogoTaglineLightBg height={96} />
           <h1>Qwik Icons</h1>
         </div>
 
