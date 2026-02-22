@@ -75,6 +75,12 @@ export default component$(() => {
           </AutoDismiss>
           AutoDismiss is currently{' '}
           {autoDismissVisible.value ? 'visible' : 'hidden'}
+          <button
+            class="btn"
+            onClick$={() => (autoDismissVisible.value = true)}
+          >
+            Make visible
+          </button>
         </div>
 
         <div class="w-full space-y-2">

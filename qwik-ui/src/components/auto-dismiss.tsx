@@ -15,12 +15,19 @@ export interface AutoDismissProps {
 }
 
 export const AutoDismiss = component$((props?: AutoDismissProps) => {
-  const visible = useSignal<boolean>(props?.visible?.value ?? false);
+  const visible = useSignal<boolean>(props?.visible?.value ?? true);
   if (!visible.value) return null;
 
   useTask$(async ({track}) => {
+    track(() => props?.visible?.value);
+    if (props?.visible?.value && props.visible.value !== visible.value) {
+      visible.value = props.visible.value;
+    }
+  });
+
+  useTask$(async ({track}) => {
     track(() => visible.value);
-    if (props?.visible) {
+    if (props?.visible?.value && props.visible.value !== visible.value) {
       props.visible.value = visible.value;
     }
     if (!visible.value && props?.onDismiss$) {
@@ -29,13 +36,16 @@ export const AutoDismiss = component$((props?: AutoDismissProps) => {
   });
 
   // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(({cleanup}) => {
-    // Set a timeout to update the progress signal after 500 milliseconds
-    const id = setTimeout(() => {
-      visible.value = false;
-    }, 6000);
+  useVisibleTask$(({track, cleanup}) => {
+    track(() => visible.value);
+    if (visible.value) {
+      // Set a timeout to update the progress signal after 500 milliseconds
+      const id = setTimeout(() => {
+        visible.value = false;
+      }, 6000);
 
-    cleanup(() => clearTimeout(id));
+      cleanup(() => clearTimeout(id));
+    }
   });
   return (
     <div
