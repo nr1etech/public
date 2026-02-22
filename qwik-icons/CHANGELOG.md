@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.21
+### Patch Changes
+
+- 3a7365c: Added rocket icons
+
 ## 0.0.20
 ### Patch Changes
 
