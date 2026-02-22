@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 1.0.0
+### Major Changes
+
+- 48affbe: Refactored Menu and DropUp components
+
 ## 0.1.4
 ### Patch Changes
 
