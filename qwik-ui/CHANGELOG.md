@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.1.4
+### Patch Changes
+
+- af8b944: Updated AutoDismiss to bi-directionally sync visible signal
+
 ## 0.1.3
 ### Patch Changes
 
