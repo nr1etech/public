@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.1.2
+### Patch Changes
+
+- cfad644: Adjusted look and feel of alerts
+
 ## 0.1.1
 ### Patch Changes
 
