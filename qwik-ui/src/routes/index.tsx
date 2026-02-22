@@ -65,7 +65,12 @@ export default component$(() => {
 
         <div class="w-full space-y-2">
           <div class="text-2xl">AutoDismiss</div>
-          <AutoDismiss visible={autoDismissVisible}>
+          <AutoDismiss
+            visible={autoDismissVisible}
+            onDismiss$={() => {
+              console.log('Dismissed!');
+            }}
+          >
             Some text is going to disappear
           </AutoDismiss>
           AutoDismiss is currently{' '}

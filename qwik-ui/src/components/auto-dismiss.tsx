@@ -1,17 +1,38 @@
-import {component$, Signal, Slot, useVisibleTask$} from '@builder.io/qwik';
+import {
+  component$,
+  QRL,
+  Signal,
+  Slot,
+  useSignal,
+  useTask$,
+  useVisibleTask$,
+} from '@builder.io/qwik';
 
 export interface AutoDismissProps {
   class?: string;
   visible?: Signal<boolean>;
+  onDismiss$?: QRL<() => void>;
 }
 
 export const AutoDismiss = component$((props?: AutoDismissProps) => {
-  if (props?.visible && !props.visible.value) return null;
+  const visible = useSignal<boolean>(props?.visible?.value ?? false);
+  if (!visible.value) return null;
+
+  useTask$(async ({track}) => {
+    track(() => visible.value);
+    if (props?.visible) {
+      props.visible.value = visible.value;
+    }
+    if (!visible.value && props?.onDismiss$) {
+      props.onDismiss$();
+    }
+  });
+
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({cleanup}) => {
     // Set a timeout to update the progress signal after 500 milliseconds
     const id = setTimeout(() => {
-      if (props?.visible) props.visible.value = false;
+      visible.value = false;
     }, 6000);
 
     cleanup(() => clearTimeout(id));
