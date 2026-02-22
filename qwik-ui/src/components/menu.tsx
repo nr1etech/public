@@ -83,7 +83,7 @@ export interface MenuDividerProps {
 }
 
 export const MenuDivider = component$((props?: MenuDividerProps) => {
-  return <li class={`divider ${props?.class ?? ''}`}></li>;
+  return <li class={`divider h-px ${props?.class ?? ''}`}></li>;
 });
 
 export interface MenuProps {
