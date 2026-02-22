@@ -6,6 +6,7 @@ export * from './components/alert-warning';
 export * from './components/auto-dismiss';
 export * from './components/checkbox-field';
 export * from './components/dialog';
+export * from './components/dock';
 export * from './components/drop-up';
 export * from './components/google-sign-in-button';
 export * from './components/gtm';

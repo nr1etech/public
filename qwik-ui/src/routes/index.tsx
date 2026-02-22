@@ -6,7 +6,13 @@ import {AlertError} from '../components/alert-error';
 import {AlertInfo} from '../components/alert-info';
 import {Dialog} from '../components/dialog';
 import {TextField} from '../components/text-field';
-import {MdiAirHorn, Nr1eLogoTaglineLightBg} from '@nr1e/qwik-icons';
+import {
+  MdiAirHorn,
+  MdiDangerous,
+  MdiInstantMix,
+  MdiTerminal,
+  Nr1eLogoTaglineLightBg,
+} from '@nr1e/qwik-icons';
 import {CheckboxField} from '../components/checkbox-field';
 import {SelectField} from '../components/select-field';
 import {AddButton} from '../components/add-button';
@@ -19,6 +25,7 @@ import {
 import {AutoDismiss} from '../components/auto-dismiss';
 import {GoogleSignInButton} from '../components/google-sign-in-button';
 import {MicrosoftSignInButton} from '../components/microsoft-sign-in-button';
+import {Dock, DockItem, DockLabel} from '../components/dock';
 
 export default component$(() => {
   const openDialog1 = useSignal(false);
@@ -353,6 +360,26 @@ export default component$(() => {
             <GoogleSignInButton />
             <MicrosoftSignInButton />
           </div>
+        </div>
+      </div>
+
+      <div class="w-full space-y-2">
+        <div class="text-2xl">Dock</div>
+        <div class="flex flex-wrap gap-4 space-y-2 space-x-2">
+          <Dock>
+            <DockItem>
+              <MdiTerminal size={24} />
+              <DockLabel>Compute</DockLabel>
+            </DockItem>
+            <DockItem>
+              <MdiDangerous size={24} />
+              <DockLabel>Implode</DockLabel>
+            </DockItem>
+            <DockItem>
+              <MdiInstantMix size={24} />
+              <DockLabel>Mix Master</DockLabel>
+            </DockItem>
+          </Dock>
         </div>
       </div>
     </div>
