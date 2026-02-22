@@ -6,8 +6,8 @@ export interface AlertSuccessProps {
 }
 export const AlertSuccess = component$((props: AlertSuccessProps) => {
   return (
-    <div role="alert" class="alert alert-success">
-      <MdiCheckCircleOutline size={24} />
+    <div role="alert" class="alert alert-success text-success-content">
+      <MdiCheckCircleOutline size={18} />
       <span>{props.message}</span>
     </div>
   );

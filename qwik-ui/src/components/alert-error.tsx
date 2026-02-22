@@ -6,8 +6,8 @@ export interface AlertErrorProps {
 }
 export const AlertError = component$((props: AlertErrorProps) => {
   return (
-    <div role="alert" class="alert alert-error">
-      <MdiErrorOutline size={24} />
+    <div role="alert" class="alert alert-error text-error-content">
+      <MdiErrorOutline size={18} />
       <span>{props.message}</span>
     </div>
   );

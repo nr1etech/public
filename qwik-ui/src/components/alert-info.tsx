@@ -6,8 +6,8 @@ export interface AlertInfoProps {
 }
 export const AlertInfo = component$((props: AlertInfoProps) => {
   return (
-    <div role="alert" class="alert alert-info">
-      <MdiInformationOutline size={24} />
+    <div role="alert" class="alert alert-info text-info-content">
+      <MdiInformationOutline size={18} />
       <span>{props.message}</span>
     </div>
   );
