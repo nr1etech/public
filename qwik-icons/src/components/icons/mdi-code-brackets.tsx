@@ -1,0 +1,13 @@
+import {component$} from '@builder.io/qwik';
+import {IconProps, Svg} from '../svg';
+
+export const MdiCodeBrackets = component$((props: IconProps) => {
+  return (
+    <Svg {...props} viewBox="0 0 24 24">
+      <path
+        fill="currentColor"
+        d="M15 4v2h3v12h-3v2h5V4M4 4v16h5v-2H6V6h3V4z"
+      />
+    </Svg>
+  );
+});
