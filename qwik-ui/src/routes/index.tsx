@@ -17,6 +17,8 @@ import {
   DropUpSubmenu,
 } from '../components/drop-up';
 import {AutoDismiss} from '../components/auto-dismiss';
+import {GoogleSignInButton} from '../components/google-sign-in-button';
+import {MicrosoftSignInButton} from '../components/microsoft-sign-in-button';
 
 export default component$(() => {
   const openDialog1 = useSignal(false);
@@ -348,6 +350,8 @@ export default component$(() => {
           <div class="flex flex-wrap gap-4 space-y-2 space-x-2">
             <AddButton>Add something</AddButton>
             <AddButton class="btn-primary">Add something</AddButton>
+            <GoogleSignInButton />
+            <MicrosoftSignInButton />
           </div>
         </div>
       </div>
