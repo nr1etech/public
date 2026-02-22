@@ -25,7 +25,7 @@ import {
 import {AutoDismiss} from '../components/auto-dismiss';
 import {GoogleSignInButton} from '../components/google-sign-in-button';
 import {MicrosoftSignInButton} from '../components/microsoft-sign-in-button';
-import {Dock, DockItem, DockLabel} from '../components/dock';
+import {Dock, DockLink, DockLabel, DockButton} from '../components/dock';
 import {ThemeSelector} from '../components/theme-selector';
 import {TimeZoneSelector} from '../components/time-zone-selector';
 
@@ -325,7 +325,7 @@ export default component$(() => {
               <CheckboxField
                 label="Remember me"
                 onClick$={(_, checked) => {
-                  console.log('Checked', checked);
+                  alert('Checked: ' + checked);
                 }}
               />
             </div>
@@ -370,26 +370,24 @@ export default component$(() => {
           </div>
         </div>
       </div>
-
-      <div class="w-full space-y-2">
-        <div class="text-2xl">Dock</div>
-        <div class="flex flex-wrap gap-4 space-y-2 space-x-2">
-          <Dock>
-            <DockItem>
-              <MdiTerminal size={24} />
-              <DockLabel>Compute</DockLabel>
-            </DockItem>
-            <DockItem>
-              <MdiDangerous size={24} />
-              <DockLabel>Implode</DockLabel>
-            </DockItem>
-            <DockItem>
-              <MdiInstantMix size={24} />
-              <DockLabel>Mix Master</DockLabel>
-            </DockItem>
-          </Dock>
-        </div>
-      </div>
+      <Dock>
+        <DockButton
+          onClick$={() => {
+            alert('Clicked!');
+          }}
+        >
+          <MdiTerminal size={24} />
+          <DockLabel>Compute</DockLabel>
+        </DockButton>
+        <DockLink href="#nowhere">
+          <MdiDangerous size={24} />
+          <DockLabel>Implode</DockLabel>
+        </DockLink>
+        <DockLink href="#nowhere">
+          <MdiInstantMix size={24} />
+          <DockLabel>Mix Master</DockLabel>
+        </DockLink>
+      </Dock>
     </div>
   );
 });

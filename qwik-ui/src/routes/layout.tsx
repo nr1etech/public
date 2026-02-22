@@ -2,10 +2,11 @@ import {component$, Slot} from '@builder.io/qwik';
 import {UniversalLayout} from '../components/universal-layout';
 import {
   Menu,
+  MenuButton,
   MenuDivider,
   MenuGroup,
   MenuGroupSummary,
-  MenuItem,
+  MenuLink,
   Submenu,
 } from '../components/menu';
 import {
@@ -20,28 +21,30 @@ export default component$(() => {
     <UniversalLayout>
       <div q:slot="outerLeft" class="h-full w-56">
         <Menu>
-          <MenuItem href="/">Components</MenuItem>
-          <MenuItem href="/universal-layout-demo">
+          <MenuLink href="/">Components</MenuLink>
+          <MenuLink href="/universal-layout-demo">
             Universal Layout Demo
-          </MenuItem>
-          <MenuItem href="#nowhere">Example Menu Item 1</MenuItem>
-          <MenuItem href="#nowhere">Example Menu Item 2</MenuItem>
-          <MenuItem href="#nowhere">Example Menu Item 3</MenuItem>
+          </MenuLink>
+          <MenuLink href="#nowhere">Example Menu Item 1</MenuLink>
+          <MenuLink href="#nowhere">Example Menu Item 2</MenuLink>
+          <MenuButton onClick$={() => alert('Clicked!')}>
+            Example Menu Button 3
+          </MenuButton>
           <MenuGroup>
             <MenuGroupSummary>Parent 1</MenuGroupSummary>
             <Submenu>
-              <MenuItem href="#nowhere">Menu Item 3</MenuItem>
-              <MenuItem href="#nowhere">Menu Item 4</MenuItem>
+              <MenuLink href="#nowhere">Menu Item 3</MenuLink>
+              <MenuLink href="#nowhere">Menu Item 4</MenuLink>
             </Submenu>
           </MenuGroup>
           <MenuDivider />
           <MenuGroup open>
             <MenuGroupSummary>Parent 2 Opened</MenuGroupSummary>
             <Submenu>
-              <MenuItem href="#nowhere">Menu Item 5</MenuItem>
-              <MenuItem href="#nowhere" selected>
+              <MenuLink href="#nowhere">Menu Item 5</MenuLink>
+              <MenuLink href="#nowhere" selected>
                 Menu Item 6 Selected
-              </MenuItem>
+              </MenuLink>
             </Submenu>
           </MenuGroup>
         </Menu>

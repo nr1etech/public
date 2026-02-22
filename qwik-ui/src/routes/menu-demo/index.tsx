@@ -1,7 +1,7 @@
 import {component$} from '@builder.io/qwik';
 import {
   Menu,
-  MenuItem,
+  MenuLink,
   MenuGroup,
   MenuGroupSummary,
   Submenu,
@@ -14,23 +14,23 @@ export default component$(() => {
     <UniversalLayout>
       <div q:slot="outerLeft" class="h-full">
         <Menu>
-          <MenuItem href="#nowhere">Menu Item 1</MenuItem>
-          <MenuItem href="#nowhere">Menu Item 2</MenuItem>
+          <MenuLink href="#nowhere">Menu Item 1</MenuLink>
+          <MenuLink href="#nowhere">Menu Item 2</MenuLink>
           <MenuGroup>
             <MenuGroupSummary>Parent 1</MenuGroupSummary>
             <Submenu>
-              <MenuItem href="#nowhere">Menu Item 3</MenuItem>
-              <MenuItem href="#nowhere">Menu Item 4</MenuItem>
+              <MenuLink href="#nowhere">Menu Item 3</MenuLink>
+              <MenuLink href="#nowhere">Menu Item 4</MenuLink>
             </Submenu>
           </MenuGroup>
           <MenuDivider />
           <MenuGroup open>
             <MenuGroupSummary>Parent 2 Opened</MenuGroupSummary>
             <Submenu>
-              <MenuItem href="#nowhere">Menu Item 5</MenuItem>
-              <MenuItem href="#nowhere" selected>
+              <MenuLink href="#nowhere">Menu Item 5</MenuLink>
+              <MenuLink href="#nowhere" selected>
                 Menu Item 6 Selected
-              </MenuItem>
+              </MenuLink>
             </Submenu>
           </MenuGroup>
         </Menu>

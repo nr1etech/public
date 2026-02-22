@@ -1,8 +1,37 @@
 import {component$, QRL, Signal, Slot} from '@builder.io/qwik';
-import {Link, useNavigate} from '@builder.io/qwik-city';
+import {Link} from '@builder.io/qwik-city';
 
-export interface MenuItemProps {
-  href?: string;
+export interface MenuButtonProps {
+  class?: string;
+  loading?: Signal<boolean>;
+  selected?: boolean;
+  onClick$: QRL<(event: Event) => void>;
+  linkClass?: string;
+}
+
+export const MenuButton = component$((props: MenuButtonProps) => {
+  return (
+    <li class={props.class ?? ''}>
+      <button
+        class={`truncate ${props.selected ? 'bg-base-200' : ''} ${props.linkClass ?? ''}`}
+        onClick$={async (event) => {
+          if (props.loading) {
+            props.loading.value = true;
+          }
+          await props.onClick$(event);
+          if (props.loading) {
+            props.loading.value = false;
+          }
+        }}
+      >
+        <Slot />
+      </button>
+    </li>
+  );
+});
+
+export interface MenuLinkProps {
+  href: string;
   prefetch?: boolean;
   selected?: boolean;
   loading?: Signal<boolean>;
@@ -11,8 +40,7 @@ export interface MenuItemProps {
   linkClass?: string;
 }
 
-export const MenuItem = component$((props: MenuItemProps) => {
-  const nav = useNavigate();
+export const MenuLink = component$((props: MenuLinkProps) => {
   return (
     <li class={props.class ?? ''}>
       <Link
@@ -20,16 +48,14 @@ export const MenuItem = component$((props: MenuItemProps) => {
         href={props.href}
         prefetch={props.prefetch ?? true}
         onClick$={async (event) => {
+          if (props.loading) {
+            props.loading.value = true;
+          }
           if (props.onClick$) {
             await props.onClick$(event);
-          } else {
-            if (props.loading) {
-              props.loading.value = true;
-            }
-            await nav(props.href);
-            if (props.loading) {
-              props.loading.value = false;
-            }
+          }
+          if (props.loading) {
+            props.loading.value = false;
           }
         }}
       >

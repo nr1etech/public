@@ -1,5 +1,5 @@
 import {component$, QRL, Signal, Slot} from '@builder.io/qwik';
-import {Link, useNavigate} from '@builder.io/qwik-city';
+import {Link} from '@builder.io/qwik-city';
 
 export interface DockLabelProps {
   class?: string;
@@ -13,34 +13,56 @@ export const DockLabel = component$((props?: DockLabelProps) => {
   );
 });
 
-export interface DockItemProps {
-  href?: string;
+export interface DockButtonProps {
+  class?: string;
+  selected?: boolean;
+  loading?: Signal<boolean>;
+  onClick$: QRL<(event: Event) => void>;
+}
+
+export const DockButton = component$((props: DockButtonProps) => {
+  return (
+    <button
+      class={`${props.selected ? 'bg-base-200' : ''} ${props.class ?? ''}`}
+      onClick$={async (event) => {
+        if (props.loading) {
+          props.loading.value = true;
+        }
+        await props.onClick$(event);
+        if (props.loading) {
+          props.loading.value = false;
+        }
+      }}
+    >
+      <Slot />
+    </button>
+  );
+});
+
+export interface DockLinkProps {
+  href: string;
   prefetch?: boolean;
   class?: string;
   selected?: boolean;
   loading?: Signal<boolean>;
   onClick$?: QRL<(event: Event) => void>;
-  linkClass?: string;
 }
 
-export const DockItem = component$((props: DockItemProps) => {
-  const nav = useNavigate();
+export const DockLink = component$((props: DockLinkProps) => {
   return (
     <Link
-      class={`${props.selected ? 'bg-base-200' : ''} ${props.linkClass ?? ''}`}
+      class={`${props.selected ? 'bg-base-200' : ''} ${props.class ?? ''}`}
       href={props.href}
       prefetch={props.prefetch ?? true}
       onClick$={async (event) => {
+        if (props.loading) {
+          props.loading.value = true;
+        }
         if (props.onClick$) {
           await props.onClick$(event);
-        } else {
-          if (props.loading) {
-            props.loading.value = true;
-          }
-          await nav(props.href);
-          if (props.loading) {
-            props.loading.value = false;
-          }
+        }
+        if (props.loading) {
+          props.loading.value = false;
         }
       }}
     >
