@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.24
+### Patch Changes
+
+- b2acaef: Added MDI invoice icons
+
 ## 0.0.23
 ### Patch Changes
 
