@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.43
+### Patch Changes
+
+- 69d540e: Added ThemeSelector
+
 ## 0.0.42
 ### Patch Changes
 
