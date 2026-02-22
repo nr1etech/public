@@ -26,6 +26,7 @@ import {AutoDismiss} from '../components/auto-dismiss';
 import {GoogleSignInButton} from '../components/google-sign-in-button';
 import {MicrosoftSignInButton} from '../components/microsoft-sign-in-button';
 import {Dock, DockItem, DockLabel} from '../components/dock';
+import {ThemeSelector} from '../components/theme-selector';
 
 export default component$(() => {
   const openDialog1 = useSignal(false);
@@ -55,6 +56,11 @@ export default component$(() => {
         </a>
       </div>
       <div class="flex w-full max-w-4xl flex-col space-y-6 pb-[200px]">
+        <div class="w-full space-y-2">
+          <div class="text-2xl">ThemeSelector</div>
+          <ThemeSelector />
+        </div>
+
         <div class="w-full space-y-2">
           <div class="text-2xl">AutoDismiss</div>
           <AutoDismiss visible={autoDismissVisible}>
