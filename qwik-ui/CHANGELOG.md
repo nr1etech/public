@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.1.0
+### Minor Changes
+
+- 0e1d08e: Refactored Dock and Menu related components
+
 ## 0.0.44
 ### Patch Changes
 

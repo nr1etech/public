@@ -1,6 +1,6 @@
 {
   "name": "@nr1e/qwik-ui",
-  "version": "0.0.44",
+  "version": "0.1.0",
   "description": "NR1E Qwik UI Library",
   "author": "NR1E, Inc.",
   "publishConfig": {
