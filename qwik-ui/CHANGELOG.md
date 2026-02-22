@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.41
+### Patch Changes
+
+- 5fef2c7: Added Microsoft and Google sign in buttons
+
 ## 0.0.40
 ### Patch Changes
 
