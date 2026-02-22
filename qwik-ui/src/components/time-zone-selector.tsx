@@ -1,0 +1,130 @@
+import {component$, useSignal, useVisibleTask$} from '@builder.io/qwik';
+import {MdiChevronDown} from '@nr1e/qwik-icons';
+
+export function timeZoneToName(timezone: string) {
+  if (timezone === 'auto') {
+    return 'Auto (Browser)';
+  }
+
+  // Replace underscores with spaces and format nicely
+  const parts = timezone.split('/');
+  if (parts.length === 2) {
+    return `${parts[0]}/${parts[1].replace(/_/g, ' ')}`;
+  }
+  return timezone.replace(/_/g, ' ');
+}
+
+const TIMEZONES = [
+  'auto',
+  // US & Canada
+  'America/New_York',
+  'America/Chicago',
+  'America/Denver',
+  'America/Los_Angeles',
+  'America/Anchorage',
+  'Pacific/Honolulu',
+  'America/Phoenix',
+  'America/Toronto',
+  'America/Vancouver',
+  // Latin America
+  'America/Mexico_City',
+  'America/Bogota',
+  'America/Lima',
+  'America/Santiago',
+  'America/Buenos_Aires',
+  'America/Sao_Paulo',
+  // Europe
+  'Europe/London',
+  'Europe/Paris',
+  'Europe/Berlin',
+  'Europe/Rome',
+  'Europe/Madrid',
+  'Europe/Amsterdam',
+  'Europe/Brussels',
+  'Europe/Vienna',
+  'Europe/Stockholm',
+  'Europe/Warsaw',
+  'Europe/Athens',
+  'Europe/Moscow',
+  'Europe/Istanbul',
+  // Asia
+  'Asia/Dubai',
+  'Asia/Kolkata',
+  'Asia/Singapore',
+  'Asia/Hong_Kong',
+  'Asia/Shanghai',
+  'Asia/Tokyo',
+  'Asia/Seoul',
+  'Asia/Bangkok',
+  'Asia/Jakarta',
+  'Asia/Manila',
+  // Africa
+  'Africa/Cairo',
+  'Africa/Johannesburg',
+  'Africa/Lagos',
+  'Africa/Nairobi',
+  // Australia & Pacific
+  'Australia/Sydney',
+  'Australia/Melbourne',
+  'Australia/Brisbane',
+  'Australia/Perth',
+  'Pacific/Auckland',
+  'Pacific/Fiji',
+  // Other
+  'UTC',
+];
+
+export interface TimeZoneSelectorProps {
+  timeZones?: string[];
+}
+
+export const TimeZoneSelector = component$((props?: TimeZoneSelectorProps) => {
+  const currentTimeZone = useSignal<string>('auto');
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(() => {
+    // Read timezone from localStorage on component mount
+    const savedTimeZone = localStorage.getItem('timezone');
+    currentTimeZone.value = savedTimeZone ?? 'auto';
+  });
+
+  return (
+    <div class="dropdown">
+      <button role="button" tabIndex={0} class="btn m-1">
+        {timeZoneToName(currentTimeZone.value)}
+        <MdiChevronDown size={16} class="fill-current opacity-60" />
+      </button>
+      <div tabIndex={0} class="dropdown-content card bg-base-100 z-1 shadow-md">
+        <div class="card-body rounded-box z-1">
+          <div class="grid min-w-50 grid-cols-1 gap-2 p-2 sm:min-w-100 sm:grid-cols-2 lg:min-w-150 lg:grid-cols-3">
+            {(props?.timeZones ?? TIMEZONES).map((timezone) => (
+              <input
+                key={timezone}
+                type="radio"
+                name="timezone-dropdown"
+                class="btn btn-sm btn-ghost justify-start"
+                aria-label={timeZoneToName(timezone)}
+                value={timezone}
+                checked={timezone === currentTimeZone.value}
+                onChange$={() => {
+                  currentTimeZone.value = timezone;
+                  if (timezone === 'auto') {
+                    localStorage.removeItem('timezone');
+                  } else {
+                    localStorage.setItem('timezone', timezone);
+                  }
+
+                  // Close the dropdown by removing focus
+                  const activeElement = document.activeElement as HTMLElement;
+                  if (activeElement) {
+                    activeElement.blur();
+                  }
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+});

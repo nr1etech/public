@@ -27,6 +27,7 @@ import {GoogleSignInButton} from '../components/google-sign-in-button';
 import {MicrosoftSignInButton} from '../components/microsoft-sign-in-button';
 import {Dock, DockItem, DockLabel} from '../components/dock';
 import {ThemeSelector} from '../components/theme-selector';
+import {TimeZoneSelector} from '../components/time-zone-selector';
 
 export default component$(() => {
   const openDialog1 = useSignal(false);
@@ -57,8 +58,9 @@ export default component$(() => {
       </div>
       <div class="flex w-full max-w-4xl flex-col space-y-6 pb-[200px]">
         <div class="w-full space-y-2">
-          <div class="text-2xl">ThemeSelector</div>
+          <div class="text-2xl">Selectors</div>
           <ThemeSelector />
+          <TimeZoneSelector />
         </div>
 
         <div class="w-full space-y-2">

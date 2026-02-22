@@ -15,4 +15,6 @@ export * from './components/microsoft-sign-in-button';
 export * from './components/pace-bar';
 export * from './components/select-field';
 export * from './components/text-field';
+export * from './components/theme-selector';
+export * from './components/time-zone-selector';
 export * from './components/universal-layout';
