@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.40
+### Patch Changes
+
+- 8f5ecdb: Fixed divider issue
+
 ## 0.0.39
 ### Patch Changes
 
