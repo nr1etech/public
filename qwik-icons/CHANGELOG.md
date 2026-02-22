@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.20
+### Patch Changes
+
+- b832c4a: Added code related icons
+
 ## 0.0.19
 ### Patch Changes
 
