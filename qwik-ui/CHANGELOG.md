@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.44
+### Patch Changes
+
+- ed506ad: Added TimeZoneSelector
+
 ## 0.0.43
 ### Patch Changes
 
