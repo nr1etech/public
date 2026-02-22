@@ -11,8 +11,9 @@ import {
 } from '../components/menu';
 import {
   DropUp,
+  DropUpButton,
   DropUpButtonSelector,
-  DropUpItem,
+  DropUpLink,
   DropUpSubmenu,
 } from '../components/drop-up';
 
@@ -48,14 +49,17 @@ export default component$(() => {
             </Submenu>
           </MenuGroup>
         </Menu>
-        <div class="fixed bottom-0 left-0 w-56">
+        <div class="left-0 w-56">
           <DropUp class="w-full text-center">
             <DropUpButtonSelector class="btn-ghost flex w-full justify-start">
               <span class="text-left">Drop Up</span>
             </DropUpButtonSelector>
             <DropUpSubmenu>
-              <DropUpItem>Item 1</DropUpItem>
-              <DropUpItem>Item 2</DropUpItem>
+              <DropUpLink href="#nowhere">Item link 1</DropUpLink>
+              <DropUpLink href="#nowhere">Item link 2</DropUpLink>
+              <DropUpButton onClick$={() => alert('Clicked!')}>
+                Item button 3
+              </DropUpButton>
             </DropUpSubmenu>
           </DropUp>
         </div>

@@ -6,14 +6,14 @@ export interface MenuButtonProps {
   loading?: Signal<boolean>;
   selected?: boolean;
   onClick$: QRL<(event: Event) => void>;
-  linkClass?: string;
+  buttonClass?: string;
 }
 
 export const MenuButton = component$((props: MenuButtonProps) => {
   return (
     <li class={props.class ?? ''}>
       <button
-        class={`truncate ${props.selected ? 'bg-base-200' : ''} ${props.linkClass ?? ''}`}
+        class={`truncate ${props.selected ? 'bg-base-200' : ''} ${props.buttonClass ?? ''}`}
         onClick$={async (event) => {
           if (props.loading) {
             props.loading.value = true;
@@ -38,6 +38,7 @@ export interface MenuLinkProps {
   onClick$?: QRL<(event: Event) => void>;
   class?: string;
   linkClass?: string;
+  target?: string;
 }
 
 export const MenuLink = component$((props: MenuLinkProps) => {
@@ -47,6 +48,7 @@ export const MenuLink = component$((props: MenuLinkProps) => {
         class={`truncate ${props.selected ? 'bg-base-200' : ''} ${props.linkClass ?? ''}`}
         href={props.href}
         prefetch={props.prefetch ?? true}
+        target={props.target}
         onClick$={async (event) => {
           if (props.loading) {
             props.loading.value = true;

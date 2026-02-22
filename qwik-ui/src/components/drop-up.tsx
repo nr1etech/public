@@ -1,34 +1,64 @@
-import {QRL, Signal, Slot, component$} from '@builder.io/qwik';
-import {Link, useNavigate} from '@builder.io/qwik-city';
+import {
+  QRL,
+  Signal,
+  Slot,
+  component$,
+  useSignal,
+  useTask$,
+} from '@builder.io/qwik';
+import {Link} from '@builder.io/qwik-city';
 
-export interface DropUpItemProps {
-  href?: string;
+export interface DropUpButtonProps {
+  loading?: Signal<boolean>;
+  onClick$: QRL<(event: Event) => void>;
+  class?: string;
+  buttonClass?: string;
+}
+
+export const DropUpButton = component$((props: DropUpButtonProps) => {
+  return (
+    <li class={props.class ?? ''}>
+      <button
+        class={`text-nowrap ${props?.buttonClass ?? null}`}
+        onClick$={async (event) => {
+          if (props.loading) {
+            props.loading.value = true;
+          }
+          await props.onClick$(event);
+          if (props.loading) {
+            props.loading.value = false;
+          }
+        }}
+      ></button>
+    </li>
+  );
+});
+
+export interface DropUpLinkProps {
+  href: string;
   prefetch?: boolean;
-  selected?: boolean;
   loading?: Signal<boolean>;
   onClick$?: QRL<(event: Event) => void>;
   class?: string;
+  linkClass?: string;
 }
 
-export const DropUpItem = component$((props: DropUpItemProps) => {
-  const nav = useNavigate();
+export const DropUpLink = component$((props: DropUpLinkProps) => {
   return (
-    <li>
+    <li class={props.class ?? ''}>
       <Link
         href={props.href}
         prefetch={props.prefetch}
-        class={`text-nowrap ${props?.class ?? null}`}
+        class={`text-nowrap ${props?.linkClass ?? null}`}
         onClick$={async (event) => {
+          if (props.loading) {
+            props.loading.value = true;
+          }
           if (props.onClick$) {
             await props.onClick$(event);
-          } else {
-            if (props.loading) {
-              props.loading.value = true;
-            }
-            await nav(props.href);
-            if (props.loading) {
-              props.loading.value = false;
-            }
+          }
+          if (props.loading) {
+            props.loading.value = false;
           }
         }}
       >
@@ -53,25 +83,49 @@ export const DropUpSubmenu = component$((props?: DropUpSubmenuProps) => {
   );
 });
 
-export interface DropUpButtonProps {
+export interface DropUpButtonSelectorProps {
   class?: string;
 }
 
-export const DropUpButtonSelector = component$((props?: DropUpButtonProps) => {
-  return (
-    <button tabIndex={0} role="button" class={`btn ${props?.class ?? ''}`}>
-      <Slot />
-    </button>
-  );
-});
+export const DropUpButtonSelector = component$(
+  (props?: DropUpButtonSelectorProps) => {
+    return (
+      <button tabIndex={0} role="button" class={`btn ${props?.class ?? ''}`}>
+        <Slot />
+      </button>
+    );
+  },
+);
 
 export interface DropUpProps {
   class?: string;
+  open?: Signal<boolean>;
 }
 
 export const DropUp = component$((props?: DropUpProps) => {
+  const open = useSignal<boolean>(props?.open?.value ?? false);
+
+  useTask$(({track}) => {
+    track(() => props?.open?.value);
+    if (props?.open?.value && props.open.value !== open.value) {
+      open.value = props.open.value;
+    }
+  });
+
+  useTask$(({track}) => {
+    track(() => open.value);
+    if (props?.open?.value && props?.open?.value !== open.value) {
+      props.open.value = open.value;
+    }
+  });
+
   return (
-    <div class={`dropdown dropdown-top ${props?.class ?? ''}`}>
+    <div
+      class={`dropdown dropdown-top ${open.value ? 'dropdown-open' : 'dropdown-close'} ${props?.class ?? ''}`}
+      onClick$={() => {
+        open.value = !open.value;
+      }}
+    >
       <Slot />
     </div>
   );

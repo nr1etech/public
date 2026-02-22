@@ -18,8 +18,9 @@ import {SelectField} from '../components/select-field';
 import {AddButton} from '../components/add-button';
 import {
   DropUp,
-  DropUpItem,
+  DropUpButton,
   DropUpButtonSelector,
+  DropUpLink,
   DropUpSubmenu,
 } from '../components/drop-up';
 import {AutoDismiss} from '../components/auto-dismiss';
@@ -106,11 +107,18 @@ export default component$(() => {
           <div class="text-2xl">Drop Up</div>
           <div class="flex gap-4">
             <DropUp>
-              <DropUpButtonSelector>XXXX</DropUpButtonSelector>
+              <DropUpButtonSelector>Drop Up</DropUpButtonSelector>
               <DropUpSubmenu>
-                <DropUpItem>Something 1</DropUpItem>
-                <DropUpItem>Something 2</DropUpItem>
-                <DropUpItem>Something 3</DropUpItem>
+                <DropUpLink href="#nowhere">Something link 1</DropUpLink>
+                <DropUpLink href="#nowhere">Something link 2</DropUpLink>
+                <DropUpLink href="#nowhere">Something link 3</DropUpLink>
+                <DropUpButton
+                  onClick$={() => {
+                    alert('Clicked!');
+                  }}
+                >
+                  Something button 4
+                </DropUpButton>
               </DropUpSubmenu>
             </DropUp>
           </div>
