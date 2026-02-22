@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.1.1
+### Patch Changes
+
+- 9bd36d3: Added onDismiss to AutoDismiss component
+
 ## 0.1.0
 ### Minor Changes
 
