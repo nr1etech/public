@@ -1,0 +1,13 @@
+import {component$} from '@builder.io/qwik';
+import {IconProps, Svg} from '../svg';
+
+export const MdiInvoiceTextOutline = component$((props: IconProps) => {
+  return (
+    <Svg {...props} viewBox="0 0 24 24">
+      <path
+        fill="currentColor"
+        d="M17 7v2H7V7zm-2 4v2H7v-2zm3 9l3 2V3H3v19l3-2l3 2l3-2l3 2zm1-15v13.26l-1-.66l-3 2l-3-2l-3 2l-3-2l-1 .66V5z"
+      />
+    </Svg>
+  );
+});
