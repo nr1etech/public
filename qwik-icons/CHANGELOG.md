@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.22
+### Patch Changes
+
+- 7d9e171: Added heart and pulse icons
+
 ## 0.0.21
 ### Patch Changes
 
