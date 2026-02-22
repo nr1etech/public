@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.0.42
+### Patch Changes
+
+- 9d16133: Added Dock
+
 ## 0.0.41
 ### Patch Changes
 
