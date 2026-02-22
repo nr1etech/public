@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 0.1.3
+### Patch Changes
+
+- 9a491e5: Added FixedCenterBottom component
+
 ## 0.1.2
 ### Patch Changes
 
