@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 1.0.1
+### Patch Changes
+
+- 8916705: Fixed behavior issues with DropUp component
+
 ## 1.0.0
 ### Major Changes
 
