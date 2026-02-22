@@ -1,8 +1,10 @@
 import {
+  $,
   QRL,
   Signal,
   Slot,
   component$,
+  useOnDocument,
   useSignal,
   useTask$,
 } from '@builder.io/qwik';
@@ -104,6 +106,7 @@ export interface DropUpProps {
 
 export const DropUp = component$((props?: DropUpProps) => {
   const open = useSignal<boolean>(props?.open?.value ?? false);
+  const dropdownRef = useSignal<HTMLDivElement>();
 
   useTask$(({track}) => {
     track(() => props?.open?.value);
@@ -119,8 +122,37 @@ export const DropUp = component$((props?: DropUpProps) => {
     }
   });
 
+  useOnDocument(
+    'click',
+    $((event: MouseEvent) => {
+      if (
+        open.value &&
+        dropdownRef.value &&
+        !dropdownRef.value.contains(event.target as Node)
+      ) {
+        console.log('close');
+        open.value = false;
+      }
+    }),
+  );
+
+  useOnDocument(
+    'keydown',
+    $((event: KeyboardEvent) => {
+      if (open.value && event.key === 'Escape') {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+        open.value = false;
+      }
+    }),
+  );
+
   return (
     <div
+      ref={dropdownRef}
       class={`dropdown dropdown-top ${open.value ? 'dropdown-open' : 'dropdown-close'} ${props?.class ?? ''}`}
       onClick$={() => {
         open.value = !open.value;
