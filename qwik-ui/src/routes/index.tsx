@@ -29,6 +29,8 @@ import {MicrosoftSignInButton} from '../components/microsoft-sign-in-button';
 import {Dock, DockLink, DockLabel, DockButton} from '../components/dock';
 import {ThemeSelector} from '../components/theme-selector';
 import {TimeZoneSelector} from '../components/time-zone-selector';
+import {FormatDate} from '../components/format-date';
+import {FormatDateTime} from '../components/format-date-time';
 
 export default component$(() => {
   const openDialog1 = useSignal(false);
@@ -42,6 +44,7 @@ export default component$(() => {
   const selectedFieldValue = useSignal<string | undefined | null>();
   const checkedFieldValue = useSignal<boolean>(false);
   const autoDismissVisible = useSignal<boolean>(true);
+  const now = useSignal(new Date().toISOString());
   return (
     <div class="flex flex-col items-center p-4">
       <Nr1eLogoTaglineLightBg height={96} />
@@ -62,6 +65,16 @@ export default component$(() => {
           <div class="text-2xl">Selectors</div>
           <ThemeSelector />
           <TimeZoneSelector />
+        </div>
+
+        <div class="w-full space-y-2">
+          <div class="text-2xl">Formatters</div>
+          <div class="bg-base-200 p-4">
+            <FormatDate date={now.value} />
+          </div>
+          <div class="bg-base-200 p-4">
+            <FormatDateTime date={now.value} />
+          </div>
         </div>
 
         <div class="w-full space-y-2">

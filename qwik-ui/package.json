@@ -52,6 +52,7 @@
   "peerDependencies": {
     "@builder.io/qwik-city": "catalog:",
     "@nr1e/qwik-icons": "workspace:",
+    "@nr1e/commons": "workspace:",
     "tailwindcss-animated": "catalog:"
   },
   "devDependencies": {

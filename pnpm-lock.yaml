@@ -467,6 +467,9 @@ importers:
       '@builder.io/qwik-city':
         specifier: 'catalog:'
         version: 1.19.0(@types/node@24.10.13)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.54.0)(typescript@5.9.3)(yaml@2.8.2)
+      '@nr1e/commons':
+        specifier: 'workspace:'
+        version: link:../commons
       '@nr1e/qwik-icons':
         specifier: 'workspace:'
         version: link:../qwik-icons
