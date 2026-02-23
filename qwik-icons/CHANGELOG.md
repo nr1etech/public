@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.31
+### Patch Changes
+
+- bacfee8: Added MDI eye icons
+
 ## 0.0.30
 ### Patch Changes
 
