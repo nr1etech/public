@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.26
+### Patch Changes
+
+- 41f091e: Added PlaidIcon
+
 ## 0.0.25
 ### Patch Changes
 
