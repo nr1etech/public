@@ -1,5 +1,10 @@
 # @nr1e/qwik-icons
 
+## 0.0.29
+### Patch Changes
+
+- 828aa77: Added MDI pencil and check icons
+
 ## 0.0.28
 ### Patch Changes
 
