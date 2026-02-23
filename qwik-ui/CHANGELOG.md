@@ -1,5 +1,12 @@
 # @nr1e/qwik-ui
 
+## 1.0.2
+### Patch Changes
+
+- 88f6809: Added date format components
+- Updated dependencies [88f6809]
+  - @nr1e/commons@0.4.3
+
 ## 1.0.1
 ### Patch Changes
 
