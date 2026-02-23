@@ -201,6 +201,7 @@ export * from './components/brands/cloud-account-manager-logo-dark-bg';
 export * from './components/brands/cloud-account-manager-logo-light-bg';
 
 // Brands - Plaid
+export * from './components/brands/plaid-icon';
 export * from './components/brands/plaid-icon-bw';
 export * from './components/brands/plaid-logo-bw';
 

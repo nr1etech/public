@@ -4,6 +4,7 @@ import {
   ClientLoopIconOnLightBlue,
   ClientLoopIconOnWhite,
   ClientLoopLogoBlack,
+  PlaidIcon,
   PlaidIconBw,
   PlaidLogoBw,
   FlagAe1x1,
@@ -483,6 +484,7 @@ export default component$(() => {
       component: TriggerPointIconVioletLightBg,
       name: 'TriggerPointIconVioletLightBg',
     },
+    {component: PlaidIcon, name: 'PlaidIcon'},
     {component: PlaidIconBw, name: 'PlaidIconBw'},
   ];
 
