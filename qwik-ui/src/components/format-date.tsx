@@ -1,5 +1,18 @@
 import {component$, useSignal, useVisibleTask$} from '@builder.io/qwik';
-import {formatTimeZoneDateShort} from '@nr1e/commons/lang';
+
+function formatDate(
+  date: string | Date,
+  timeZone?: string,
+  locale?: string,
+): string {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  return new Intl.DateTimeFormat(locale ?? 'en-US', {
+    timeZone,
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }).format(dateObj);
+}
 
 export interface FormatDateProps {
   timeZone?: string | null;
@@ -22,7 +35,7 @@ export const FormatDate = component$((props: FormatDateProps) => {
           timeZone = null;
         }
       }
-      date.value = formatTimeZoneDateShort(
+      date.value = formatDate(
         props.date,
         timeZone ?? undefined,
         props.locale ?? undefined,
