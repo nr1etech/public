@@ -1,5 +1,10 @@
 # @nr1e/qwik-ui
 
+## 1.0.3
+### Patch Changes
+
+- 3414284: Removed bad dependency
+
 ## 1.0.2
 ### Patch Changes
 
