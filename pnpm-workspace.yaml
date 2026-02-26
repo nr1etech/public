@@ -30,7 +30,7 @@ catalog:
   "@eslint/js": "^9.39.3"
   "@lucia-auth/adapter-test": "^5.0.2"
   "@tailwindcss/vite": "^4.2.1"
-  "@types/aws-lambda": "8.10.160"
+  "@types/aws-lambda": "8.10.161"
   "@types/node": "^24.10.13"
   "daisyui": "^5.5.19"
   "dotenv-cli": "^11.0.0"
