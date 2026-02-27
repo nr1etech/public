@@ -1,5 +1,10 @@
 # @nr1e/commons
 
+## 0.4.5
+### Patch Changes
+
+- 6b35186: Allowed maskCardNumber to accept null and undefined
+
 ## 0.4.4
 ### Patch Changes
 
