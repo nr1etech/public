@@ -5,7 +5,14 @@
  *
  * @param cardNumber - The card number to mask
  */
-export function maskCardNumber(cardNumber: string) {
+export function maskCardNumber(cardNumber?: string | null) {
+  if (
+    cardNumber === undefined ||
+    cardNumber === null ||
+    cardNumber.trim().length === 0
+  ) {
+    return null;
+  }
   cardNumber = cardNumber.trim().replace(/\s+/g, '');
   // If the card length is less than 8, we mask everything to be safe
   if (cardNumber.length < 8) {

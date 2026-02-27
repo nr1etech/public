@@ -14,4 +14,10 @@ test('Test maskCardNumber', () => {
   expect(masked).toEqual('****5678');
   masked = maskCardNumber('1234567890');
   expect(masked).toEqual('******7890');
+  masked = maskCardNumber('');
+  expect(masked).toBeNull();
+  masked = maskCardNumber(null);
+  expect(masked).toBeNull();
+  masked = maskCardNumber(undefined);
+  expect(masked).toBeNull();
 });
