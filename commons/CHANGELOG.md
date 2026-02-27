@@ -1,5 +1,10 @@
 # @nr1e/commons
 
+## 0.4.4
+### Patch Changes
+
+- ff10870: Added maskCardNumber
+
 ## 0.4.3
 ### Patch Changes
 
