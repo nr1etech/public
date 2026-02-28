@@ -37,28 +37,28 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.mts"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./contacts": {
-      "import": "./dist/contacts/index.mjs",
-      "types": "./dist/contacts/index.d.mts"
+      "import": "./dist/contacts/index.js",
+      "types": "./dist/contacts/index.d.ts"
     },
     "./invoices": {
-      "import": "./dist/invoices/index.mjs",
-      "types": "./dist/invoices/index.d.mts"
+      "import": "./dist/invoices/index.js",
+      "types": "./dist/invoices/index.d.ts"
     },
     "./locations": {
-      "import": "./dist/locations/index.mjs",
-      "types": "./dist/locations/index.d.mts"
+      "import": "./dist/locations/index.js",
+      "types": "./dist/locations/index.d.ts"
     },
     "./oauth": {
-      "import": "./dist/oauth/index.mjs",
-      "types": "./dist/oauth/index.d.mts"
+      "import": "./dist/oauth/index.js",
+      "types": "./dist/oauth/index.d.ts"
     },
     "./payments": {
-      "import": "./dist/payments/index.mjs",
-      "types": "./dist/payments/index.d.mts"
+      "import": "./dist/payments/index.js",
+      "types": "./dist/payments/index.d.ts"
     }
   }
 }

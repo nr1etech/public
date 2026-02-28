@@ -1,5 +1,5 @@
 import {test, expect} from 'vitest';
-import {createGoHighLevelClient, GoHighLevelClient} from './client.mjs';
+import {createGoHighLevelClient, GoHighLevelClient} from './client.js';
 
 export const TEST_LOCATION_ID = 'gKD1Unpza8X9jm4iabJu';
 

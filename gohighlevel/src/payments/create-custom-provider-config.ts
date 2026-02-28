@@ -1,4 +1,4 @@
-import {GoHighLevelClient} from '../client.mjs';
+import {GoHighLevelClient} from '../client.js';
 
 export type CreateCustomProviderConfigInput = {
   locationId: string;

@@ -1,6 +1,6 @@
 import {test, expect} from 'vitest';
-import {getInvoice} from './get-invoice.mjs';
-import {getClient, TEST_LOCATION_ID} from '../helper.test.mjs';
+import {getInvoice} from './get-invoice.js';
+import {getClient, TEST_LOCATION_ID} from '../helper.test.js';
 
 test('Test getInvoice @int', async () => {
   const client = getClient();

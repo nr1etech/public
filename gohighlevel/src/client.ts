@@ -1,4 +1,4 @@
-import {handleError} from './errors.mjs';
+import {handleError} from './errors.js';
 
 export type GoHighLevelClientConfig = {
   readonly accessToken: string;
@@ -35,7 +35,7 @@ export function createGoHighLevelClient(
   const baseUrl = config.baseUrl ?? 'https://services.leadconnectorhq.com';
   const accessToken = config.accessToken;
 
-  const get = async <T,>(input: GetInput): Promise<T> => {
+  const get = async <T>(input: GetInput): Promise<T> => {
     const url = new URL(input.path, baseUrl);
     if (input.altId) {
       url.searchParams.append('altId', input.altId);
@@ -62,7 +62,7 @@ export function createGoHighLevelClient(
     return (await response.json()) as T;
   };
 
-  const post = async <T,>(input: PostInput): Promise<T> => {
+  const post = async <T>(input: PostInput): Promise<T> => {
     const url = new URL(input.path, baseUrl);
     if (input.locationId) {
       url.searchParams.append('locationId', input.locationId);
