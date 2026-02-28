@@ -1,5 +1,10 @@
 # @nr1e/gohighlevel
 
+## 1.0.0
+### Major Changes
+
+- b85eb04: Moved gohighlevel client away from mts files
+
 ## 0.0.5
 ### Patch Changes
 
